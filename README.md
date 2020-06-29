@@ -12,9 +12,9 @@ If you are starting your journey in Free and Open Source Software Development, t
 
 We have a range of problem statements for beginner, intermediate, and advanced levels for you to solve 📝. The problem statements are independent of any technology stacks, so you can focus on the underlying concepts.
 
-Participants are free to use any programming language of their choice. The solution would earn contributors their badge as **THE NEOPHYTE** 🥉 on completing beginner level problem. We also have the **THE EXPLORER** 🥈 and **THE AFICIONADO** 🥇 badges on completion of the intermediate and advanced levels respectively. If your pull requests in all levels get merged, at least a week before the deadline, you can earn your exclusive **GEEK OF THE GEEKS** 🏆 special recognition badge every month!🎉🎉
+> Participants are free to use any programming language of their choice. The solution would earn contributors their badge as **THE NEOPHYTE** 🥉 on completing beginner level problem. We also have the **THE EXPLORER** 🥈 and **THE AFICIONADO** 🥇 badges on completion of the intermediate and advanced levels respectively. If your pull requests in all levels get merged, at least a week before the deadline, you can earn your exclusive **GEEK OF THE GEEKS** 🏆 special recognition badge every month!🎉🎉
 
-🎁🏅 These E-badges will be rewarded on completion of each level. You will also get rewarded with a bonus badge on early completion of each level! We will be using the Badgr platform for distributing Open Badges. Grab your badges by making your contribution.😃
+> 🎁🏅 These E-badges will be rewarded on completion of each level. You will also get rewarded with a bonus badge on early completion of each level! We will be using the Badgr platform for distributing Open Badges. Grab your badges by making your contribution.😃
 
 Don’t forget to fill the [participation form](https://tinyurl.com/codewithgsblr) 📃 to take part in the program, if not already done.
 
