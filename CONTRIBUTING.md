@@ -52,7 +52,6 @@
   - [Yati Padia](https://github.com/yati1998)
   - [Irshad Ansari](https://github.com/irshadjsr21)
 
-[![](https://sourcerer.io/fame/yajushiSri/girlscript-blr/codewithgirlscriptblr/images/0)](https://sourcerer.io/fame/yajushiSri/girlscript-blr/codewithgirlscriptblr/links/0)[![](https://sourcerer.io/fame/yajushiSri/girlscript-blr/codewithgirlscriptblr/images/1)]
 
 If there are any changes suggested by the reviewers, do make the same and follow to steps to update:
 
