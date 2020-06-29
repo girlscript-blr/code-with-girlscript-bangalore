@@ -83,7 +83,7 @@ Output will be a bill based on the given input. The bill can be in any format bu
 
 ## Requirements for submission
 
-- Last Submission Date : `30th July 2020`
+- Last Submission Date : `15th July 2020`
 
 ## How to submit solution?
 
