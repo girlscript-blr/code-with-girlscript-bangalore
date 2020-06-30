@@ -1,5 +1,3 @@
-# Code with GirlScript Bangalore
-
 ![Code with GirlScript Bangalore](assets/images/cwgsblrl.png)
 
 ## About the program
