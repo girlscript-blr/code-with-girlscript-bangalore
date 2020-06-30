@@ -22,7 +22,7 @@
 
     - **Example**: If you want to create a pull request in the Shopping Cart Problem - Easy, your branch name can be `ShoppingCartEasy`.
     
-- Now, execute the following command to create your own branch
+  Now, execute the following command to create your own branch
   
     `git checkout -b <your-branch-name>`
 
