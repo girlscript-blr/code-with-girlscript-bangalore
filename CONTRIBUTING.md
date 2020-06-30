@@ -8,11 +8,11 @@
 
 - **Open the forked repository**: Navigate to your profile find the repository
 
-  `github.com/<your_github_username>/codewithgirlscriptblr`
+  `github.com/<your_github_username>/code-with-girlscript-bangalore
 
 - **Clone the repository**: Clone the repository by copying the clone link (find it against the name of the repository on the right). Or using the below CLI command -
 
-  `git clone https://github.com/<your-username>/codewithgirlscriptblr`
+  `git clone https://github.com/<your-username>/code-with-girlscript-bangalore
 
 - **Create a new branch**: Before you proceed with the project, create a new branch using the following command in the cloned repository:
 
@@ -20,18 +20,18 @@
 
 - **Do follow proper naming conventions**: The branch name should be relevant to the problem statement while submitting the solution(refer to the example below)
 
-  - **Example**: If you want to create a pull request in the Shopping Cart Problem - Easy, your branch name can be '<your_name>\_ShoppingCartEasy'.
+  - **Example**: If you want to create a pull request in the Shopping Cart Problem - Easy, your branch name can be `ShoppingCartEasy`.
 
 - **Update the changes to repo**: Add your solution in the new branch. The solution must be in a specified format. Your code should be inside the SOLUTIONS folder of the respective problem statement. The codes/files should be inside a single folder following specific naming convention. The folder name should be your name.
   - Root Folder
     - Problem Statement
       - Solutions
-        - `<Your solution file>`
+        - `<Your solution folder>`
 - **To add the file(s)** , use the following CLI command
 
   `git add`
 
-- **Commit the file**: For locally cloned repository, use the following CLI command to commit your file.
+- **Commit the file(s)**: For locally cloned repository, use the following CLI command to commit your file.
 
   `git commit -m '<your-message>'`
 
