@@ -10,7 +10,7 @@
 
   `github.com/<your_github_username>/code-with-girlscript-bangalore`
 
-- **Clone the repository**: Clone the repository by copying the clone link (find it against the name of the repository on the right). Or using the below CLI command
+- **Clone the repository**: Clone the repository by copying the clone link (find it against the name of the repository on the right) and using it as mentioned in below CLI command
 
   `git clone https://github.com/<your-username>/code-with-girlscript-bangalore`
   
