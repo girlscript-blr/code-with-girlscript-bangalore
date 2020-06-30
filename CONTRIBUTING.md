@@ -8,11 +8,11 @@
 
 - **Open the forked repository**: Navigate to your profile find the repository
 
-  `github.com/<your_github_username>/code-with-girlscript-bangalore
+  `github.com/<your_github_username>/code-with-girlscript-bangalore`
 
 - **Clone the repository**: Clone the repository by copying the clone link (find it against the name of the repository on the right). Or using the below CLI command -
 
-  `git clone https://github.com/<your-username>/code-with-girlscript-bangalore
+  `git clone https://github.com/<your-username>/code-with-girlscript-bangalore`
 
 - **Create a new branch**: Before you proceed with the project, create a new branch using the following command in the cloned repository:
 
