@@ -10,14 +10,9 @@
 
   `github.com/<your_github_username>/code-with-girlscript-bangalore`
 
-- **Clone the repository**: Clone the repository by copying the clone link (find it against the name of the repository on the right). Or using the below CLI command -
+- **Clone the repository**: Clone the repository by copying the clone link (find it against the name of the repository on the right). Or using the below CLI command
 
   `git clone https://github.com/<your-username>/code-with-girlscript-bangalore`
-
-- **Move to the directory**: Move to the directory by using the below CLI command
-
-  `cd code-with-girlscript-bangalore`
-
 
 - **Create a new branch**: Follow proper naming convention before creating your own branch. The example of the naming is as follows
 
@@ -50,7 +45,7 @@
 
   ![Pull Request and Compare](assets/images/pr_compare.png)
 
-- **PR Review**: Once you have created the PR, it will be reviewed soon by the maintainers of the repository -
+- **PR Review**: Once you have created the PR, it will be reviewed soon by the maintainers of the repository
 
   - [Yajushi Srivastava](https://github.com/yajushiSri)
   - [Bhanu Pratap](https://github.com/ibhanu)
