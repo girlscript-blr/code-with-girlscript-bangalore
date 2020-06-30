@@ -18,13 +18,14 @@
 
   `cd code-with-girlscript-bangalore`
 
-- **Create a new branch**: Before you proceed with the project, create a new branch using the following command in the cloned repository:
 
-  `git checkout -b <your-branch-name>`
+- **Create a new branch**: Follow proper namimg convention before creating your own branch. The example of the naming is as follows -
 
-- **Do follow proper naming conventions**: The branch name should be relevant to the problem statement while submitting the solution(refer to the example below)
-
-  - **Example**: If you want to create a pull request in the Shopping Cart Problem - Easy, your branch name can be `ShoppingCartEasy`.
+    - **Example**: If you want to create a pull request in the Shopping Cart Problem - Easy, your branch name can be `ShoppingCartEasy`.
+    
+- Now, execute the following command to create your own branch -
+  
+    `git checkout -b <your-branch-name>`
 
 - **Update the changes to repo**: Add your solution in the new branch. The solution must be in a specified format. Your code should be inside the SOLUTIONS folder of the respective problem statement. The codes/files should be inside a single folder following specific naming convention. The folder name should be your name.
   - Root Folder
