@@ -13,6 +13,10 @@
 - **Clone the repository**: Clone the repository by copying the clone link (find it against the name of the repository on the right). Or using the below CLI command
 
   `git clone https://github.com/<your-username>/code-with-girlscript-bangalore`
+  
+- **Move to the directory**: Move to the directory by using the below CLI command
+ 
+  `cd code-with-girlscript-bangalore`
 
 - **Create a new branch**: Follow proper naming convention before creating your own branch. The example of the naming is as follows
 
