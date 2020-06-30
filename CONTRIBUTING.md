@@ -14,6 +14,10 @@
 
   `git clone https://github.com/<your-username>/code-with-girlscript-bangalore`
 
+- **Move to the directory**: Move to the directory by using the below CLI command -
+
+  `cd code-with-girlscript-bangalore`
+
 - **Create a new branch**: Before you proceed with the project, create a new branch using the following command in the cloned repository:
 
   `git checkout -b <your-branch-name>`
