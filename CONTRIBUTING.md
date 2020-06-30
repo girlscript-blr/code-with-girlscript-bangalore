@@ -22,7 +22,7 @@
   
     `git checkout -b <your-branch-name>`
 
-- **Update the changes to repo**: Add your solution in the new branch. The solution must be in a specified format. Your code should be inside the SOLUTIONS folder of the respective problem statement. The codes/files should be inside a single folder following specific naming convention. The folder name should be your name.
+- **Update the changes to repo**: Add your solution in the new branch. The solution must be in a specified format. Your code should be inside the SOLUTIONS folder of the respective problem statement. The codes/files should be inside a single folder following specific naming convention. The folder name should be `<your githubId>_<your name>`.
   - Root Folder
     - Problem Statement
       - Solutions
