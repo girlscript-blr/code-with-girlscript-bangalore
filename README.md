@@ -1,6 +1,5 @@
 # Code with GirlScript Bangalore
 
-<img src="assets/images/cwgsblr.png" width="600" height="300">
 
 ## About the program
 
