@@ -31,7 +31,7 @@
     - Problem Statement
       - Solutions
         - `<Your solution folder>`
-- **To add the file(s)** , use the following CLI command
+- **To stage the file(s)** , use the following CLI command
 
   `git add .`
 
@@ -63,6 +63,7 @@
 
 If there are any changes suggested by the reviewers, do make the same and follow to steps to update:
 
+- stage the changes, using command: `git add .`.
 - commit the changes, using command: `git commit -m "Commit Message"`.
 - rebase the branch, using command: `git rebase master`.
 - squash the commits, using command: `git stash`.
