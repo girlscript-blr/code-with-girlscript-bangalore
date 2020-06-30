@@ -37,7 +37,7 @@
 
   For GitHub web, simply add the commit message and description at the bottom of the page to add the new file.(Please use an appropriate commit message and follow this git commit message guidelines)
 
-- **Create pull request**: For locally cloned repository, `use git push origin <you-branch>`. Please create a Pull Request(PR) from GitHub to the `solutions` branch. If you are new to creating pull requests, watch the video for reference. [Your First GitHub Pull Request (in 10 Mins)](https://www.youtube.com/watch?v=dSl_qnWO104)
+- **Create pull request**: For locally cloned repository, use `git push -u origin <you-branch>`. Please create a Pull Request(PR) from GitHub to the `solutions` branch. If you are new to creating pull requests, watch the video for reference. [Your First GitHub Pull Request (in 10 Mins)](https://www.youtube.com/watch?v=dSl_qnWO104)
 
   For GitHub web, simply move over to the original repository and click on New Pull Request and compare forked repositories. Provide appropriate description and VOILA!
 
@@ -58,7 +58,7 @@ If there are any changes suggested by the reviewers, do make the same and follow
 - commit the changes, using command: `git commit -m 'Commit Message'`.
 - rebase the branch, using command: `git rebase master`.
 - squash the commits, using command: `git stash`.
-- push the changes, using command: `git push origin <your-branch-name>`.
+- push the changes, using command: `git push -u origin <your-branch-name>`.
 
 The PR with correct and optimised solution, which satisfies the deadline criteria, will be merged soon😄
 
