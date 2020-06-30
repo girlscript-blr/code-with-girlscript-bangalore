@@ -35,13 +35,13 @@
 
   `git add .`
 
-- **Commit the file(s)**: For locally cloned repository, use the following CLI command to commit your file.
+- **Commit the file(s)**: For locally cloned repository, use the following CLI command to commit your file(s).
 
   `git commit -m "<your-message>"`
 
   For GitHub web, simply add the commit message and description at the bottom of the page to add the new file.(Please use an appropriate commit message and follow this git commit message guidelines)
   
-- **Create pull request**: For locally cloned repository, use the following CLI command to push your file.
+- **Push the file(s)**: For locally cloned repository, use the following CLI command to push your file(s).
 
   `git push -u origin <you-branch>`.
 
