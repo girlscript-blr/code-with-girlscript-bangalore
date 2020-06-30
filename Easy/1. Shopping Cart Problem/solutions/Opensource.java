@@ -28,7 +28,7 @@ public class Opensource {
        else if(ch==8) shopping_list();
        else if(ch==9) System.out.println("Sorry! You need to buy something first, to get the bill. Try Again!");
        else System.out.println("Wrong Choice. Come Again!");
-       //break Jmp;
+       
     }
 
     private static void shopping_list() {
