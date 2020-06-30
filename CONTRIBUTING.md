@@ -14,16 +14,16 @@
 
   `git clone https://github.com/<your-username>/code-with-girlscript-bangalore`
 
-- **Move to the directory**: Move to the directory by using the below CLI command -
+- **Move to the directory**: Move to the directory by using the below CLI command
 
   `cd code-with-girlscript-bangalore`
 
 
-- **Create a new branch**: Follow proper namimg convention before creating your own branch. The example of the naming is as follows -
+- **Create a new branch**: Follow proper naming convention before creating your own branch. The example of the naming is as follows
 
     - **Example**: If you want to create a pull request in the Shopping Cart Problem - Easy, your branch name can be `ShoppingCartEasy`.
     
-- Now, execute the following command to create your own branch -
+- Now, execute the following command to create your own branch
   
     `git checkout -b <your-branch-name>`
 
@@ -34,11 +34,11 @@
         - `<Your solution folder>`
 - **To add the file(s)** , use the following CLI command
 
-  `git add`
+  `git add .`
 
 - **Commit the file(s)**: For locally cloned repository, use the following CLI command to commit your file.
 
-  `git commit -m '<your-message>'`
+  `git commit -m "<your-message>"`
 
   For GitHub web, simply add the commit message and description at the bottom of the page to add the new file.(Please use an appropriate commit message and follow this git commit message guidelines)
 
@@ -60,7 +60,7 @@
 
 If there are any changes suggested by the reviewers, do make the same and follow to steps to update:
 
-- commit the changes, using command: `git commit -m 'Commit Message'`.
+- commit the changes, using command: `git commit -m "Commit Message"`.
 - rebase the branch, using command: `git rebase master`.
 - squash the commits, using command: `git stash`.
 - push the changes, using command: `git push -u origin <your-branch-name>`.
