@@ -40,8 +40,12 @@
   `git commit -m "<your-message>"`
 
   For GitHub web, simply add the commit message and description at the bottom of the page to add the new file.(Please use an appropriate commit message and follow this git commit message guidelines)
+  
+- **Create pull request**: For locally cloned repository, use the following CLI command to push your file.
 
-- **Create pull request**: For locally cloned repository, use `git push -u origin <you-branch>`. Please create a Pull Request(PR) from GitHub to the `solutions` branch. If you are new to creating pull requests, watch the video for reference. [Your First GitHub Pull Request (in 10 Mins)](https://www.youtube.com/watch?v=dSl_qnWO104)
+  `git push -u origin <you-branch>`.
+
+- **Create pull request**: Please create a Pull Request(PR) from GitHub to the `solutions` branch. If you are new to creating pull requests, watch the video for reference. [Your First GitHub Pull Request (in 10 Mins)](https://www.youtube.com/watch?v=dSl_qnWO104)
 
   For GitHub web, simply move over to the original repository and click on New Pull Request and compare forked repositories. Provide appropriate description and VOILA!
 
