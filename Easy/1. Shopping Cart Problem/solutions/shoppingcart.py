@@ -11,13 +11,13 @@ def show_products():
         i=i+1
 
 def show_cost(prod_num,qty):
-    tax_rate = 18; 
+    tax_rate = 6; 
     cost = products[prod_num-1][1]*qty*(1+(tax_rate/100)); 
     print("Your total cost for {} items of product {} with tax {} % is Rs.{}".format(qty,products[prod_num][0], tax_rate, cost))
 
 def start():
     show_products()
-    prod_num = input("Enter product no. ")
+    prod_num = input("Enter product nos. ")
     qty = input("Enter qty. ")
     show_cost(int(prod_num),int(qty))
 
