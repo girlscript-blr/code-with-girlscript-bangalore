@@ -1,0 +1,30 @@
+from datetime import date,time,datetime
+f=datetime.now()
+shoplist={"Basshead earphones":1200,"Blueooth computer mouse":600,"Keypad":500,"4.Airpods":699,"Graphic Card":2500
+          ,"1":1200,"2":600,"3":500,"4":699,"5":2500}
+
+t=True
+while(t):
+    name=input("Entee the Customer Name: ")
+    phn=int(input("Enter the mobile number: "))
+    pay=input("Enter the payment mehtod (cash/card/online) : ")
+    item=input("Item purchased: ")
+    quant=int(input("Quantitiy : "))
+    tamount=shoplist[item]*quant
+    tax=(0.06)*tamount
+    print("\n\n")
+    print(500*"=")
+    print("\t\t\t\t\t\tBill Details")
+    print(500*"=")
+    print("\t\t\t\t\tShop name : GadgetitfyWithGSBlr\t\t\t\t")
+    print("\t\t\tShop address: 311/5 Akshay nagar, Bangalore, Karnataka, India\t\t\t\t")
+    print("\t\t\t\t\tShop contact no: +91 9988776655\t\t\t\t")
+    print(250*"-")
+    print("Customer name :- ",name)
+    print("Customer phone no. ",phn)
+    print("Itme bought:-",item,"\t]","Quantitiy:- ",quant,"\t","Price:- ",tamount)
+    print("Tax Applicable:- ", tax)
+    print("Amount to be paid:- ",tax+tamount)
+    print("Mode of Payment:- ",pay)
+    print("Date and Time : - ",f)
+    break
