@@ -12,7 +12,7 @@ def show_products2():
 
 def show_cost(prod_num,qty):
     old_tax_rate = 13;
-    tax_rate = 14; 
+    tax_rate = 18; 
     cost = products[prod_num-1][1]*qty*(1+(tax_rate/100)); 
     print("Your total cost for {} items of product {} with tax {} % is Rs.{}".format(qty,products[prod_num][0], tax_rate, cost))
 
