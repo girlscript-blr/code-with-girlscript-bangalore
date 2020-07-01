@@ -2,7 +2,7 @@ products = [("Basshead earphones",1200),
                 ("Bluetooth mouse",600)
 ]
 
-def show_products():
+def show_products2():
     print("Press the corresponding number for the product")
     i=1
     print("{}|{}|{}".format("Sr.no".ljust(20),"Item".ljust(30),"Price".ljust(30)))
@@ -11,12 +11,13 @@ def show_products():
         i=i+1
 
 def show_cost(prod_num,qty):
-    tax_rate = 18; 
+    old_tax_rate = 13;
+    tax_rate = 14; 
     cost = products[prod_num-1][1]*qty*(1+(tax_rate/100)); 
     print("Your total cost for {} items of product {} with tax {} % is Rs.{}".format(qty,products[prod_num][0], tax_rate, cost))
 
 def start():
-    show_products()
+    show_products2()
     prod_num = input("Enter product no. ")
     qty = input("Enter qty. ")
     show_cost(int(prod_num),int(qty))
