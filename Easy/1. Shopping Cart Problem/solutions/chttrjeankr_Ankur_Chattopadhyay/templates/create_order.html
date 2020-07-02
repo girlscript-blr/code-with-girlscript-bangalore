@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Create Order</h1>
+
+<div class="container">
+  <form class="create_order" id="create_order" method="post">
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">
+        Name:
+      </label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+        />
+      </div>
+      <label for="phoneNumber" class="col-sm-2 col-form-label">
+        Phone Number:
+      </label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          id="phoneNumber"
+          name="phoneNumber"
+          placeholder="Enter your phone number"
+          required
+        />
+      </div>
+      <label for="paymentMethod" class="col-sm-2 col-form-label">
+        Payment Method:
+      </label>
+      <div class="col-sm-10">
+        <select
+          class="form-control"
+          id="paymentMethod"
+          name="paymentMethod"
+          required
+        >
+          <option value="ccard">Credit Card</option>
+          <option value="dcard">Debit Card</option>
+          <option value="netb">Net Banking</option>
+          <option value="cod">Cash on Delivery</option>
+        </select>
+      </div>
+      <label for="selectedItem" class="col-sm-2 col-form-label">
+        Select Item:
+      </label>
+      <div class="col-sm-10">
+        <select
+          class="form-control"
+          id="selectedItem"
+          name="selectedItem"
+          required
+        >
+          {% for item, price in shopping_list.items() %}
+          <option value="{{item}}">
+            {{item}}: Rs.{{price}}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <label for="quantity" class="col-sm-2 col-form-label">
+        Select Quantity:
+      </label>
+      <div class="col-sm-10">
+        <input
+          type="number"
+          class="form-control"
+          name="quantity"
+          value="1"
+          min="1"
+          required
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Order</button>
+  </form>
+</div>
+
+{% endblock %}
