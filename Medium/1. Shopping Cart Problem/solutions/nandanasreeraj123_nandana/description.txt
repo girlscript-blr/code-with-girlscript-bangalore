@@ -1,0 +1,1 @@
+There is a class which has slno, name, original price, dicount, and weight as variables declared in the constructor. Objects are created and pushed into an array in the form of tuples. Information is taken from the user. Final price and total dicount is calculated on the basis of conditions provided. Result is printed
