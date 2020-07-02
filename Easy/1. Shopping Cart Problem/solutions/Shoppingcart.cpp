@@ -23,13 +23,21 @@ if(phonenumber>9999999999)
 cout<<"|                                    Invalid Number                              |"<<endl;
 return 0;
 }
+    void pphonenumber()
+    {
+        cout<<"Phone  Number : "<<phonenumber<<endl;
+    }
 //GETTING NAME FROM USER
-char getname()
+void getname()
 {
     cout<<"|                                      Enter Your Name : ";
     cin>>Name;
 }
-// GET PAYMENT METHOD USED BY USER
+    void pgetname()
+    {
+    cout<<"NAME : "<<Name<<endl;
+    }
+// GETPAYMENT METHOD USED BY USER
 int getpaymentmethod()
 {
     cout<<"----------------------------------------------------------------------------------------------------------"<<endl;
@@ -48,9 +56,13 @@ int getpaymentmethod()
    cin>>paymentmethod;
    cout<<endl;
   }
-  cout<<"|                                 *PAYMENT SUCCESSFUL*                                                      |"<<endl;
   return 0;
 }
+    void ppaymentmethod()
+    {
+        cout<<"PAYMENT METHOD SELECTED :"<<paymentmethod<<endl;
+          cout<<"|                                 *PAYMENT SUCCESSFUL*                                                      |"<<endl;
+    }
 //GET THE LIST AND AMOUNT OF ITEMS SELECTED
 int getitems()
 {
@@ -137,12 +149,85 @@ int getitems()
     }
     return 0;
 }
+void pitems()
+{
+    cout<<"Item No. Selected : "<<x<<endl;
+    cout<<" Quantity Selected for "<<x<<" Item "<<quantity<<endl;
+     switch (x)
+    {
+    case 1:   
+                                     
+               
+                 amount=1200*quantity;
+                 cout<<"\nItem Cost : "<<amount<<endl;
+                 tax=6%amount;
+                 tax=tax*quantity;
+                  cout<<"Total Tax :"<<tax<<endl;
+                 amount=tax+amount;
+                 cout<<"Total Bill Including Taxes :"<<amount<<endl;
+                 break;
+    case 2:     
+    
+                
+                 amount=5600*quantity;
+                 cout<<"\nItem Cost : "<<amount<<endl;
+                 tax=6%amount;
+                  tax=tax*quantity;
+                   cout<<"Total Tax :"<<tax<<endl;
+                 amount=tax+amount;
+                 cout<<"Total Bill Including Taxes :"<<amount<<endl;
+                 break;
+   
+    case 3:      
+                                      
+                 
+                 amount=50000*quantity;
+                 cout<<"\nItem Cost : "<<amount<<endl;
+                 tax=6%amount;
+                  tax=tax*quantity;
+                   cout<<"Total Tax :"<<tax<<endl;
+                 amount=tax+amount;
+                 cout<<"Total Bill Including Taxes :"<<amount<<endl;
+                 break;
+   
+    case 4:      
 
+                 
+                 amount=3000*quantity;
+                 cout<<"\nItem Cost : "<<amount<<endl;
+                 tax=6%amount;
+                  tax=tax*quantity;
+                   cout<<"Total Tax :"<<tax<<endl;
+                 amount=tax+amount;
+                 cout<<"Total Bill Including Taxes :"<<amount<<endl;
+                 break;
+  
+    case 5:      
+   
+                 amount=560*quantity;
+                 cout<<"\nItem Cost : "<<amount<<endl;
+                 tax=6%amount;
+                  tax=tax*quantity;
+                  cout<<"Total Tax :"<<tax<<endl;
+                 amount=tax+amount;
+                 cout<<"Total Bill Including Taxes :"<<amount<<endl;
+                 break;
+  
+
+    }
+    
+}
 };//CLASS ENDS
 int main()
 {
   GadgetifyWithGSBlr g1;//INTIALIZING OBJECT OF CLASS
 
+  g1.getname();//CALLING NAME FROM USER
+  g1.getphonenumber();// CALLING PHONE NUMBER FROM USER
+  g1.getitems();// GET THE USER TO SELECT ANY 1 ITEM AND DISPLAYING TOTAL AMOUNT TO BE PAID
+  g1.getpaymentmethod();//GETTING PAYMENT METHOD FOR USER 
+    cout<<endl;
+  cout<<"***************************************Genearting Bill*************************************************************"<<endl;
   cout<<"                      ________________________________________________________________    "<<endl;
   cout<<"                                      Gadget ify With GSBlr"<<endl;
   cout<<"                                   Address: 311/5 Akshay nagar,"<<endl;
@@ -154,9 +239,11 @@ int main()
  ti = localtime(&tt); 
   cout<<"                                   Bought On :"<<asctime(ti)<<endl;
   cout<<"                       ________________________________________________________________"<<endl;
-  g1.getname();//CALLING NAME FROM USER
-  g1.getphonenumber();// CALLING PHONE NUMBER FROM USER
-  g1.getitems();// GET THE USER TO SELECT ANY 1 ITEM AND DISPLAYING TOTAL AMOUNT TO BE PAID
-  g1.getpaymentmethod();//GETTING PAYMENT METHOD FOR USER 
+    g1.pgetname();
+    g1.pphonenumber();
+    g1.pitems();
+    g1.ppaymentmethod();
+    cout<<" *********************************Thanks For Shopping ,Visit Again*******************************************************";
+
     return 0;
 }
