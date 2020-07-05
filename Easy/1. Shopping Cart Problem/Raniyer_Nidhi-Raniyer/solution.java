@@ -43,7 +43,9 @@ public class solution
           System.out.println("\tContact Number : "+ number);
           System.out.print("\n\tProduct\t\t\t\tQuantity\t\tPrice\t\t\tTotal Price");
           System.out.println("\n\t"+ products[prod] + "\t\t\t" + quantity+ "\t\t\t" + price[prod] + "\t\t\t" + price[prod]*quantity);
-          System.out.println("\n\t\t\t total payable amount after tax :" + 1.06*price[prod]*quantity);
+          double total_tax = 0.06*price[prod]*quantity;
+          System.out.println("\n\t\t\t total tax added (6%) :"+ total_tax);
+          System.out.println("\n\t\t\t total payable amount after tax :" + (price[prod]*quantity + total_tax));
           System.out.println("\tPayment Method: " + payment[pay]);
           System.out.println("\n\n\t\t\t\tThank you for shopping with us <3\n\t\t\t\t\t" + shopName +"\n\t\t\t" + address +"\n\t\t\t\t\t" + contact);
         }
