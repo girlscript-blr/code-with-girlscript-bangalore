@@ -53,7 +53,7 @@ public class ShoppingCartEasy {
     {
         System.out.println("List of Items and their prices");
         int index = 1;
-        for (String item : shopItems.keySet()) {
+        for (String item : itemsList.values()) {
             System.out.println(index + "." + item.toUpperCase() + " : Rs." + shopItems.get(item));
             index += 1;
         }
