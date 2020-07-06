@@ -8,24 +8,36 @@ public class ShoppingCartEasy {
     private String contactNo;
     private Customer customer;
     private String choosenItem;
+    private int choosenItemIndex;
     private int quantity;
     private double totalAmount;
     private double tax;
     private static Scanner scanner = new Scanner(System.in);
 
-    private static Map<String, Integer> shopItems = new HashMap<String, Integer>();
+    private Map<String, Integer> shopItems = new HashMap<String, Integer>();
+    private Map<Integer, String> itemsList = new HashMap<Integer, String>();
 
     public ShoppingCartEasy() {
         this.shopName = "GadgetifyWithGSBlr";
         this.address = "311/5 Akshay nagar, Bangalore, Karnataka, India";
         this.contactNo = "+91 9988776655";
         this.fillItemPrices();
+        this.fillItemList();
     }
 
     public void shopInfo() { // Shop Information
         System.out.println("Shop Name: " + this.shopName);
         System.out.println("Shop Address: " + this.address);
         System.out.println("Shop Contact No: " + this.contactNo);
+    }
+
+    public void fillItemList() // menthod to fill list of items in shopping menu
+    {
+        itemsList.put(1,"basshead earphones");
+        itemsList.put(2,"bluetooth computer mouse");
+        itemsList.put(3,"computer monitor");
+        itemsList.put(4,"smart watch");
+        itemsList.put(5,"bluetooth speakers");
     }
 
     public void fillItemPrices() // method to make a menu of shopping items with their prices
@@ -40,8 +52,10 @@ public class ShoppingCartEasy {
     public void getItemMenu() // method to get Item menu
     {
         System.out.println("List of Items and their prices");
+        int index = 1;
         for (String item : shopItems.keySet()) {
-            System.out.println(item.toUpperCase() + " : Rs." + shopItems.get(item));
+            System.out.println(index + "." + item.toUpperCase() + " : Rs." + shopItems.get(item));
+            index += 1;
         }
     }
 
@@ -81,15 +95,21 @@ public class ShoppingCartEasy {
     public void chooseItem() // Choosen Item and its quantity;
     {
         System.out.print("\n");
-        System.out.println("Please enter the name of any one item among the list of items from menu");
-        this.choosenItem = scanner.nextLine();
-        this.choosenItem = this.choosenItem.toLowerCase();
+        System.out.println("Please enter the item number of any one item among the list of items from menu");
+        this.choosenItemIndex = scanner.nextInt();
+        while (true) {
+            if (this.choosenItemIndex >= 1 && this.choosenItemIndex <= 5)
+                break;
+            System.out.println("Please enter the item number of any one item among the list of items from menu");
+            this.choosenItemIndex = scanner.nextInt();
+        }
+        this.choosenItem = itemsList.get(this.choosenItemIndex);
         System.out.println("Enter quantity of choosen item");
         this.quantity = scanner.nextInt();
     }
 
     public void calculatePayment() { // calcuating payment
-        this.totalAmount = shopItems.get(this.choosenItem) * this.quantity;
+        this.totalAmount = this.shopItems.get(this.choosenItem)*quantity;
         this.tax = 0.06 * totalAmount;
     }
 
