@@ -83,7 +83,7 @@ int main()
 	cin >> qty;
 	
 	price = qty * object[selected - 1].price;
-	tax = 6/100 * price;
+	tax = 0.06 * price;
 	total = tax + price;
 	
 	output();
