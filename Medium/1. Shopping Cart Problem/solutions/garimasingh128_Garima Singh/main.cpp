@@ -154,7 +154,7 @@ int main()
 	price = price + qty[i] * object[i].discount;
 	
 	}
-		tax = 6/100 * price;
+		tax = 0.06 * price;
 	total = tax + price;
 	if(p==2)
 	{
