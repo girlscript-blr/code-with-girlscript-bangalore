@@ -1,0 +1,30 @@
+from datetime import datetime
+n = (input("Enter your name: "))
+p = int(input("Enter your phoneno.: "))
+pm = (input("Enter the payment method(cash/card/online): "))
+
+dict = {'Earphones':1200,'Tablet':10000,'Bluetooth Speaker':900,'Bluetooth Mouse':350,'Smart Phone':15000}
+print(dict)
+s, q =input("Enter a single shopping item and its quantity: ").split()
+q=int(q)
+if s in dict:
+    s1=dict[s]
+bill=q*s1
+ttax=0.06*bill
+amt=bill+ttax
+now=datetime.now()
+
+
+print('----------------------------------------------------------------------------------------Bill--------------------------------------------------------------------------------------')
+print('Shop name:GadgetifyWithGSBlr')
+print('Shopping address:311/5 Akshay nagar, Bangalore, Karnataka, India')
+print('Shop contact no: +91 9988776655')
+print('Customer name:',n)
+print('Customer phone no:',p)
+print('Item bought, its quantity & price:',s,',',q,',',bill)
+print('Total Tax:',ttax)
+print('Sum amount to be paid:',amt)
+print('Payment method used:',pm)
+print('Billing date and time:',now)
+print('------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+
