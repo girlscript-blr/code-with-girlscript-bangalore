@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h1>Created Bill</h1>
+  <hr />
+
+  <div class="container">
+    <ul>
+      <li>Date: {{ bill['billingDateTime'] }}</li>
+    </ul>
+  </div>
+  <div class="container">
+    <ul>
+      <li>Shop Name: {{ bill['shopName'] }}</li>
+      <li>Shop Address: {{ bill['shopAddress'] }}</li>
+      <li>Shop Contact Number: {{ bill['shopContactNumber'] }}</li>
+    </ul>
+  </div>
+  <div class="container">
+    <ul>
+      <li>Customer Name: {{ bill['customerName'] }}</li>
+      <li>Customer Contact Number: {{ bill['customerPhoneNumber'] }}</li>
+      <li>Selected Item: {{ bill['selectedItem'] }}</li>
+      <li>Quantity: {{ bill['quantity'] }}</li>
+      <li>Item Cost: {{ bill['itemCost'] }}</li>
+      <li>Total Price: {{ bill['totalPrice'] }}</li>
+      <li>Tax Included: {{ bill['totalTax'] }}</li>
+      <li>Payment Method: {{ bill['paymentMethod'] }}</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
