@@ -4,8 +4,6 @@
 
 Welcome to GirlScript Bangalore's brand new initiative! If you are a techie 👨‍💻👩‍💻, if you want to get started with open source contribution 💻, if you are looking to improve your programming skills 📈, you have landed in just the right place! ⬇
 
-......Test....
-
 The aim of this program is to help the participants explore the Open Source world and take their first step towards programming and contributing.
 
 If you are starting your journey in Free and Open Source Software Development, then this is the right place. 😄 This program is also ideal to coding enthusiasts who would like to challenge their problem solving skills.
