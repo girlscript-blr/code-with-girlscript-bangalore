@@ -1,6 +1,6 @@
 import datetime
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, render_template, request
 
 from utilities import shop_details, shopping_list
 
