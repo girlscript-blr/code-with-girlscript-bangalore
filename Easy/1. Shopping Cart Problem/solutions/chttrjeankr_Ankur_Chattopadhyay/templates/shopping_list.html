@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h1>Shopping List</h1>
+  <hr />
+  <style media="screen">
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+  </style>
+  <div class="container">
+    <table style="border-collapse: collapse;">
+      <tr>
+        <th>Item Name</th>
+        <th>Item Cost</th>
+      </tr>
+      {% for item, price in shopping_list.items() %}
+      <tr>
+        <td>{{ item }}</td>
+        <td style="text-align: right;">Rs.{{price}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+{% endblock %}
