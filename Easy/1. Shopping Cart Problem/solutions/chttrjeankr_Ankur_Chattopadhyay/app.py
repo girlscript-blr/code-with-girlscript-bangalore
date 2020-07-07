@@ -14,7 +14,7 @@ def hello_world():
 
 @app.route("/shopping_list")
 def display_shopping_list():
-    return jsonify(shopping_list)
+    return render_template("shopping_list.html", shopping_list=shopping_list)
 
 
 @app.route("/order", methods=["GET", "POST"])
