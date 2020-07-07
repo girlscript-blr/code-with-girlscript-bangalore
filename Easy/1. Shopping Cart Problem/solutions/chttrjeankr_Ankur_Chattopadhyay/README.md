@@ -33,6 +33,6 @@ flask run
 # Approach
 
 - `shopping_list` and `shop_details` are stored separately that can be changed whenever needed.
-- A simple UI form for inputting customer's choices is generated dynamically based on the `shopping_list`
+- A simple HTML form for inputting customer's choices is generated dynamically based on the `shopping_list`
 - Once the user submits the form, the function `app.get_bill()` calculates total bill according to the given criteria in the problem statement.
-- Bill is returned in a JSON serialized form, which can be further used in any way the designer likes.
+- Bill is rendered in an HTML template which separates concerns in different `<div>` tags.
