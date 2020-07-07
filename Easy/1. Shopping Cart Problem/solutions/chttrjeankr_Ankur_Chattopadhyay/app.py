@@ -23,7 +23,7 @@ def create_order():
         return render_template("create_order.html", shopping_list=shopping_list)
     if request.method == "POST":
         bill = get_bill(request)
-        return jsonify(bill)
+        return render_template("display_bill.html", bill=bill)
 
 
 def get_bill(request):
