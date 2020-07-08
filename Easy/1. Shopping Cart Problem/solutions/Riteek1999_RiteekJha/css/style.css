@@ -9,3 +9,12 @@ input[type=number]::-webkit-outer-spin-button {
 body{
   margin-bottom: 10px;
 }
+img{
+  height: 300px;
+}
+.hide{
+  display:none;
+}
+.show{
+  display:block;
+}

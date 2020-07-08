@@ -31,39 +31,46 @@
       </div>
       </div>
       <div class="row">
-      <div class="col-12">
-        <table class="table table-striped table-dark">
-            <thead>
-              <tr class="bg-success">
-                <th scope="col">Serial Number</th>
-                <th scope="col">Product</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>OnePlus 6T</td>
-                <td><span>&#8377;</span>30000</td>
-                <td><input type="number" min="0" name="qty1" id="qty1" placeholder="0"></td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>OnePlus earphone</td>
-                <td><span>&#8377;</span>500</td>
-                <td><input type="number" min="0" name="qty2" id="qty2" placeholder="0"></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>OnePlus 6T Case</td>
-                <td><span>&#8377;</span>200</td>
-                <td><input type="number" min="0" name="qty3" id="qty3" placeholder="0"></td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="col-12 col-md-3">
+      
+      <div class="card" id="card1" style="width: 18rem;">
+      <img src="./images/1.jpg" class="card-img-top mt-2" alt="Oneplus 6T">
+      <div class="card-body">
+        <h5 class="card-title">OnePlus 6T</h5>
+        <h5 class="card-title"><span>&#8377;</span>30000</h5>
+        <a href="#" class="btn btn-lg btn-success" onclick="onButtonClick1()">Buy</a>
+        <h5 class="hide card-title" id="qty1">Quantity</h5>
+        <input class="hide" type="number" id="NumberInput1" name="qty1" min="0">
+      </div>
+    </div>
+    </div>
+
+    <div class="card ml-5" id="card2" style="width: 18rem;">
+      <img src="./images/2.jpg" class="card-img-top" alt="Oneplus 6T">
+      <div class="card-body">
+        <h5 class="card-title">OnePlus earphone</h5>
+        <h5 class="card-title"><span>&#8377;</span>500</h5>
+        <a href="#" class="btn btn-lg btn-success" onclick="onButtonClick2()">Buy</a>
+        <h5 class="hide card-title" id="qty2">Quantity</h5>
+        <input class="hide" type="number" id="NumberInput2" name="qty2" min="0">
+      </div>
+    </div>
+
+    <div class="card ml-4" id="card3" style="width: 18rem;">
+      <img src="./images/3.png" class="card-img-top" alt="Oneplus 6T">
+      <div class="card-body">
+        <h5 class="card-title">OnePlus 6T Case</h5>
+        <h5 class="card-title"><span>&#8377;</span>200</h5>
+        <a href="#" class="btn btn-lg btn-success" onclick="onButtonClick3()">Buy</a>
+        <h5 class="hide card-title" id="qty3">Quantity</h5>
+        <input class="hide" type="number" id="NumberInput3" name="qty3" min="0">
+      </div>
+    </div>
+
       </div>
       </div>
+
+      <div class="container">
       <div class="row">
       <div class="col-offset-1">
       <div class="form-group">
@@ -99,8 +106,10 @@
         <button type="submit" class="btn btn-success">Submit</button>
         </form>
     </div>
+    </div>
 
     <script src="./js/script.js"></script>
+    <script src="./js/script1.js"></script>
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
