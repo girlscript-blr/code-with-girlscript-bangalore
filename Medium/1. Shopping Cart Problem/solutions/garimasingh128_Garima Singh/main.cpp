@@ -117,7 +117,7 @@ int main()
 		if(dist>5 && dist<=20)
 		total=total+30;
 		if(dist>20 && dist<=50)
-		total=total+90;
+		total=total+60;
 	}
 	
 	cout<<total<<endl;
