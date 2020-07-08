@@ -103,11 +103,13 @@ int main()
 
 	for(int i=0;i<n;i++)
 	{
-	price = price + qty[i] * object[i].discount;
+	price = price + qty[i] * object[selected[i]-1].discount;
 	
 	}
+	cout<<price<<endl;
 		tax = 0.06 * price;
 	total = tax + price;
+	cout<<total<<endl;
 	if(p==2)
 	{
 		if(dist<=5)
@@ -118,6 +120,7 @@ int main()
 		total=total+90;
 	}
 	
+	cout<<total<<endl;
 	
 	 cout << "Welcome to GadgetifyWithGSBlr"<<endl;
 	cout<< "Shop address: 311/5 Akshay nagar, Bangalore, Karnataka, India"<<endl;
