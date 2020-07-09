@@ -35,14 +35,25 @@
       </div>
       {% endif %}
     </div>
-    <div class="container">
-      <button
-        type="submit"
-        class="btn btn-outline-secondary"
-        onclick="window.location.href='/shopping_list'"
-      >
-        Continue Shopping
-      </button>
+    <div class="row">
+      <div class="col-sm-auto">
+        <button
+          type="submit"
+          class="btn btn-outline-secondary"
+          onclick="window.location.href='/shopping_list'"
+        >
+          Continue Shopping
+        </button>
+      </div>
+      <div class="col-sm-auto">
+        <button
+          type="submit"
+          class="btn btn-outline-danger"
+          onclick="window.location.href='/clear_cart'"
+        >
+          Clear Cart
+        </button>
+      </div>
     </div>
     <hr />
     <form class="create_order" id="create_order" method="post">

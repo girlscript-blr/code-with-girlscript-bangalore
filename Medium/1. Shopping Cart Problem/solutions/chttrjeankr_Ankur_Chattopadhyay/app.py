@@ -50,10 +50,20 @@ def add_to_cart():
     return jsonify({"item": item_name})
 
 
-@app.route("/shopping_list", methods=["GET", "POST"])
+@app.route("/clear_cart")
+def clear_cart():
+    if cart:
+        cart.clear()
+        flash("Cart cleared! Add more items")
+        return redirect(url_for("display_shopping_list"))
+    else:
+        flash("Cart is already empty")
+        return redirect(url_for("create_order"))
+
+
+@app.route("/shopping_list")
 def display_shopping_list():
-    if request.method == "GET":
-        return render_template("shopping_list.html", shopping_list=shopping_list)
+    return render_template("shopping_list.html", shopping_list=shopping_list)
 
 
 @app.route("/order", methods=["GET", "POST"])
