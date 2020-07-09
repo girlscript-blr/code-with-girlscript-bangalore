@@ -1,6 +1,7 @@
 from datetime import date,time,datetime
-f=datetime.now()
 shoplist={"Basshead earphones":1200,"Blueooth computer mouse":600,"Keypad":500,"Airpods":699,"Graphic Card":2500}
+num={"1":1200,"2":600,"3":500,"4":699,"5":2500}
+mapping={"1":"Basshead earphones","2":"Bluetooth computer mouse","3":"Keypad","4":"Airpods","6":"Graphics card"}
 
 
 
@@ -13,10 +14,11 @@ while(t):
     print("item Present to be Purchased")
     for i in shoplist:
         print(i,"Rs.",shoplist[i])
+        
     print(200*"-")
     item=input("Item purchased: ")
     quant=int(input("Quantitiy : "))
-    tamount=shoplist[item]*quant
+    tamount=num[item]*quant
     tax=(0.06)*tamount
     print("\n\n")
     print(500*"=")
@@ -28,7 +30,7 @@ while(t):
     print(250*"-")
     print("Customer name :- ",name)
     print("Customer phone no. ",phn)
-    print("Itme bought:-",item,"\t","Quantitiy:- ",quant,"\t","Price:- ",tamount)
+    print("Itme bought:-",mapping[item],"\t","Quantitiy:- ",quant,"\t","Price:- ",tamount)
     print("Tax Applicable:- ", tax)
     print("Amount to be paid",tax+tamount)
     print("Mode of Payment",pay)
