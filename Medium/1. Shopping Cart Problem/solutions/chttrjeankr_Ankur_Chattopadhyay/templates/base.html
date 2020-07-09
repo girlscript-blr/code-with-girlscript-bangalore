@@ -17,6 +17,17 @@
     />
 
     <title>GirlScript Bangalore</title>
+    <!-- prettier-ignore -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+    <!-- prettier-ignore -->
+    {% endif %}
+    {% endwith %}
   </head>
   <body>
     {% block content %} {% endblock %}
