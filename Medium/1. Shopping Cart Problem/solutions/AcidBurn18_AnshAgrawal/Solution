@@ -2,12 +2,16 @@ from datetime import date,time,datetime
 ti=datetime.now()
 shoplist={"Basshead earphones":{"Original Price":1200,"Discount":999,"weight":"150g"},"Blueooth computer mouse":{"Original Price":600,"Discount":359,"weight":"170g"},"Keypad":{"Original Price":500,"Discount":250,"weight":"800g"},
          "Airpods":{"Original Price":699,"Discount":699,"weight":"100g"},"Graphic Card":{"Original Price":500,"Discount":259,"weight":"149g"}}
-for i in shoplist:
+num={"1":{"Original Price":1200,"Discount":999,"weight":"150g"},"2":{"Original Price":600,"Discount":359,"weight":"170g"},"3":{"Original Price":500,"Discount":250,"weight":"800g"},"4":{"Original Price":699,"Discount":699,"weight":"100g"},
+     "5":{"Original Price":500,"Discount":259,"weight":"149g"}}
+mapping={"1":"Basshead earphones","2":"Bluetooth computer mouse","3":"Keypad","4":"Airpods","6":"Graphics card"}
+print("ITEMS PRESENT")
+for i in num:
     print(50*"-")
     print(i)
     print(50*"-")
-    for j in shoplist[i]:
-        print(j,":",shoplist[i][j],end=' ')
+    for j in num[i]:
+        print(j,":",num[i][j],end=' ')
     print()
     print()
 t=True
@@ -20,7 +24,7 @@ while(t):
     f=True
     while(f):
         item=input("Items Wants to purchase: ")
-        if item in shoplist:
+        if item in num:
             
             quant=int(input("Quantitiy : "))
             purchased.append(item)
@@ -35,8 +39,8 @@ while(t):
             print("Not in Shop")
             continue
         temp=0
-        mode=input("Takeaway/Home Delivery:- ")
-        if(mode=="Home Delivery"):
+        mode=input("Takeaway/Home Delivery(T/h):- ")
+        if(mode=="Home Delivery" or mode=="h" or mode ="H"):
             d=int(input("Enter the distnace from home: - "))
             if(d>50):
                 print("NOt available")
@@ -55,7 +59,7 @@ while(t):
         amt=0
         oamt=0
         for i in range(len(quantity)):
-            d=shoplist[purchased[i]]
+            d=shoplist[mapping[purchased[i]]]
             amt+=d["Discount"]*quantity[i]
             oamt+=d["Original Price"]*quantity[i]
         tamt=.06*amt
@@ -71,8 +75,8 @@ while(t):
         print("Customer name :- ",name)
         print("Customer phone no. ",phn)
         for i in range(len(quantity)):
-            d=shoplist[purchased[i]]
-            print("Item Purchased:- ",purchased[i],"\t","qauntity:- ",quantity[i],"\t","original price:- ",d["Original Price"],"\t","discount price:- ",d["Discount"])
+            d=shoplist[mapping[purchased[i]]]
+            print("Item Purchased:- ",mapping[purchased[i]],"\t","qauntity:- ",quantity[i],"\t","original price:- ",d["Original Price"],"\t","discount price:- ",d["Discount"])
         print("Tax Applicable:- ", tamt)
         if(mode=="Home Delivery"):
             print("Shipping Charge:- ",temp)
