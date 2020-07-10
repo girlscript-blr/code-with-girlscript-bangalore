@@ -1,8 +1,5 @@
-
 import java.text.SimpleDateFormat;
 import java.util.*;
-
-
 public class getBill {
 
 	public void calculatedBill(String name,Long phno,String paymentMethod,HashMap <Integer,Integer> map,int distance,String address,String mode) {
@@ -44,9 +41,9 @@ public class getBill {
 			}
 			subtotal=subtotal+(p*q);
 		}
-		
+		System.out.println("Total amount saved: "+subtotal);
 		tax=details.getTax(subtotal);
-		System.out.println("\nTotal tax(6%): "+tax);
+		System.out.println("Total tax(6%): "+tax);
 		totalAmt=subtotal+tax;
 		System.out.println("Sum amount to be paid: Rs "+totalAmt);
 		if(mode.equals("h"))

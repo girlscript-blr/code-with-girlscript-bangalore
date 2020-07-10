@@ -1,4 +1,3 @@
-
 import java.util.*;
 import java.io.*;
 
@@ -16,10 +15,10 @@ public class GadgetifyWithGSBlrIntermediate {
 				+ "2. Name: Bluetooth computer mouse, Original Price: Rs. 600, Discount price: Rs. 499, Weight: 120g\n"
 				+ "3. Name: HP keyboard, Original Price: Rs. 1800, Discount price: Rs. 1650, Weight: 850g\n"
 				+ "4. Name: Gadget Organiser, Original Price: Rs. 1000, Discount price: Rs. 800, Weight: 350g\n"
-				+ "5. Name: Sony Playstation 2, Original Price: Rs. 5990, Discount price: Rs. 4500, Weight: 900g\n");
+				+ "5. Name: Sony Playstation 2, Original Price: Rs. 5990, Discount price: Rs. 4500, Weight: 900g");
 		System.out.println(
-				"\n---------------------------------------------------------------------------------------------	");
-		System.out.println("\n*Enter your name: ");
+				"---------------------------------------------------------------------------------------------	");
+		System.out.println("*Enter your name: ");
 		String name = sc.next();
 		System.out.println("*Enter your phone number: ");
 		Long phno = sc.nextLong();
