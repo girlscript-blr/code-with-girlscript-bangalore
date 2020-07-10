@@ -1,10 +1,10 @@
 from datetime import date,time,datetime
 ti=datetime.now()
-shoplist={"Basshead earphones":{"Original Price":1200,"Discount":999,"weight":"150g"},"Blueooth computer mouse":{"Original Price":600,"Discount":359,"weight":"170g"},"Keypad":{"Original Price":500,"Discount":250,"weight":"800g"},
+shoplist={"Basshead earphones":{"Original Price":1200,"Discount":999,"weight":"150g"},"Bluetooth computer mouse":{"Original Price":600,"Discount":359,"weight":"170g"},"Keypad":{"Original Price":500,"Discount":250,"weight":"800g"},
          "Airpods":{"Original Price":699,"Discount":699,"weight":"100g"},"Graphic Card":{"Original Price":500,"Discount":259,"weight":"149g"}}
 num={"1":{"Original Price":1200,"Discount":999,"weight":"150g"},"2":{"Original Price":600,"Discount":359,"weight":"170g"},"3":{"Original Price":500,"Discount":250,"weight":"800g"},"4":{"Original Price":699,"Discount":699,"weight":"100g"},
      "5":{"Original Price":500,"Discount":259,"weight":"149g"}}
-mapping={"1":"Basshead earphones","2":"Bluetooth computer mouse","3":"Keypad","4":"Airpods","6":"Graphics card"}
+mapping={"1":"Basshead earphones","2":"Bluetooth computer mouse","3":"Keypad","4":"Airpods","5":"Graphics card"}
 print("ITEMS PRESENT")
 for i in num:
     print(50*"-")
@@ -40,7 +40,7 @@ while(t):
             continue
         temp=0
         mode=input("Takeaway/Home Delivery(T/h):- ")
-        if(mode=="Home Delivery" or mode=="h" or mode ="H"):
+        if(mode=="Home Delivery" or mode=="h" or mode =="H"):
             d=int(input("Enter the distnace from home: - "))
             if(d>50):
                 print("NOt available")
