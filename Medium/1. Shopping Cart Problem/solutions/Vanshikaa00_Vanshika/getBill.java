@@ -1,12 +1,15 @@
+
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+
 public class getBill {
 
 	public void calculatedBill(String name,Long phno,String paymentMethod,HashMap <Integer,Integer> map,int distance,String address,String mode) {
-		int tax,q,totalAmt,itemprice,discountprice=0,wt,subtotal=0;
+		int tax,q,totalAmt,itemprice,discountprice=0,wt,subtotal=0,amountSaved=0;
 		String itemname="";
 		itemDetails details=new itemDetails();
-		int arr[]=new int[3];
+		int arr[]=new int[3]; 
 		
 		System.out.println("\n-------------------------------GENERATED INVOICE-----------------------------------------\n");
 		System.out.println("Shop name: GadgetifyWithGSBlr");
@@ -30,6 +33,7 @@ public class getBill {
 			System.out.println("  ITEM PRICE- Rs "+itemprice);
 			if(discountprice!=0) {
 			System.out.println("  DISCOUNT PRICE- Rs "+discountprice);
+			amountSaved+=((itemprice-discountprice)*q);
 			}
 			System.out.println("  WEIGHT- "+wt+" g");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -41,9 +45,9 @@ public class getBill {
 			}
 			subtotal=subtotal+(p*q);
 		}
-		System.out.println("Total amount saved: "+subtotal);
+		System.out.println("Total amount saved: Rs "+amountSaved+" !");
 		tax=details.getTax(subtotal);
-		System.out.println("Total tax(6%): "+tax);
+		System.out.println("Total tax(6%): Rs "+tax);
 		totalAmt=subtotal+tax;
 		System.out.println("Sum amount to be paid: Rs "+totalAmt);
 		if(mode.equals("h"))
