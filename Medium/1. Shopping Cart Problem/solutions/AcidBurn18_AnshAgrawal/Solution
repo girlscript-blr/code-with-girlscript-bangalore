@@ -4,7 +4,7 @@ shoplist={"Basshead earphones":{"Original Price":1200,"Discount":999,"weight":"1
          "Airpods":{"Original Price":699,"Discount":699,"weight":"100g"},"Graphic Card":{"Original Price":500,"Discount":259,"weight":"149g"}}
 num={"1":{"Original Price":1200,"Discount":999,"weight":"150g"},"2":{"Original Price":600,"Discount":359,"weight":"170g"},"3":{"Original Price":500,"Discount":250,"weight":"800g"},"4":{"Original Price":699,"Discount":699,"weight":"100g"},
      "5":{"Original Price":500,"Discount":259,"weight":"149g"}}
-mapping={"1":"Basshead earphones","2":"Bluetooth computer mouse","3":"Keypad","4":"Airpods","5":"Graphics card"}
+mapping={"1":"Basshead earphones","2":"Bluetooth computer mouse","3":"Keypad","4":"Airpods","5":"Graphic card"}
 print("ITEMS PRESENT")
 for i in num:
     print(50*"-")
@@ -18,7 +18,7 @@ t=True
 while(t):
     purchased=[]
     quantity=[]
-    name=input("Entee the Customer Name: ")
+    name=input("Entee=r the Customer Name: ")
     phn=int(input("Enter the mobile number: "))
     pay=input("Enter the payment mehtod (cash/card/online) : ")
     f=True
@@ -30,7 +30,7 @@ while(t):
             purchased.append(item)
             quantity.append(quant)
             print("Want to buy more Y/N")
-            more=input("Enter ypur choice:- ")
+            more=input("Enter your choice:- ")
             if(more=="Y" or more=="y"):
                 continue
             else:
@@ -41,7 +41,7 @@ while(t):
         temp=0
         mode=input("Takeaway/Home Delivery(T/h):- ")
         if(mode=="Home Delivery" or mode=="h" or mode =="H"):
-            d=int(input("Enter the distnace from home: - "))
+            d=int(input("Enter the distance from home: - "))
             if(d>50):
                 print("NOt available")
                 break
@@ -84,6 +84,6 @@ while(t):
         print("Mode of Payment",pay)
         print("Date and Time : - ",ti)
         if(mode=="Home Delivery"):
-            print("shipping adress:- ",add)
+            print("Shipping adress:- ",add)
             break
         break
