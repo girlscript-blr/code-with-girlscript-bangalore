@@ -53,7 +53,10 @@ flask run
 
 # Approach
 
-- `shopping_list` and `shop_details` are stored separately that can be changed whenever needed.
-- A simple HTML form for inputting customer's choices is generated dynamically based on the `shopping_list`
-- Once the user submits the form, the function `app.get_bill()` calculates total bill according to the given criteria in the problem statement.
-- Bill is rendered in an HTML template which separates concerns in different `<div>` tags.
+- `shopping_list`, `shop_details` and `delivery_cost` are stored separately that can be changed whenever needed
+- User needs to go to shopping list to add items into cart
+- Checkout page consists of a form where users can enter information
+- Once the user submits the form, the function `app.get_bill()` calculates total bill
+- Bill is generated at the backend after necessary validations and calculation of tax, discounts and delivery charges (if any)
+- Generated bill can be printed by user
+- Bill is rendered in an HTML template which separates concerns in different `<div>` tags
