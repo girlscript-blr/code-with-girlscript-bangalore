@@ -4,26 +4,26 @@ shoplist={"Basshead earphones":{"Original Price":1200,"Discount":999,"weight":"1
          "Airpods":{"Original Price":699,"Discount":699,"weight":"100g"},"Graphic Card":{"Original Price":500,"Discount":259,"weight":"149g"}}
 num={"1":{"Original Price":1200,"Discount":999,"weight":"150g"},"2":{"Original Price":600,"Discount":359,"weight":"170g"},"3":{"Original Price":500,"Discount":250,"weight":"800g"},"4":{"Original Price":699,"Discount":699,"weight":"100g"},
      "5":{"Original Price":500,"Discount":259,"weight":"149g"}}
-mapping={"1":"Basshead earphones","2":"Bluetooth computer mouse","3":"Keypad","4":"Airpods","5":"Graphic card"}
+mapping={"1":"Basshead earphones","2":"Bluetooth computer mouse","3":"Keypad","4":"Airpods","5":"Graphic Card"}
 print("ITEMS PRESENT")
-for i in num:
+for i in shoplist:
     print(50*"-")
     print(i)
     print(50*"-")
-    for j in num[i]:
-        print(j,":",num[i][j],end=' ')
+    for j in shoplist[i]:
+        print(j,":",shoplist[i][j],end=' ')
     print()
     print()
 t=True
 while(t):
     purchased=[]
     quantity=[]
-    name=input("Entee=r the Customer Name: ")
+    name=input("Enter the Customer Name: ")
     phn=int(input("Enter the mobile number: "))
-    pay=input("Enter the payment mehtod (cash/card/online) : ")
+    pay=input("Enter the payment mehthod (cash/card/online) : ")
     f=True
     while(f):
-        item=input("Items Wants to purchase: ")
+        item=input("Items Wants to purchased: ")
         if item in num:
             
             quant=int(input("Quantitiy : "))
@@ -43,7 +43,7 @@ while(t):
         if(mode=="Home Delivery" or mode=="h" or mode =="H"):
             d=int(input("Enter the distance from home: - "))
             if(d>50):
-                print("NOt available")
+                print("Not available")
                 break
             elif(d<=5):
                 temp=0
@@ -54,8 +54,6 @@ while(t):
             else:
                 temp=60
                 add=input("Enter the address:- ")
-        else:
-            pass
         amt=0
         oamt=0
         for i in range(len(quantity)):
@@ -76,14 +74,15 @@ while(t):
         print("Customer phone no. ",phn)
         for i in range(len(quantity)):
             d=shoplist[mapping[purchased[i]]]
-            print("Item Purchased:- ",mapping[purchased[i]],"\t","qauntity:- ",quantity[i],"\t","original price:- ",d["Original Price"],"\t","discount price:- ",d["Discount"])
+            print("Item Purchased:- ",mapping[purchased[i]],"\t","Qauntity:- ",quantity[i],"\t","original price:- ",d["Original Price"],"\t","discount price:- ",d["Discount"])
         print("Tax Applicable:- ", tamt)
-        if(mode=="Home Delivery"):
+        if(mode=="Home Delivery" or mode=="h" or mode =="H"):
             print("Shipping Charge:- ",temp)
         print("Amount to be paid",temp+tamt+amt)
-        print("Mode of Payment",pay)
+        print("Mode of Payment:- ",pay)
         print("Date and Time : - ",ti)
-        if(mode=="Home Delivery"):
+        if(mode=="Home Delivery" or mode=="h" or mode =="H"):
             print("Shipping adress:- ",add)
             break
         break
+    break
