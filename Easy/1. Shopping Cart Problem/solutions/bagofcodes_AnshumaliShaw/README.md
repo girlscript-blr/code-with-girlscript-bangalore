@@ -1,9 +1,9 @@
-#Gadetify With GSBNGLR Shopping Mall
+# Gadetify With GSBNGLR Shopping Mall
 
-##Usage
-###Generate Bill
+## Usage
+### Generate Bill
 
-![Bill Generate](demo1.gif)
+![Bill Generate](demo/demo1.gif)
 
 
 
