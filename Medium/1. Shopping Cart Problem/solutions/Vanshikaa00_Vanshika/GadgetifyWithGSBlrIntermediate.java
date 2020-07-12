@@ -1,8 +1,5 @@
-
-
 import java.util.*;
 import java.io.*;
-
 public class GadgetifyWithGSBlrIntermediate {
 
 	public static void main(String[] args) {
@@ -11,15 +8,15 @@ public class GadgetifyWithGSBlrIntermediate {
 		getBill g = new getBill();
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		System.out.println(
-				"\n------------------------------WELCOME TO GadgetifyWithGSBlr---------------------------------	");
+				"\n---------------------------------------------------WELCOME TO GadgetifyWithGSBlr-----------------------------------------------	");
 		System.out.println("\n"
-				+ "1. Name: Basshead earphones, Original Price: Rs. 1200, Discount price: Rs. 899, Weight: 150g\n"
-				+ "2. Name: Bluetooth computer mouse, Original Price: Rs. 600, Discount price: Rs. 499, Weight: 120g\n"
-				+ "3. Name: HP keyboard, Original Price: Rs. 1800, Discount price: Rs. 1650, Weight: 850g\n"
-				+ "4. Name: Gadget Organiser, Original Price: Rs. 1000, Discount price: Rs. 800, Weight: 350g\n"
-				+ "5. Name: Sony Playstation 2, Original Price: Rs. 5990, Discount price: Rs. 4500, Weight: 900g");
+				+ "1. Name: Basshead earphones, Original Price: Rs. 1200, Weight: 150g  ----  Get discount price of Rs. 899 on buying 4 or more!\n"
+				+ "2. Name: Bluetooth computer mouse, Original Price: Rs. 600, Weight: 120g  ----  Get discount price of Rs. 499 on buying 3 or more!\n"
+				+ "3. Name: HP keyboard, Original Price: Rs. 1800, Weight: 850g  ----  Get discount price of Rs. 1650 on buying 5 or more!\n"
+				+ "4. Name: Gadget Organiser, Original Price: Rs. 1000, Weight: 350g  ----  Get discount price of Rs. 800 on buying 3 or more!\n"
+				+ "5. Name: Sony Playstation 2, Original Price: Rs. 5990, Weight: 900g  ----  Get discount price of Rs. 4500 on buying 2 or more!");
 		System.out.println(
-				"---------------------------------------------------------------------------------------------	");
+				"----------------------------------------------------------------------------------------------------------------------------------------	");
 		System.out.println("*Enter your name: ");
 		String name = sc.next();
 		System.out.println("*Enter your phone number: ");
