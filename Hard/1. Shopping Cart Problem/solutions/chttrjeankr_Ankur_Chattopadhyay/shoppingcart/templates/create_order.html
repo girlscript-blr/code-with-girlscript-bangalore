@@ -1,0 +1,175 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h1>Create Order</h1>
+  <hr />
+  <div class="container">
+    <div class="container">
+      {% if cart %}
+      <h2 style="text-align: center;">Cart</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Item</th>
+            <th scope="col">Price Per Item</th>
+            <th scope="col">Savings Per Item</th>
+            <th scope="col">Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item_tuple, quantity in cart.items %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ item_tuple.item_name }}</td>
+            <td>&#8377; {{ item_tuple.final_price_per_item }}</td>
+            <td>&#8377; {{ item_tuple.amount_saved_per_item }}</td>
+            <td>{{ quantity }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <div class="alert alert-secondary" role="alert">
+        <center>NO ITEMS IN CART</center>
+      </div>
+      {% endif %}
+    </div>
+    <div class="row">
+      <div class="col-sm-auto">
+        <button
+          type="submit"
+          class="btn btn-outline-secondary"
+          onclick="window.location.href='/shopping_list'"
+        >
+          Continue Shopping
+        </button>
+      </div>
+      <div class="col-sm-auto">
+        <button
+          type="submit"
+          class="btn btn-outline-danger"
+          onclick="window.location.href='/clear_cart'"
+        >
+          Clear Cart
+        </button>
+      </div>
+    </div>
+    <hr />
+    <form class="create_order" id="create_order" method="post">
+      {% csrf_token %}
+      <div class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">
+          Name:
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <label for="phoneNumber" class="col-sm-2 col-form-label">
+          Phone Number:
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="Enter your phone number"
+            required
+          />
+        </div>
+        <label for="paymentMethod" class="col-sm-2 col-form-label">
+          Payment Method:
+        </label>
+        <div class="col-sm-10">
+          <select
+            class="form-control"
+            id="paymentMethod"
+            name="paymentMethod"
+            required
+          >
+            <option value="ccard">Credit Card</option>
+            <option value="dcard">Debit Card</option>
+            <option value="netb">Net Banking</option>
+            <option value="cod">Cash on Delivery</option>
+          </select>
+        </div>
+        <label for="delivery" class="col-sm-2 col-form-label">
+          Delivery Option:
+        </label>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input
+              type="radio"
+              class="form-check-input form-control"
+              name="delivery"
+              id="takeaway"
+              value="takeaway"
+              onclick="deliveryCheck()"
+              checked
+            />
+            <label class="form-check-label" for="delivery1">
+              Take Away
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              type="radio"
+              class="form-check-input form-control"
+              name="delivery"
+              id="homedel"
+              value="homedel"
+              onclick="deliveryCheck()"
+            />
+            <label class="form-check-label" for="delivery2">
+              Home Delivery
+            </label>
+          </div>
+        </div>
+        <div class="container" style="display: none;" id="if-homedel">
+          <div class="form-group row">
+            <label for="shippingAddress" class="col-sm-2 col-form-label">
+              Shipping Address:
+            </label>
+            <div class="col-sm-10">
+              <textarea
+                class="form-control"
+                id="shippingAddress"
+                name="shippingAddress"
+                rows="5"
+                placeholder="Enter delivery address"
+              ></textarea>
+            </div>
+            <label for="distKMs" class="col-sm-2 col-form-label">
+              Distance from shop in KMs:
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="number"
+                class="form-control"
+                id="distKMs"
+                name="distKMs"
+                min="0"
+                placeholder="Enter distance from shop to delivery address"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container" style="text-align: right;">
+        <button type="submit" form="create_order" class="btn btn-primary">
+          Create Order
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

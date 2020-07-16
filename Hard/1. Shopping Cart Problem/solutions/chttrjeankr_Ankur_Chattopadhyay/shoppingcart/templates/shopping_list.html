@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <h1>Shopping List</h1>
+  <hr />
+  <div class="container" style="text-align: right;">
+    <button
+      type="submit"
+      class="btn btn-info btn-lg"
+      onclick="window.location.href='/order'"
+    >
+      Checkout
+    </button>
+  </div>
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Original Price</th>
+          <th>Discounted Price</th>
+          <th>Amount Saved</th>
+          <th>Weight in grams</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item, details in shopping_list.items %}
+        <tr>
+          <td>{{ item }}</td>
+          <td style="text-align: right;">
+            &#8377; {{ details.original_price }}
+          </td>
+          {% if details.discount_price %}
+          <td style="text-align: right;">
+            &#8377; {{ details.discount_price }}
+          </td>
+          <td style="text-align: right;">
+            &#8377; {{ details.actual_price}}
+          </td>
+          {% else %}
+          <td style="text-align: center;">No Discount</td>
+          <td style="text-align: center;">N/A</td>
+          {% endif %}
+          <td style="text-align: right;">{{ details.weight_in_gms }} gms</td>
+          <td>
+            <form id="quantity_{{item}}" class="form-inline">
+              <div class="input-group">
+                <input type="number" class="form-control" value="0" min="1" />
+                <button type="submit" class="btn btn-dark btn-sm">
+                  Add to Cart
+                </button>
+              </div>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
