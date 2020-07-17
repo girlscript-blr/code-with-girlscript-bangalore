@@ -9,6 +9,10 @@ class Category(models.Model):
     def __str__(self):
         return f"{self.pk}: {self.name}"
 
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+
 
 class Item(models.Model):
     """docstring for Item."""
@@ -18,6 +22,13 @@ class Item(models.Model):
     original_price = models.FloatField()
     discount_price = models.FloatField()
     weight_in_gms = models.FloatField()
+
+    def __str__(self):
+        return f"{self.pk}: {self.name}"
+
+    class Meta:
+        verbose_name = "Item"
+        verbose_name_plural = "Items"
 
 
 class Order(models.Model):
@@ -72,10 +83,18 @@ class Order(models.Model):
     def __str__(self):
         return f"{self.pk}: {self.customer_name}"
 
+    class Meta:
+        verbose_name = "Order"
+        verbose_name_plural = "Orders"
 
-class ItemInOrder(object):
+
+class ItemInOrder(models.Model):
     """docstring for ItemInOrder."""
 
     item = models.ForeignKey("Item", on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey("Order", on_delete=models.SET_NULL, null=True)
     quantity = models.IntegerField()
+
+    class Meta:
+        verbose_name = "Item In Order"
+        verbose_name_plural = "Items In Order"
