@@ -51,7 +51,7 @@ int main()
   getline(cin,payment);
 
   cout<<"\n------------LIST OF ITEMS-----------------\n";
-  cout<<"\nProduct ID         Product Name               Price";
+  cout<<"\nProduct ID         Product Name               Price\n";
   cout<<"101                Samsung wireless headset:    Rs.2000\n";
   cout<<"102                MI wireless headset:         Rs.1000\n";
   cout<<"108                Apple Airpods:               Rs.12000\n";
