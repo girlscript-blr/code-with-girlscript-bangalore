@@ -18,12 +18,20 @@
           </tr>
         </thead>
         <tbody>
-          {% for item_tuple, quantity in cart.items %}
+          {% for item, quantity in cart.items %}
           <tr>
             <th scope="row">{{ forloop.counter }}</th>
-            <td>{{ item_tuple.item_name }}</td>
-            <td>&#8377; {{ item_tuple.final_price_per_item }}</td>
-            <td>&#8377; {{ item_tuple.amount_saved_per_item }}</td>
+            <td>{{ item.name }}</td>
+            {% if item.discount_price != 0 %}
+            <td>
+              &#8377; <strike>{{ item.original_price }}</strike>
+              {{item.actual_price }}
+            </td>
+            <td>&#8377; {{ item.savings }}</td>
+            {% else %}
+            <td>&#8377; {{ item.actual_price }}</td>
+            <td>N/A</td>
+            {% endif %}
             <td>{{ quantity }}</td>
           </tr>
           {% endfor %}
