@@ -1,5 +1,6 @@
 from django.contrib import admin
-from shoppingcart.models import Item, Category, ItemInOrder, Order
+
+from shoppingcart.models import Category, Item, ItemInOrder, Order
 
 # Register your models here.
 
