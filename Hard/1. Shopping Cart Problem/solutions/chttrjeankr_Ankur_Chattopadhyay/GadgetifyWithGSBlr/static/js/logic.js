@@ -3,12 +3,12 @@
 function deliveryCheck() {
   if (document.getElementById("homedel").checked) {
     document.getElementById("if-homedel").style.display = "block";
-    document.getElementById("shippingAddress").required = true;
-    document.getElementById("distKMs").required = true;
+    document.getElementById("shipping_address").required = true;
+    document.getElementById("distance_from_shop").required = true;
   } else {
     document.getElementById("if-homedel").style.display = "none";
-    document.getElementById("shippingAddress").required = false;
-    document.getElementById("distKMs").required = false;
+    document.getElementById("shipping_address").required = false;
+    document.getElementById("distance_from_shop").required = false;
   }
 }
 // END //
@@ -60,7 +60,7 @@ $(function () {
       type: "POST",
       url: "/add_to_cart/",
       success: function (data) {
-        alert(`Item added: ${data["item"]}`);
+        alert(`Item modified: ${data["item"]}`);
       },
     });
     event.preventDefault();
