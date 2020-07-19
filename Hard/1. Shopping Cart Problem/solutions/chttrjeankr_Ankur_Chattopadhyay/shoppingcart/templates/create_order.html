@@ -67,49 +67,49 @@
     <form class="create_order" id="create_order" method="post">
       {% csrf_token %}
       <div class="form-group row">
-        <label for="name" class="col-sm-2 col-form-label">
+        <label for="customer_name" class="col-sm-2 col-form-label">
           Name:
         </label>
         <div class="col-sm-10">
           <input
             type="text"
             class="form-control"
-            id="name"
-            name="name"
+            id="customer_name"
+            name="customer_name"
             placeholder="Enter your name"
             required
           />
         </div>
-        <label for="phoneNumber" class="col-sm-2 col-form-label">
+        <label for="customer_mobile_no" class="col-sm-2 col-form-label">
           Phone Number:
         </label>
         <div class="col-sm-10">
           <input
-            type="text"
+            type="number"
             class="form-control"
-            id="phoneNumber"
-            name="phoneNumber"
+            id="customer_mobile_no"
+            name="customer_mobile_no"
             placeholder="Enter your phone number"
             required
           />
         </div>
-        <label for="paymentMethod" class="col-sm-2 col-form-label">
+        <label for="payment_method" class="col-sm-2 col-form-label">
           Payment Method:
         </label>
         <div class="col-sm-10">
           <select
             class="form-control"
-            id="paymentMethod"
-            name="paymentMethod"
+            id="payment_method"
+            name="payment_method"
             required
           >
-            <option value="ccard">Credit Card</option>
-            <option value="dcard">Debit Card</option>
-            <option value="netb">Net Banking</option>
-            <option value="cod">Cash on Delivery</option>
+            <option value="CCARD">Credit Card</option>
+            <option value="DCARD">Debit Card</option>
+            <option value="NETB">Net Banking</option>
+            <option value="COD">Cash on Delivery</option>
           </select>
         </div>
-        <label for="delivery" class="col-sm-2 col-form-label">
+        <label for="delivery_option" class="col-sm-2 col-form-label">
           Delivery Option:
         </label>
         <div class="col-sm-10">
@@ -117,9 +117,9 @@
             <input
               type="radio"
               class="form-check-input form-control"
-              name="delivery"
+              name="delivery_option"
               id="takeaway"
-              value="takeaway"
+              value="TKW"
               onclick="deliveryCheck()"
               checked
             />
@@ -131,9 +131,9 @@
             <input
               type="radio"
               class="form-check-input form-control"
-              name="delivery"
+              name="delivery_option"
               id="homedel"
-              value="homedel"
+              value="HMD"
               onclick="deliveryCheck()"
             />
             <label class="form-check-label" for="delivery2">
@@ -143,27 +143,27 @@
         </div>
         <div class="container" style="display: none;" id="if-homedel">
           <div class="form-group row">
-            <label for="shippingAddress" class="col-sm-2 col-form-label">
+            <label for="shipping_address" class="col-sm-2 col-form-label">
               Shipping Address:
             </label>
             <div class="col-sm-10">
               <textarea
                 class="form-control"
-                id="shippingAddress"
-                name="shippingAddress"
+                id="shipping_address"
+                name="shipping_address"
                 rows="5"
                 placeholder="Enter delivery address"
               ></textarea>
             </div>
-            <label for="distKMs" class="col-sm-2 col-form-label">
+            <label for="distance_from_shop" class="col-sm-2 col-form-label">
               Distance from shop in KMs:
             </label>
             <div class="col-sm-10">
               <input
                 type="number"
                 class="form-control"
-                id="distKMs"
-                name="distKMs"
+                id="distance_from_shop"
+                name="distance_from_shop"
                 min="0"
                 placeholder="Enter distance from shop to delivery address"
               />
