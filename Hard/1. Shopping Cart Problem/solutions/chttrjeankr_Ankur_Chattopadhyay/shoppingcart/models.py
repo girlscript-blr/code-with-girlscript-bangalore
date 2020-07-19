@@ -98,3 +98,4 @@ class ItemInOrder(models.Model):
     class Meta:
         verbose_name = "Item In Order"
         verbose_name_plural = "Items In Order"
+        unique_together = [["item", "order"]]
