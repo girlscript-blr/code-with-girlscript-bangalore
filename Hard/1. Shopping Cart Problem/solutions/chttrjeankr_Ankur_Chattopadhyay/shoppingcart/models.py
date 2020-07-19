@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -70,29 +71,71 @@ class Order(models.Model):
     customer_mobile_no = models.BigIntegerField()
     payment_method = models.CharField(max_length=5, choices=PAYMENT_CHOICES)
     delivery_option = models.CharField(max_length=3, choices=DELIVERY_CHOICES)
-    distance_from_shop = models.IntegerField()
-    shipping_address = models.TextField()
+    distance_from_shop = models.IntegerField(blank=True, null=True, default=0)
+    shipping_address = models.TextField(blank=True, null=True)
 
     def get_billed_items(self):
-        pass
+        item_list = [
+            (i.item, i.quantity) for i in ItemInOrder.objects.filter(order=self)
+        ]
+        return item_list
 
-    def calculate_total_tax(self):
-        pass
+    @property
+    def total_tax(self):
+        tax_rate = 0.06
+        total_price = self.total_item_price
+        return round(tax_rate * total_price, 2)
 
-    def calculate_total_shipping(self):
-        pass
+    @property
+    def total_shipping(self):
+        """
+        validate if this func returns None before saving model
+            if yes, `messages.warning(request, "Undeliverable Shipping Address")`
+            and don't save
+        """
+        from shoppingcart.utilities import delivery_cost
 
-    def calculate_total_price(self):
-        pass
+        if self.delivery_option == "HMD":
+            try:
+                return delivery_cost[
+                    filter(
+                        lambda x: self.distance_from_shop in x, delivery_cost.keys()
+                    ).__next__()
+                ]
+            except StopIteration:
+                return None
+        else:
+            return 0
 
-    def calculate_total_saved(self):
-        pass
+    @property
+    def total_item_price(self):
+        price = 0
+        items_in_order_set = ItemInOrder.objects.filter(order=self)
+        for item_in_order in items_in_order_set:
+            price += item_in_order.item.actual_price * item_in_order.quantity
+        return round(price, 2)
+
+    @property
+    def total_savings(self):
+        saved = 0
+        items_in_order_set = ItemInOrder.objects.filter(order=self)
+        for item_in_order in items_in_order_set:
+            saved += item_in_order.item.savings * item_in_order.quantity
+        return saved
 
     def check_order_status(self):
         return self.order_status
 
+    @property
+    def amount_payable(self):
+        return round((self.total_item_price + self.total_tax + self.total_shipping), 2,)
+
+    def clean(self):
+        if self.total_shipping is None:
+            raise ValidationError("Undeliverable Shipping Address")
+
     def __str__(self):
-        return f"{self.pk}: {self.customer_name}"
+        return f"{self.pk}: {self.billing_date_time}"
 
     class Meta:
         verbose_name = "Order"
