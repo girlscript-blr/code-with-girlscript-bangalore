@@ -12,9 +12,11 @@
     </button>
   </div>
   <div class="container">
+    {% load shoppingcart_extras %}
     <table class="table table-bordered">
       <thead>
         <tr>
+          <th>Item ID</th>
           <th>Item Name</th>
           <th>Original Price</th>
           <th>Discounted Price</th>
@@ -23,30 +25,45 @@
         </tr>
       </thead>
       <tbody>
-        {% for item, details in shopping_list.items %}
+        {% for item in shopping_list %}
         <tr>
-          <td>{{ item }}</td>
+          <td>{{ item.pk }}</td>
+          <td>{{ item.name }}</td>
           <td style="text-align: right;">
-            &#8377; {{ details.original_price }}
+            &#8377; {{ item.original_price }}
           </td>
-          {% if details.discount_price %}
+          {% if item.discount_price != 0 %}
           <td style="text-align: right;">
-            &#8377; {{ details.discount_price }}
+            &#8377; {{ item.discount_price }}
           </td>
           <td style="text-align: right;">
-            &#8377; {{ details.actual_price}}
+            &#8377; {{ item.savings}}
           </td>
           {% else %}
           <td style="text-align: center;">No Discount</td>
           <td style="text-align: center;">N/A</td>
           {% endif %}
-          <td style="text-align: right;">{{ details.weight_in_gms }} gms</td>
+          <td style="text-align: right;">{{ item.weight_in_gms }} gms</td>
           <td>
-            <form id="quantity_{{item}}" class="form-inline">
+            <form id="quantity_{{ item.pk }}" class="form-inline">
               <div class="input-group">
-                <input type="number" class="form-control" value="0" min="1" />
-                <button type="submit" class="btn btn-dark btn-sm">
+                <input
+                  type="number"
+                  class="form-control"
+                  value="{{ cart|get_quantity:item }}"
+                  min="0"
+                />
+                <button
+                  id="{{ item.pk }}"
+                  type="submit"
+                  class="btn btn-dark btn-sm"
+                >
+                  <!-- prettier-ignore -->
+                  {% if cart|get_quantity:item != 0 %}
+                  Update Quantity
+                  {% else %}
                   Add to Cart
+                  {% endif %}
                 </button>
               </div>
             </form>
