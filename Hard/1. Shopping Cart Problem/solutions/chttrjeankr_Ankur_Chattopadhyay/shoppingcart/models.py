@@ -20,8 +20,19 @@ class Item(models.Model):
     name = models.CharField(max_length=20)
     category_id = models.ForeignKey("Category", on_delete=models.PROTECT)
     original_price = models.FloatField()
-    discount_price = models.FloatField()
+    discount_price = models.FloatField(null=True, blank=True)
     weight_in_gms = models.FloatField()
+
+    @property
+    def actual_price(self):
+        return self.discount_price or self.original_price
+
+    @property
+    def savings(self):
+        if self.discount_price:
+            return self.original_price - self.discount_price
+        else:
+            return 0
 
     def __str__(self):
         return f"{self.pk}: {self.name}"
