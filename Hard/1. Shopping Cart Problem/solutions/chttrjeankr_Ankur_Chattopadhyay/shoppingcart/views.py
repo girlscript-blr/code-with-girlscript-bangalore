@@ -52,18 +52,30 @@ def display_shopping_list(request):
 
 
 def create_order(request):
-    if request.method == "GET":
-        return render(request, "create_order.html", context={"cart": dict(cart)})
     if request.method == "POST":
+        form = OrderForm(request.POST)
         if cart:
-            bill = get_bill(request)
-            if bill is None:
-                return redirect(reverse("create_order"))
-            else:
+            if form.is_valid():
+                order = form.save(commit=False)
+                order.order_status = "TRAN"
+                order.save(cart)
                 cart.clear()
-                return render(request, "display_bill.html", context={"bill": bill})
+                return render(
+                    request,
+                    "display_bill.html",
+                    context={"order": order, **shop_details},
+                )
+            else:
+                messages.error(request, "Form Validation Error")
+                # return redirect(reverse("create_order"))
         else:
             messages.error(request, "No items in cart to be billed")
             return redirect(reverse("create_order"))
 
+    else:
+        form = OrderForm()
+
+    return render(
+        request, "create_order.html", context={"cart": dict(cart), "form": form},
+    )
 
