@@ -88,11 +88,6 @@ class Order(models.Model):
 
     @property
     def total_shipping(self):
-        """
-        validate if this func returns None before saving model
-            if yes, `messages.warning(request, "Undeliverable Shipping Address")`
-            and don't save
-        """
         from shoppingcart.utilities import delivery_cost
 
         if self.delivery_option == "HMD":
@@ -123,12 +118,9 @@ class Order(models.Model):
             saved += item_in_order.item.savings * item_in_order.quantity
         return saved
 
-    def check_order_status(self):
-        return self.order_status
-
     @property
     def amount_payable(self):
-        return round((self.total_item_price + self.total_tax + self.total_shipping), 2,)
+        return round((self.total_item_price + self.total_tax + self.total_shipping), 2)
 
     def clean(self):
         if self.total_shipping is None:
