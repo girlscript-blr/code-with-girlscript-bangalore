@@ -1,7 +1,17 @@
 {% extends "base.html" %} {% block content %}
+
 <div class="container">
   <h1>Shopping List</h1>
   <hr />
+  <div class="col-sm-auto">
+    <button
+      type="submit"
+      class="btn btn-outline-secondary"
+      onclick="window.location.href='/categories'"
+    >
+      Back to Categories
+    </button>
+  </div>
   <div class="container" style="text-align: right;">
     <button
       type="submit"
