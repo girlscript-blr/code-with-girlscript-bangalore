@@ -21,24 +21,15 @@ def add_to_cart(request):
     if request.method == "POST":
         print(request.POST)
         form_id = request.POST["id"]
-        item_name = form_id.lstrip("quantity_")
+        item_id = form_id.lstrip("quantity_")
         quantity = int(request.POST["quantity"])
-
-        final_price_per_item = shopping_list[item_name].get(
-            "discount_price", shopping_list[item_name]["original_price"]
-        )
-        try:
-            amount_saved_per_item = (
-                shopping_list[item_name]["original_price"]
-                - shopping_list[item_name]["discount_price"]
-            )
-        except KeyError:
-            amount_saved_per_item = 0
-        item_tuple = Item(item_name, final_price_per_item, amount_saved_per_item)
-
-        cart[item_tuple] += quantity
-        print(cart)
-        return JsonResponse({"item": item_name})
+        new_item = Item.objects.get(pk=item_id)
+        if quantity == 0:
+            if cart.get(new_item):
+                del cart[new_item]
+        else:
+            cart[new_item] = quantity
+        return JsonResponse({"item": new_item.name})
 
 
 def clear_cart(request):
