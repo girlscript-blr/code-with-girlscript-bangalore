@@ -55,12 +55,11 @@ def clear_cart(request):
 
 
 def display_shopping_list(request):
-    for item, details in shopping_list.items():
-        shopping_list[item]["actual_price"] = details["original_price"] - (
-            details.get("discount_price") or 0
-        )
+    shopping_list = Item.objects.all()
     return render(
-        request, "shopping_list.html", context={"shopping_list": shopping_list}
+        request,
+        "shopping_list.html",
+        context={"shopping_list": shopping_list, "cart": cart},
     )
 
 
