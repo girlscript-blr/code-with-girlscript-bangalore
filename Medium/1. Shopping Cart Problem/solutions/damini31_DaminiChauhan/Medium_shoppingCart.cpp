@@ -59,7 +59,7 @@ void calculate(int x[],int y[],int n,int OS)
              }
               else
              {
-                 g=50;
+                 g=60;
                  cout<<"\nDelivery Fee Upto "<<OS<<" kms                                Rs:"<<g;
              }
 
