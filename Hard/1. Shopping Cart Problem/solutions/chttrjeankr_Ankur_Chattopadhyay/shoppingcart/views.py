@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
 from shoppingcart.forms import OrderForm
-from shoppingcart.models import Item, ItemInOrder, Order
+from shoppingcart.models import Category, Item, Order
 from shoppingcart.utilities import shop_details
 
 cart = dict()
@@ -36,14 +36,19 @@ def clear_cart(request):
     if cart:
         cart.clear()
         messages.info(request, "Cart cleared! Add more items")
-        return redirect(reverse("display_shopping_list"))
+        return redirect(reverse("categories"))
     else:
         messages.error(request, "Cart is already empty")
         return redirect(reverse("create_order"))
 
 
-def display_shopping_list(request):
-    shopping_list = Item.objects.all()
+def display_categories(request):
+    categories = Category.objects.all()
+    return render(request, "categories.html", context={"categories": categories},)
+
+
+def display_shopping_list(request, category):
+    shopping_list = Item.objects.filter(category=category)
     return render(
         request,
         "shopping_list.html",
