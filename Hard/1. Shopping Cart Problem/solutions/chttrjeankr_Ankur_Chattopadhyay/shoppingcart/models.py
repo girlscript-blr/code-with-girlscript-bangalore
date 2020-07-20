@@ -8,7 +8,7 @@ class Category(models.Model):
     name = models.CharField(max_length=20)
 
     def __str__(self):
-        return f"{self.pk}: {self.name}"
+        return f"Category {self.pk}: {self.name}"
 
     class Meta:
         verbose_name = "Category"
@@ -36,7 +36,7 @@ class Item(models.Model):
             return 0
 
     def __str__(self):
-        return f"{self.pk}: {self.name}"
+        return f"Item {self.pk}: {self.name}"
 
     class Meta:
         verbose_name = "Item"
@@ -135,7 +135,7 @@ class Order(models.Model):
             raise ValidationError("Undeliverable Shipping Address")
 
     def __str__(self):
-        return f"{self.pk}: {self.billing_date_time}"
+        return f"Order {self.pk}"
 
     class Meta:
         verbose_name = "Order"
@@ -148,6 +148,9 @@ class ItemInOrder(models.Model):
     item = models.ForeignKey("Item", on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey("Order", on_delete=models.SET_NULL, null=True)
     quantity = models.IntegerField()
+
+    def __str__(self):
+        return f"Order {self.order.pk}: Item {self.item.pk}"
 
     class Meta:
         verbose_name = "Item In Order"
