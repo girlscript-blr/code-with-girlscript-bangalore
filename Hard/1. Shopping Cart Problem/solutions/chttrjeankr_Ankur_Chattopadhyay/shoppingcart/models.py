@@ -143,8 +143,8 @@ class Order(models.Model):
 class ItemInOrder(models.Model):
     """docstring for ItemInOrder."""
 
-    item = models.ForeignKey("Item", on_delete=models.SET_NULL, null=True)
-    order = models.ForeignKey("Order", on_delete=models.SET_NULL, null=True)
+    item = models.ForeignKey("Item", on_delete=models.PROTECT)
+    order = models.ForeignKey("Order", on_delete=models.PROTECT)
     quantity = models.IntegerField()
 
     def __str__(self):
