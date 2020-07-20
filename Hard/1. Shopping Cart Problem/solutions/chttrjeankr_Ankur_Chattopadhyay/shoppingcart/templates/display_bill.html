@@ -62,17 +62,18 @@
   </div>
   <div class="container">
     <ul>
-      <li>Customer Name: {{ bill.customerName }}</li>
-      <li>Customer Contact Number: {{ bill.customerPhoneNumber }}</li>
-      <li>Tax Included: &#8377; {{ bill.totalTax }}</li>
-      {% if bill.deliveryMethod == 'homedel' %}
-      <li>Delivery Charges: &#8377; {{ bill.deliveryCost }}</li>
+      <li>Customer Name: {{ order.customer_name }}</li>
+      <li>Customer Contact Number: {{ order.customer_mobile_no }}</li>
+      <li>Tax Included: &#8377; {{ order.total_tax }}</li>
+      {% if order.delivery_option == 'HMD' %}
+      <li>Delivery Charges: &#8377; {{ order.total_shipping }}</li>
       {% endif %}
-      <li>Total Price: &#8377; {{ bill.totalPrice }}</li>
-      <li>Total Savings: &#8377; {{ bill.totalSavings }}</li>
-      <li>Payment Method: {{ bill.paymentMethod }}</li>
-      {% if bill.deliveryMethod == 'homedel' %}
-      <li>Shipping Address: {{ bill.shippingAddress }}</li>
+      <li>Total Price: &#8377; {{ order.total_item_price }}</li>
+      <li>Total Savings: &#8377; {{ order.total_savings }}</li>
+      <li>Amount Payable: &#8377; {{ order.amount_payable }}</li>
+      <li>Payment Method: {{ order.get_payment_method_display }}</li>
+      {% if order.delivery_option == 'HMD' %}
+      <li>Shipping Address: {{ order.shipping_address }}</li>
       {% endif %}
     </ul>
   </div>
