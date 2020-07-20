@@ -14,7 +14,9 @@ class OrderForm(ModelForm):
         print(f"{delivery_option}, {distance_from_shop}, {shipping_address}")
 
         if delivery_option == "HMD":
-            if not (distance_from_shop and shipping_address):
+            if shipping_address != "" and distance_from_shop >= 0:
+                pass
+            elif not (distance_from_shop and shipping_address):
                 raise ValidationError("Wrong delivery option")
 
     class Meta:
