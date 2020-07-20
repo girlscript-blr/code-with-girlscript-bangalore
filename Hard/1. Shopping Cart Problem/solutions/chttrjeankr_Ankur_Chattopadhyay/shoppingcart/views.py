@@ -1,18 +1,15 @@
-from django.shortcuts import render, redirect
-from django.http import JsonResponse
-from django.urls import reverse
 from django.contrib import messages
+from django.core.exceptions import ObjectDoesNotExist
+from django.http import JsonResponse
+from django.shortcuts import redirect, render
+from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
-from collections import defaultdict, namedtuple
-from shoppingcart.utilities import shopping_list, shop_details, delivery_cost
-import datetime
 
-# Create your views here.
+from shoppingcart.forms import OrderForm
+from shoppingcart.models import Item, ItemInOrder, Order
+from shoppingcart.utilities import shop_details
 
-cart = defaultdict(int)
-Item = namedtuple(
-    "Item", ["item_name", "final_price_per_item", "amount_saved_per_item"]
-)
+cart = dict()
 
 
 def index(request):
