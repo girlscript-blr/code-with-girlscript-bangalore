@@ -19,10 +19,11 @@ class Item(models.Model):
     """docstring for Item."""
 
     name = models.CharField(max_length=20)
-    category_id = models.ForeignKey("Category", on_delete=models.PROTECT)
+    category = models.ForeignKey("Category", on_delete=models.PROTECT)
     original_price = models.FloatField()
     discount_price = models.FloatField(null=True, blank=True)
     weight_in_gms = models.FloatField()
+    available = models.BooleanField(default=True)
 
     @property
     def actual_price(self):
