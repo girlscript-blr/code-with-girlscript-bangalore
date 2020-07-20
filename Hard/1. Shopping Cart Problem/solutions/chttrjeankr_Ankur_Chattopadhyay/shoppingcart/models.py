@@ -134,6 +134,11 @@ class Order(models.Model):
         if self.total_shipping is None:
             raise ValidationError("Undeliverable Shipping Address")
 
+    def save(self, cart, *args, **kwargs):
+        super().save(*args, **kwargs)
+        for item, quantity in cart.items():
+            ItemInOrder(item=item, order=self, quantity=quantity).save()
+
     def __str__(self):
         return f"Order {self.pk}"
 
