@@ -79,3 +79,22 @@ def create_order(request):
         request, "create_order.html", context={"cart": dict(cart), "form": form},
     )
 
+
+def get_order_status(request):
+    if request.method == "GET":
+        return render(request, "order_status.html")
+    if request.method == "POST":
+        order_id = request.POST.get("order_id")
+        phone_number = request.POST.get("phone_number")
+        try:
+            queried_order = Order.objects.get(
+                pk=order_id, customer_mobile_no=phone_number
+            )
+            return render(
+                request,
+                "display_bill.html",
+                context={"order": queried_order, **shop_details, "status_check": True},
+            )
+        except ObjectDoesNotExist:
+            messages.error(request, "Order Not Found")
+            return redirect(reverse("order_status"))
