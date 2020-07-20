@@ -20,7 +20,13 @@
 
   <div class="container">
     <ul>
-      <li>Date: {{ bill.billingDateTime }}</li>
+      <li>Date: {{ order.billing_date_time|date:"D, d F, Y, h:i:s A e" }}</li>
+      <li>Order ID: {{ order.pk }}</li>
+      <li>
+        <!-- prettier-ignore -->
+        Order Status: {{ order.get_order_status_display }} as of
+        {{ order.order_modified|date:"D, d F, Y, h:i:s A e" }}
+      </li>
     </ul>
   </div>
   <div class="container">
