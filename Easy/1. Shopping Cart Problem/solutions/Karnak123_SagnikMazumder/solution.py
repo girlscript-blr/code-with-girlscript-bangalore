@@ -11,7 +11,7 @@ app.configure(background='gray')
 product_dict = {'Redmi Note 9: Rs. 11999': 11999,
                 'Mi Notebook 14: Rs. 54999': 54999,
                 'Burning Chrome: Rs. 560': 560,
-                'Snow Crash: Rs. 3790': 379,
+                'Snow Crash: Rs. 379': 379,
                 'HP X1000 Wired Mouse: Rs. 349': 349}
 product_dict_keys = list(product_dict.keys())
 product_dict_values = list(product_dict.values())
@@ -35,7 +35,7 @@ def gen_bill():
     if _quantity == '' or int(_quantity) < 1:
         error = tk.Label(app, text="Bill couldn't be generated as quantity is invalid",
                          height=5, width=128, bg="#FF0000", fg="#FFFFFF")
-        error.grid(row=8, column=0, columnspan=10)
+        error.grid(row=8, column=0, columnspan=5)
         error.after(3000, lambda: error.destroy())
     else:
         # calculate tax
@@ -60,7 +60,7 @@ def gen_bill():
             f.close()
 
         temp = tk.Label(app, text="Bill generated Successfully!!!", height=5, width=128, bg="#2ECA12", fg="#DEF031")
-        temp.grid(row=8, column=0, columnspan=10)
+        temp.grid(row=8, column=0, columnspan=5)
         temp.after(3000, lambda: temp.destroy())
 
         name.delete(0, tk.END)
@@ -74,11 +74,11 @@ def gen_bill():
 def make_banner():
     banner = tk.Label(app, text="GadgetifyWithGSBlr Shopping Mall", height=3, width=100, bg="#C39BD3", fg="#F2F4F4")
     banner.grid(row=0, column=0, columnspan=10)
-    banner.config(font=("Verdana", 20))
+    banner.config(font=("Verdana", 20, "bold"))
 
 
 # labels
-def make_labels():
+def make_labels(r):
     name_label = tk.Label(app, text="Customer Name", height=2, width=24, bg="#C39BD3", fg="#F2F4F4")
     name_label.grid(row=1, column=0, pady=12)
     phone_label = tk.Label(app, text="Mobile No.", height=2, width=24, bg="#C39BD3", fg="#FFFFFF")
@@ -88,7 +88,7 @@ def make_labels():
     item_label = tk.Label(app, text="Item Name", height=2, width=24, bg="#C39BD3", fg="#F2F4F4")
     item_label.grid(row=4, column=0, pady=12)
     quantity_label = tk.Label(app, text="Quantity", height=2, width=24, bg="#C39BD3", fg="#F2F4F4")
-    quantity_label.grid(row=5, column=0, pady=12)
+    quantity_label.grid(row=r+1, column=0, pady=12)
 
 
 # entries
@@ -96,8 +96,6 @@ name = tk.Entry(width=32)
 name.grid(row=1, column=1, pady=12, ipady=5)
 phone = tk.Entry(width=32)
 phone.grid(row=2, column=1, pady=12, ipady=5)
-quantity = tk.Entry(width=32)
-quantity.grid(row=5, column=1, pady=12, ipady=5)
 
 payment_method = tk.StringVar()
 r1 = tk.Radiobutton(app, text='Cash', value='Cash', variable=payment_method, width=24)
@@ -108,16 +106,22 @@ r3 = tk.Radiobutton(app, text='Online Banking', value='Online Banking', variable
 r3.grid(row=3, column=3, ipady=5)
 r3.select()
 
-item, c = tk.IntVar(app, 11999), 1
+item, c, r = tk.IntVar(app, 11999), 1, 4
 for key, val in product_dict.items():
-    tk.Radiobutton(app, text=key, value=val, variable=item, width=24).grid(row=4, column=c, pady=7)
+    tk.Radiobutton(app, text=key, value=val, variable=item, width=24).grid(row=r, column=c, pady=7)
     c += 1
+    if c > 3:
+        r += 1
+        c = 1
+quantity = tk.Entry(width=32)
+quantity.grid(row=r+1, column=1, pady=12, ipady=5)
 
 # buy
-buy = tk.Button(app, text='Buy Now', width=28, command=gen_bill, bg='#FF8826', fg='#974EF9')
-buy.grid(row=7, column=2, ipady=5, pady=10)
+buy = tk.Button(app, text='Buy Now', command=gen_bill, bg='#FF8826', fg='#974EF9')
+buy.grid(row=r+2, column=2, ipady=5, pady=10)
+buy.config(font=("Verdana", 20, "bold"))
 
 make_banner()
-make_labels()
+make_labels(r)
 
 app.mainloop()
