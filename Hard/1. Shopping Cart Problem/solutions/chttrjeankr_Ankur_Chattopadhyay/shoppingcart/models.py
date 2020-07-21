@@ -1,5 +1,10 @@
+import json
+
 from django.core.exceptions import ValidationError
+from django.core.serializers import deserialize, serialize
 from django.db import models
+
+from shoppingcart.utilities import delivery_cost, order_directory
 
 
 class Category(models.Model):
@@ -89,8 +94,6 @@ class Order(models.Model):
 
     @property
     def total_shipping(self):
-        from shoppingcart.utilities import delivery_cost
-
         if self.delivery_option == "HMD":
             try:
                 return delivery_cost[
