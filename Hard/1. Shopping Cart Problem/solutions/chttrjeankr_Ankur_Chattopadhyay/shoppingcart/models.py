@@ -106,17 +106,17 @@ class Order(models.Model):
     @property
     def total_item_price(self):
         price = 0
-        items_in_order_set = ItemInOrder.objects.filter(order=self)
-        for item_in_order in items_in_order_set:
-            price += item_in_order.item.actual_price * item_in_order.quantity
+        item_list = self.get_billed_items()
+        for item, quantity in item_list:
+            price += item.actual_price * quantity
         return round(price, 2)
 
     @property
     def total_savings(self):
         saved = 0
-        items_in_order_set = ItemInOrder.objects.filter(order=self)
-        for item_in_order in items_in_order_set:
-            saved += item_in_order.item.savings * item_in_order.quantity
+        item_list = self.get_billed_items()
+        for item, quantity in item_list:
+            saved += item.savings * quantity
         return saved
 
     @property
