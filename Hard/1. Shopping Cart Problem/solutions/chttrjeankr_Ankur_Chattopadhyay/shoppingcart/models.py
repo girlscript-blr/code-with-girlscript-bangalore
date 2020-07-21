@@ -118,7 +118,7 @@ class Order(models.Model):
         item_list = self.get_billed_items()
         for item, quantity in item_list:
             saved += item.savings * quantity
-        return saved
+        return round(saved, 2)
 
     @property
     def amount_payable(self):
