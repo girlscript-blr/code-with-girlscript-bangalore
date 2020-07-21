@@ -81,9 +81,7 @@ class Order(models.Model):
     shipping_address = models.TextField(blank=True, null=True)
 
     def get_billed_items(self):
-        item_list = [
-            (i.item, i.quantity) for i in ItemInOrder.objects.filter(order=self)
-        ]
+        item_list = self.get_items_from_json_cart()
         return item_list
 
     @property
@@ -125,6 +123,19 @@ class Order(models.Model):
     @property
     def amount_payable(self):
         return round((self.total_item_price + self.total_tax + self.total_shipping), 2)
+
+    def get_items_from_json_cart(self):
+        with open(order_directory + f"order_{self.pk}.json") as f:
+            cart_list = json.load(f)
+
+        item_list = []
+        for item in cart_list[1:]:
+            quantity = item.pop("quantity")
+            item_deserialized = list(deserialize("json", json.dumps([item])))[0]
+            item_obj = item_deserialized.object
+            item_list.append((item_obj, quantity))
+
+        return item_list
 
     def save_cart(self, cart):
         cart_list = [{"order_id": self.pk}]
