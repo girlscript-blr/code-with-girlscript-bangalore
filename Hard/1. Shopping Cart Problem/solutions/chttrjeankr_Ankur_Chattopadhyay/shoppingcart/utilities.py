@@ -8,3 +8,4 @@ delivery_cost = {
     range(6, 21): 30,
     range(21, 51): 60,
 }
+order_directory = "shoppingcart/order_invoices/"
