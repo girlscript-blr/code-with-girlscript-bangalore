@@ -10,7 +10,7 @@ from shoppingcart.utilities import delivery_cost, order_directory
 class Category(models.Model):
     """docstring for Category."""
 
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=20, unique=True)
 
     def __str__(self):
         return f"Category {self.pk}: {self.name}"
@@ -47,6 +47,7 @@ class Item(models.Model):
     class Meta:
         verbose_name = "Item"
         verbose_name_plural = "Items"
+        unique_together = [["name", "category"]]
 
 
 class Order(models.Model):
