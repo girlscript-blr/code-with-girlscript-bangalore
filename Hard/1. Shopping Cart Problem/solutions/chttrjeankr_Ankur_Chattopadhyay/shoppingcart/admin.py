@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.contrib import admin
 
-from shoppingcart.models import Category, Item, ItemInOrder, Order
+from shoppingcart.models import Category, Item, Order
 
 
 @admin.register(Order)
@@ -56,25 +56,6 @@ class ItemAdmin(admin.ModelAdmin):
         "available",
     )
     list_filter = ("category", "available")
-
-
-@admin.register(ItemInOrder)
-class ItemInOrderAdmin(admin.ModelAdmin):
-    list_display = (
-        "item",
-        "order",
-        "quantity",
-    )
-    list_filter = ("order",)
-
-    def has_add_permission(self, request):
-        return False
-
-    def has_change_permission(self, request, obj=None):
-        return False
-
-    def has_delete_permission(self, request, obj=None):
-        return False
 
 
 @admin.register(Category)
