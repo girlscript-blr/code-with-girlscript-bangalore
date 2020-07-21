@@ -138,19 +138,3 @@ class Order(models.Model):
     class Meta:
         verbose_name = "Order"
         verbose_name_plural = "Orders"
-
-
-class ItemInOrder(models.Model):
-    """docstring for ItemInOrder."""
-
-    item = models.ForeignKey("Item", on_delete=models.PROTECT)
-    order = models.ForeignKey("Order", on_delete=models.PROTECT)
-    quantity = models.IntegerField()
-
-    def __str__(self):
-        return f"Order {self.order.pk}: Item {self.item.pk}"
-
-    class Meta:
-        verbose_name = "Item In Order"
-        verbose_name_plural = "Items In Order"
-        unique_together = [["item", "order"]]
