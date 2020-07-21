@@ -126,14 +126,24 @@ class Order(models.Model):
     def amount_payable(self):
         return round((self.total_item_price + self.total_tax + self.total_shipping), 2)
 
+    def save_cart(self, cart):
+        cart_list = [{"order_id": self.pk}]
+        for i, (item, quantity) in enumerate(cart.items()):
+            ser_item = Item.objects.filter(pk=item.pk)
+            store_cart = json.loads(serialize("json", ser_item))
+            store_cart[0]["quantity"] = quantity
+            cart_list.extend(store_cart)
+
+        with open(order_directory + f"order_{self.pk}.json", "w") as f:
+            json.dump(cart_list, f)
+
     def clean(self):
         if self.total_shipping is None:
             raise ValidationError("Undeliverable Shipping Address")
 
     def save(self, cart, *args, **kwargs):
         super().save(*args, **kwargs)
-        for item, quantity in cart.items():
-            ItemInOrder(item=item, order=self, quantity=quantity).save()
+        self.save_cart(cart)
 
     def __str__(self):
         return f"Order {self.pk}"
