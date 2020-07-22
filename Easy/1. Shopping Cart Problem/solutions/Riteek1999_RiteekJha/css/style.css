@@ -1,0 +1,20 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.container{
+    margin-top: 10px;
+}
+body{
+  margin-bottom: 10px;
+}
+img{
+  height: 300px;
+}
+.hide{
+  display:none;
+}
+.show{
+  display:block;
+}
