@@ -1,0 +1,5 @@
+* Python is the chosen language.
+* Dictionary is used to store the items and it's cost.
+* Numbers assigned to every items, base on that number customer will select the item. 
+* To get names and costs of items we have considered two lists one contains names and another costs.
+* Item and qty will be selected by customer. Formula we used is (item_cost * qty )*(6/100).
