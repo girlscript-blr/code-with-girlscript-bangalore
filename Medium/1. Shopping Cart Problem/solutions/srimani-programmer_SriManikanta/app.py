@@ -99,6 +99,7 @@ class ShoppingApp:
             distance = float(input("Enter your home distance in kilometers from the Store: "))
             if(distance > 50):
                 print("Delivery is unavailable for More than 50 KMS.")
+                exit(0)
             elif(distance > 20 and distance <= 50):
                 self.totalAmount += 60
                 self.deliveryAmount = 60
@@ -109,9 +110,10 @@ class ShoppingApp:
                 pass
             else:
                 print("Please Enter the distance greater than 0 KMS")
-        except:
+        except ValueError:
             print("Please Enter a Valid number for distance.")
             exit(0)
+    
 
 
 name = input("Enter Customer name: ")
