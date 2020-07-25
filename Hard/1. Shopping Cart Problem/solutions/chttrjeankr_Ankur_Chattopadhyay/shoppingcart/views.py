@@ -99,6 +99,111 @@ def show_all_orders(request):
         }
         return render(request, "vendor/all_orders.html", context)
 
+
+# ----------Item "CRUD" (Vendor)----------
+
+
+def create_item(request):
+    if request.method == "POST":
+        form = ItemForm(request.POST)
+        if form.is_valid():
+            item = form.save()
+            messages.success(request, "Item Added")
+            return redirect(reverse("all_items"))
+        else:
+            messages.error(request, "Item creation Skipped")
+            # return redirect(reverse("create_item"))
+
+    else:
+        form = ItemForm()
+
+    categories = Category.objects.all()
+    return render(
+        request,
+        "vendor/create_item.html",
+        context={"categories": categories, "form": form},
+    )
+
+
+def show_all_items(request):
+    if request.method == "GET":
+        order_by = request.GET.get("order_by", "-pk")
+        category_id = request.GET.get("category_id")
+        choices = {}
+        filter_fields = []
+        for field in Item._meta.fields:
+            if field.choices:
+                filter_fields.append(field.attname)
+                choices[field.name] = field.choices
+            if field.is_relation:
+                filter_fields.append(field.attname)
+                associated_model = field.related_model
+                choices[field.attname] = [
+                    (obj.pk, obj.name) for obj in associated_model.objects.all()
+                ]
+            if field.get_internal_type() == "BooleanField":
+                filter_fields.append(field.attname)
+                choices[field.attname] = [
+                    (True, True),
+                    (False, False),
+                ]
+
+        params = {}
+        for field_name in filter_fields:
+            val = request.GET.get(field_name)
+            if val:
+                params[field_name] = val
+
+        if any(params.values()):
+            items = Item.objects.filter(category__id=category_id, **params)
+        elif category_id:
+            items = Item.objects.filter(category__id=category_id)
+        else:
+            items = Item.objects.all()
+        search = request.GET.get("q")
+        if search:
+            items = items.filter(name__contains=search)
+        items_sorted = items.order_by(order_by)
+        context = {
+            "choices": choices,
+            "items": items_sorted,
+        }
+        return render(request, "vendor/all_items.html", context)
+
+
+def delete_item(request, item_id):
+    deleted_item = Item.objects.filter(pk=item_id).delete()
+    messages.info(request, f"Item {item_id} was deleted")
+    return redirect(reverse("all_items"))
+
+
+def edit_item(request, item_id):
+    try:
+        ins = Item.objects.get(pk=item_id)
+    except ObjectDoesNotExist:
+        messages.error(request, "Item doesn't exist")
+        return redirect(reverse("all_items"))
+    if request.method == "POST":
+        form = ItemForm(request.POST, instance=ins)
+        if form.is_valid():
+            item = form.save()
+            messages.success(request, "Item Edited")
+            return redirect(reverse("all_items"))
+        else:
+            messages.error(request, "Item manipulation Skipped")
+            # return redirect(reverse("edit_item"))
+
+    else:
+        form = ItemForm(instance=ins)
+
+    categories = Category.objects.all()
+    return render(
+        request,
+        "vendor/edit_item.html",
+        context={"categories": categories, "form": form},
+    )
+
+
 def create_order(request):
     if request.method == "POST":
         form = OrderForm(request.POST)
