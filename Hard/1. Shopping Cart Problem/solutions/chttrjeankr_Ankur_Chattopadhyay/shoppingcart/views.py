@@ -55,6 +55,50 @@ def vendor(request):
     messages.success(request, "Vendor Logged In")
     return render(request, "vendor/vendor_main.html")
 
+
+# ----------Order "R" (Vendor)----------
+
+
+def show_all_orders(request):
+    if request.method == "POST":
+        new_status = request.POST.get("new_status")
+        order_id = request.POST.get("order_id")
+        if new_status and order_id:
+            order = Order.objects.filter(pk=order_id).update(
+                order_status=new_status, order_modified=datetime.now()
+            )
+        return redirect(reverse("all_orders"))
+    if request.method == "GET":
+        order_by = request.GET.get("order_by", "-billing_date_time")
+        choices = {}
+        filter_fields = []
+        for field in Order._meta.fields:
+            if field.choices:
+                filter_fields.append(field.attname)
+                choices[field.name] = field.choices
+
+        params = {}
+        for field_name in filter_fields:
+            val = request.GET.get(field_name)
+            if val:
+                params[field_name] = val
+
+        if any(params.values()):
+            orders = Order.objects.filter(**params)
+        else:
+            orders = Order.objects.all()
+        search = request.GET.get("q")
+        if search:
+            orders = orders.filter(pk=search)
+        orders_sorted = orders.order_by(order_by)
+
+        context = {
+            "choices": choices,
+            "orders": orders_sorted,
+            "statuses": choices["order_status"],
+        }
+        return render(request, "vendor/all_orders.html", context)
+
 def create_order(request):
     if request.method == "POST":
         form = OrderForm(request.POST)
