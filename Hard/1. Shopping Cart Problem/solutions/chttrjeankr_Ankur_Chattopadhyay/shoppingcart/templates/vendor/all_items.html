@@ -1,0 +1,169 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h1>All Item List</h1>
+  <div class="col-sm-auto">
+    <button
+      type="submit"
+      class="btn btn-outline-secondary"
+      onclick="window.location.href='/vendor'"
+    >
+      Back to Vendor Home
+    </button>
+  </div>
+  <hr />
+  <div class="container row">
+    <form id="filter_form" class="form-inline" action="">
+      <div class="input-group">
+        {% for filter_name, filter_choices in choices.items %}
+        <select class="custom-select" name="{{ filter_name }}">
+          <option value="">--{{ filter_name }}--</option>
+          {% for choice_val, choice_display in filter_choices %}
+          <option value="{{ choice_val }}">{{ choice_display }}</option>
+          {% endfor %}
+        </select>
+        {% endfor %}
+        <button type="submit" class="btn btn-success btn-sm" form="filter_form">
+          Submit Filter
+        </button>
+      </div>
+    </form>
+    &emsp;
+    <form id="search" class="form-inline" action="">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          name="q"
+          value=""
+          placeholder="Search by Name"
+        />
+        <button type="submit" class="btn btn-success btn-sm">Search</button>
+      </div>
+    </form>
+    <div class="container" style="text-align: right;">
+      <form action="/create_item">
+        <button type="submit" class="btn btn-info btn-lg">
+          Add Item
+        </button>
+      </form>
+    </div>
+    <!-- <form id="filter_form" class="form-inline" action="">
+      <div class="input-group">
+        {% for filter_name, filter_choices in sorters.items %}
+        <select class="custom-select" name="order_by">
+          {% for choice_val, choice_display in filter_choices %}
+          <option value="{{ choice_val }}">{{ choice_display }}</option>
+          {% endfor %}
+        </select>
+        {% endfor %}
+        <button type="submit" class="btn btn-success btn-sm" form="filter_form">
+          Sort
+        </button>
+      </div>
+    </form> -->
+  </div>
+  <br />
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>
+            Item ID
+            <form action="">
+              <input type="hidden" name="order_by" value="pk" />
+              <button type="submit">&#8657;</button>
+            </form>
+            <form action="">
+              <input type="hidden" name="order_by" value="-pk" />
+              <button type="submit">&#8659;</button>
+            </form>
+          </th>
+          <th>
+            Item Name
+            <form action="">
+              <input type="hidden" name="order_by" value="name" />
+              <button type="submit">&#8657;</button>
+            </form>
+            <form action="">
+              <input type="hidden" name="order_by" value="-name" />
+              <button type="submit">&#8659;</button>
+            </form>
+          </th>
+          <th>Category</th>
+          <th>
+            Original Price
+            <form action="">
+              <input type="hidden" name="order_by" value="original_price" />
+              <button type="submit">&#8657;</button>
+            </form>
+            <form action="">
+              <input type="hidden" name="order_by" value="-original_price" />
+              <button type="submit">&#8659;</button>
+            </form>
+          </th>
+          <th>
+            Discounted Price
+            <form action="">
+              <input type="hidden" name="order_by" value="discount_price" />
+              <button type="submit">&#8657;</button>
+            </form>
+            <form action="">
+              <input type="hidden" name="order_by" value="-discount_price" />
+              <button type="submit">&#8659;</button>
+            </form>
+          </th>
+          <th>
+            Weight in grams
+            <form action="">
+              <input type="hidden" name="order_by" value="weight_in_gms" />
+              <button type="submit">&#8593;</button>
+            </form>
+            <form action="">
+              <input type="hidden" name="order_by" value="-weight_in_gms" />
+              <button class="button" type="submit">
+                &#8595;
+              </button>
+            </form>
+          </th>
+          <th>Availability</th>
+          <th>Edit Item</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ item.pk }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.category.name }}</td>
+          <td style="text-align: right;">
+            &#8377; {{ item.original_price }}
+          </td>
+          {% if item.discount_price %}
+          <td style="text-align: right;">
+            &#8377; {{ item.discount_price }}
+          </td>
+          {% else %}
+          <td style="text-align: center;">No Discount</td>
+          {% endif %}
+          <td style="text-align: right;">{{ item.weight_in_gms }} gms</td>
+          {% if item.available %}
+          <td style="text-align: center;">Available</td>
+          {% else %}
+          <td style="text-align: center;">Unavailable</td>
+          {% endif %}
+          <td>
+            <form action="/edit_item/{{ item.pk }}">
+              <button type="submit" class="btn btn-dark btn-sm">
+                Edit Item
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
