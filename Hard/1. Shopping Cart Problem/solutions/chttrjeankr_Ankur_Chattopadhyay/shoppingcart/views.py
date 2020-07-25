@@ -1,11 +1,11 @@
+from datetime import datetime
+
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from django.views.decorators.csrf import csrf_exempt
 
-from shoppingcart.forms import OrderForm
+from shoppingcart.forms import CategoryForm, ItemForm, OrderForm
 from shoppingcart.models import Category, Item, Order
 from shoppingcart.utilities import shop_details
 
