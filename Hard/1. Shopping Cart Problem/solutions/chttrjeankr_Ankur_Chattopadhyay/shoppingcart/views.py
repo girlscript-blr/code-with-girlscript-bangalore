@@ -204,6 +204,79 @@ def edit_item(request, item_id):
     )
 
 
+# ----------Category "CRUD" (Vendor)----------
+
+
+def create_category(request):
+    if request.method == "POST":
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            category = form.save()
+            messages.success(request, "Category Added")
+            return redirect(reverse("all_categories"))
+        else:
+            messages.error(request, "Category creation Skipped")
+            # return redirect(reverse("create_category"))
+
+    else:
+        form = CategoryForm()
+
+    categories = Category.objects.all()
+    return render(request, "vendor/create_category.html", context={"form": form},)
+
+
+def show_all_categories(request):
+    if request.method == "POST":
+        category_id = request.POST.get("category_id")
+        return redirect(reverse("all_items") + f"?category_id={category_id}")
+    if request.method == "GET":
+        search = request.GET.get("q")
+        if search:
+            categories = Category.objects.filter(name__contains=search)
+        else:
+            categories = Category.objects.all()
+        context = {
+            "categories": categories,
+        }
+        return render(request, "vendor/all_categories.html", context)
+
+
+def delete_category(request, category_id):
+    deleted_category = Category.objects.filter(pk=category_id).delete()
+    messages.info(request, f"Category {category_id} was deleted")
+    return redirect(reverse("all_categories"))
+
+
+def edit_category(request, category_id):
+    try:
+        ins = Category.objects.get(pk=category_id)
+    except ObjectDoesNotExist:
+        messages.error(request, "Category doesn't exist")
+        return redirect(reverse("all_categories"))
+    if request.method == "POST":
+        form = CategoryForm(request.POST, instance=ins)
+        if form.is_valid():
+            category = form.save()
+            messages.success(request, "Category Edited")
+            return redirect(reverse("all_categories"))
+        else:
+            messages.error(request, "Category manipulation Skipped")
+            # return redirect(reverse("edit_category"))
+
+    else:
+        form = CategoryForm(instance=ins)
+
+    categories = Category.objects.all()
+    return render(
+        request,
+        "vendor/edit_category.html",
+        context={"categories": categories, "form": form},
+    )
+
+
+# ----------Order "CR" (Customer)----------
+
+
 def create_order(request):
     if request.method == "POST":
         form = OrderForm(request.POST)
