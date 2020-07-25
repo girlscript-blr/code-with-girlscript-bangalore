@@ -42,18 +42,18 @@
   </div>
 
   <div class="container">
-    <ul>
+    <ul style="list-style-type: none;">
       <li>Date: {{ order.billing_date_time|date:"D, d F, Y, h:i:s A e" }}</li>
       <li>Order ID: {{ order.pk }}</li>
       <li>
         <!-- prettier-ignore -->
-        Order Status: {{ order.get_order_status_display }} as of
-        {{ order.order_modified|date:"D, d F, Y, h:i:s A e" }}
+        <strong>Order Status: {{ order.get_order_status_display }}</strong> as
+        of {{ order.order_modified|date:"D, d F, Y, h:i:s A e" }}
       </li>
     </ul>
   </div>
   <div class="container">
-    <ul>
+    <ul style="list-style-type: none;">
       <li>Shop Name: {{ shopName }}</li>
       <li>Shop Address: {{ shopAddress }}</li>
       <li>Shop Contact Number: {{ shopContactNumber }}</li>
@@ -75,7 +75,7 @@
         <tr>
           <th scope="row">{{ forloop.counter }}</th>
           <td>{{ item.name }}</td>
-          {% if item.discount_price != 0 %}
+          {% if item.discount_price %}
           <td>
             &#8377; <strike>{{ item.original_price }}</strike>
             {{item.actual_price }}
@@ -92,7 +92,7 @@
     </table>
   </div>
   <div class="container">
-    <ul>
+    <ul style="list-style-type: none;">
       <li>Customer Name: {{ order.customer_name }}</li>
       <li>Customer Contact Number: {{ order.customer_mobile_no }}</li>
       <li>Tax Included: &#8377; {{ order.total_tax }}</li>
@@ -101,7 +101,9 @@
       {% endif %}
       <li>Total Price: &#8377; {{ order.total_item_price }}</li>
       <li>Total Savings: &#8377; {{ order.total_savings }}</li>
-      <li>Amount Payable: &#8377; {{ order.amount_payable }}</li>
+      <li>
+        <strong>Amount Payable: &#8377; {{ order.amount_payable }}</strong>
+      </li>
       <li>Payment Method: {{ order.get_payment_method_display }}</li>
       {% if order.delivery_option == 'HMD' %}
       <li>Shipping Address: {{ order.shipping_address }}</li>
@@ -112,7 +114,7 @@
   <div class="container">
     <button
       type="submit"
-      class="btn btn-dark btn-sm"
+      class="btn btn-info btn-lg"
       onclick="window.location.href='/categories'"
     >
       Start Shopping

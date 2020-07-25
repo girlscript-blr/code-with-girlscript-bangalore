@@ -22,7 +22,7 @@
           <tr>
             <th scope="row">{{ forloop.counter }}</th>
             <td>{{ item.name }}</td>
-            {% if item.discount_price != 0 %}
+            {% if item.discount_price %}
             <td>
               &#8377; <strike>{{ item.original_price }}</strike>
               {{item.actual_price }}
