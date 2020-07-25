@@ -56,11 +56,14 @@
           <td style="text-align: right;">{{ item.weight_in_gms }} gms</td>
           {% if item.available %}
           <td>
-            <form id="quantity_{{ item.pk }}" class="form-inline">
+            <form class="form-inline" action="" method="post">
+              {% csrf_token %}
               <div class="input-group">
+                <input type="hidden" name="item_pk" value="{{ item.pk }}" />
                 <input
                   type="number"
                   class="form-control"
+                  name="quantity"
                   value="{{ cart|get_quantity:item }}"
                   min="0"
                 />

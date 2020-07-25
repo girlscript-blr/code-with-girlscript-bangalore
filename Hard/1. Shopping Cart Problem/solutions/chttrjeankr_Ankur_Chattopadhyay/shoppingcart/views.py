@@ -16,22 +16,6 @@ def index(request):
     return render(request, "index.html")
 
 
-@csrf_exempt
-def add_to_cart(request):
-    if request.method == "POST":
-        print(request.POST)
-        form_id = request.POST["id"]
-        item_id = form_id.lstrip("quantity_")
-        quantity = int(request.POST["quantity"])
-        new_item = Item.objects.get(pk=item_id)
-        if quantity == 0:
-            if cart.get(new_item):
-                del cart[new_item]
-        else:
-            cart[new_item] = quantity
-        return JsonResponse({"item": new_item.name})
-
-
 def clear_cart(request):
     if cart:
         cart.clear()
@@ -48,6 +32,17 @@ def display_categories(request):
 
 
 def display_shopping_list(request, category):
+    if request.method == "POST":
+        item_id = request.POST.get("item_pk")
+        quantity = int(request.POST.get("quantity"))
+        new_item = Item.objects.get(pk=item_id)
+        if quantity == 0:
+            if cart.get(new_item):
+                del cart[new_item]
+        else:
+            cart[new_item] = quantity
+        messages.success(request, f"Item {new_item.name} updated")
+        return redirect("display_shopping_list", category=category)
     shopping_list = Item.objects.filter(category=category)
     return render(
         request,

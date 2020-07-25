@@ -4,7 +4,6 @@ from shoppingcart import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("add_to_cart/", views.add_to_cart, name="add_to_cart"),
     path("clear_cart/", views.clear_cart, name="clear_cart"),
     path("categories/", views.display_categories, name="categories"),
     path(

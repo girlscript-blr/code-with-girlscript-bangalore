@@ -47,23 +47,23 @@ function deliveryCheck() {
 
 // Add to Cart Button
 //
-$(function () {
-  $("[id^=quantity_]").on("submit", function (event) {
-    var that = this;
-    var formId = this.id;
-    var quantity = this.elements.item(0).value;
-    $.ajax({
-      data: {
-        id: formId,
-        quantity: quantity,
-      },
-      type: "POST",
-      url: "/add_to_cart/",
-      success: function (data) {
-        alert(`Item modified: ${data["item"]}`);
-      },
-    });
-    event.preventDefault();
-  });
-});
+// $(function () {
+//   $("[id^=quantity_]").on("submit", function (event) {
+//     var that = this;
+//     var formId = this.id;
+//     var quantity = this.elements.item(0).value;
+//     $.ajax({
+//       data: {
+//         id: formId,
+//         quantity: quantity,
+//       },
+//       type: "POST",
+//       url: "/add_to_cart/",
+//       success: function (data) {
+//         alert(`Item modified: ${data["item"]}`);
+//       },
+//     });
+//     event.preventDefault();
+//   });
+// });
 // END //
