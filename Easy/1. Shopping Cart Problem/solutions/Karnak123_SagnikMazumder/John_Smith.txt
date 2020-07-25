@@ -1,0 +1,12 @@
+		21 July 2020, 11:28:59
+		GadgetifyWithGSBlr
+		Address: 311/5 Akshay Nagar, Bangalore, Karnataka, India
+		Contact No.: +91 9988776655
+Customer Name: John Smith
+Customer Phone Number: 123456789
+Item Name :- Snow Crash
+Item Price: 379
+Quantity: 1
+Tax on the Item purchased: Rs. 22.74
+Final Price of the product: Rs. 401.74
+Payment Method: Cash
