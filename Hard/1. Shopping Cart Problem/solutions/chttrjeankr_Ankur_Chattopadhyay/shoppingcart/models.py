@@ -10,7 +10,7 @@ from shoppingcart.utilities import delivery_cost, order_directory
 class Category(models.Model):
     """docstring for Category."""
 
-    name = models.CharField(max_length=20, unique=True)
+    name = models.CharField(max_length=30, unique=True)
 
     def __str__(self):
         return f"Category {self.pk}: {self.name}"
@@ -23,7 +23,7 @@ class Category(models.Model):
 class Item(models.Model):
     """docstring for Item."""
 
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=30)
     category = models.ForeignKey("Category", on_delete=models.PROTECT)
     original_price = models.FloatField()
     discount_price = models.FloatField(null=True, blank=True)
