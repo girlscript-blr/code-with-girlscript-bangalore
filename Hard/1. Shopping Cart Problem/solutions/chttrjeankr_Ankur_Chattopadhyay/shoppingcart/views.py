@@ -51,6 +51,10 @@ def display_shopping_list(request, category):
     )
 
 
+def vendor(request):
+    messages.success(request, "Vendor Logged In")
+    return render(request, "vendor/vendor_main.html")
+
 def create_order(request):
     if request.method == "POST":
         form = OrderForm(request.POST)

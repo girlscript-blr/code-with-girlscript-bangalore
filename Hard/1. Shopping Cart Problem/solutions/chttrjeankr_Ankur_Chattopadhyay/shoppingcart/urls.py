@@ -12,5 +12,6 @@ urlpatterns = [
         name="display_shopping_list",
     ),
     path("order/", views.create_order, name="create_order"),
+    path("vendor/", views.vendor, name="vendor"),
     path("status/", views.get_order_status, name="order_status"),
 ]
