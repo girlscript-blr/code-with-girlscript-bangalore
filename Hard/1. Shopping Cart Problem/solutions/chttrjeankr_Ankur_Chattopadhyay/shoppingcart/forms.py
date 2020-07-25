@@ -11,8 +11,6 @@ class OrderForm(ModelForm):
         distance_from_shop = cleaned_data.get("distance_from_shop")
         shipping_address = cleaned_data.get("shipping_address")
 
-        print(f"{delivery_option}, {distance_from_shop}, {shipping_address}")
-
         if delivery_option == "HMD":
             if shipping_address != "" and distance_from_shop >= 0:
                 pass
