@@ -92,7 +92,7 @@ public class Opensource {
               System.out.println("Name:- "+name+"\nPhone Number:- "+phoneNo);
               sum=sum+(0.06*sum);
               System.out.println("Total Amount of purchase is:- "+sum);
-              System.out.println("Payemnt Mode:- "+payment);
+              System.out.println("Payment Mode:- "+payment);
               System.out.println("Thanks For Your Visit. See You soon \n---------------------------");
               System.exit(0);
             
