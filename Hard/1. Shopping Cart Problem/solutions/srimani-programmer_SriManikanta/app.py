@@ -26,6 +26,15 @@ class Application:
             originalPrice = float(input('Enter Original Price of the product: '))
             discountPrice = float(input('Enter the discount price for the product if not available Enter Rs.0: '))
             weight = input('Enter the weight of the product: ')
+            categories = database.cursor.execute('SELECT * FROM shopping_catageory').fetchall()
+           
+            if(len(categories) > 0):
+                print('List of Shopping categories')
+                print('\t Category ID \t Category Name')
+                for data in range(0, len(categories)):
+                    print("\t {} \t {}".format(categories[data][0], categories[data][1]))
+            else:
+                print('There is no Shopping Category Available to add the Appropriate ID. Please Add the Shopping Categories First') 
             categoryId = input('Enter the Appropriate Category Id based on the product Catageory: ')
             database.addingShoppingItem(productId, itemName, originalPrice, discountPrice, weight, categoryId)
             print('Item Added Succesfully into the Store.')
@@ -180,6 +189,8 @@ class Application:
         print('Payment Method Used: {}'.format(paymentMethod[method - 1]))
         print('Your Billing Time: {}'.format(billingTime))
         print('Order Status: {}'.format(orderStatus))
+        print('\n')
+        print('Please Ensure to Save/Remeber your Order ID for further References')
 
     '''finalOrders
         (receipt_id, order_id, customer_name, phone, customer_address, distance, totalAmount, 
@@ -292,136 +303,145 @@ class Application:
 app = Application()
 
 useMode = None
-
-try:
-    useMode = int(input('Enter the Category to use to Application \n 1. Vendor Mode \n 2. Customer Mode\n'))
-    if(useMode < 1 or useMode > 2):
-        print('Please enter the valid mode within range [1-2]')
-
-except ValueError:
-    print("Please Enter the Integer Value.")
-    exit(0)
-
-if useMode == 1:
-    print('################################ WELCOME TO VENDOR MODE ################################')
-    print('''
-        Enter the Task Number to perform the following task\n
-        1. Adding Shopping Catageory
-        2. Adding shopping item
-        3. View Customer Orders
-        4. View Shopping Categories
-        5. View Shopping Items
-        6. Change Order Status\n
-    ''')
+while True:
     try:
-        taskCode = int(input('Enter the task Code within range [1-6]: '))
-        # Adding Shopping Catageory
-        if(taskCode == 1):
-            app.store()
-        # Adding Shopping Item
-        elif(taskCode == 2):
-            
-            while True:
-                code = input('Are you willing to add Item to the Store[y/n]: ')
-                if(code.lower() == 'y'):
-                    app.addStoreItem()
-                elif(code.lower() == 'n'):
-                    exit(0)
-                else:
-                    print('Please enter a valid code.')
+        useMode = int(input('Enter the Category to use to Application \n 1. Vendor Mode \n 2. Customer Mode\n'))
+        if(useMode < 1 or useMode > 2):
+            print('Please enter the valid mode within range [1-2]')
 
-        elif(taskCode == 3):
-            sortCode = input('Do you want to Sort the Customer Orders? [y/n]: ')
-            if(sortCode.lower() == 'y'):
-                try:
-                    type = int(input('''Available Sorts and Filters are:
-                                        1. Sort and Filetr by Order Id
-                                        2. Sort and Filetr by Order Status
-                                        3. Sort and Filetr by Billing Date
-                                        4. Sort and Filetr by Total Amount
-                                        5. Sort and Filetr by Delivery Option
-                                        Enter your Filter by Id within [1-5]: '''))
-                    if(type < 1 or type > 5):
-                        print('Please enter the valid Filter Number.')
-                        exit(0)
-                    else:
-                        app.getOrdersList(type)
-                except Exception:
-                    print("Please Enter the Integer Value.")
-                    exit(0)
-            elif(sortCode.lower() == 'n'):
-                app.getOrdersList(0)
-            else:
-                print('Enter the valid Option')
-                exit(0)
-        # Viewing the Shopping Categories
-        elif(taskCode == 4):
-            app.viewShoppingCategories()
-        # Viewing the Shopping Items
-        elif(taskCode == 5):
-            sortCode = input('Do you want to Sort the Products? [y/n]: ')
-            if(sortCode.lower() == 'y'):
-                try:
-                    type = int(input('''Available Sorts and Filters are:
-                                        1. Sort and Filetr by Item Name
-                                        2. Sort and Filetr by Item Price
-                                        3. Sort and Filetr by Item Discount Price
-                                        4. Sort and Filetr by Item Weight
-                                        5. Sort and Filetr by Item Category Id
-                                        Enter your Filter by Id within [1-5]: '''))
-                    if(type < 1 or type > 5):
-                        print('Please enter the valid Filter Number.')
-                        exit(0)
-                    else:
-                        app.viewShoppingItems(type)
-                except Exception:
-                    print("Please Enter the Integer Value.")
-                    exit(0)
-            elif(sortCode.lower() == 'n'):
-                app.viewShoppingItems(0)
-            else:
-                print('Enter the valid Option')
-                exit(0)
-        # Chainging the Order Status
-        elif(taskCode == 6):
-            id = input('Enter your Order Id: ')
-            orderStatus = ['in progress', 'completed', 'canceled']
-            status = None
-
-            while True:
-                try:
-                    status = int(input('Available Status for the Order\n 1. In Progress\n 2. completed\n 3. Canceled\n Enter your status:'))
-                    if(status < 1 or status > 3):
-                        print('please enter value within range [1-3]: ')
-                        continue
-                    else:
-                        break
-                except ValueError:
-                    print('Please enter a proper value')
-                    exit(0)
-            
-            app.changeOrderStatus(id, orderStatus[status-1])
     except ValueError:
         print("Please Enter the Integer Value.")
         exit(0)
 
-elif useMode == 2:
-    print('################################ WELCOME TO Customer MODE ################################')
-    print('''
-        Enter the Task Number to perform the following task\n
-        1. Order a Product
-        2. Order Status
-    ''')
-    try:
-        taskCode = int(input('Enter the task code within range [1-2]:'))
-        if(taskCode == 1):
-            app.createOrder()
-        elif(taskCode == 2):
-            id = input('Enter your Order Id: ')
-            app.getCustomerOrderStatus(id)
-    except ValueError:
-        print("Please Enter the Integer Value within range [1-2]")
-        exit(0)
+    if useMode == 1:
+        print('################################ WELCOME TO VENDOR MODE ################################')
+        print('''
+            Enter the Task Number to perform the following task\n
+            1. Adding Shopping Catageory
+            2. Adding shopping item
+            3. View Customer Orders
+            4. View Shopping Categories
+            5. View Shopping Items
+            6. Change Order Status\n
+        ''')
+        try:
+            taskCode = int(input('Enter the task Code within range [1-6]: '))
+            # Adding Shopping Catageory
+            if(taskCode == 1):
+                app.store()
 
+            # Adding Shopping Item
+            elif(taskCode == 2):
+                while True:
+                    code = input('Are you willing to add Item to the Store[y/n]: ')
+                    if(code.lower() == 'y'):
+                        app.addStoreItem()
+                    elif(code.lower() == 'n'):
+                        exit(0)
+                    else:
+                        print('Please enter a valid code.')
+
+            elif(taskCode == 3):
+                sortCode = input('Do you want to Sort the Customer Orders? [y/n]: ')
+                if(sortCode.lower() == 'y'):
+                    try:
+                        type = int(input('''Available Sorts and Filters are:
+                                            1. Sort and Filetr by Order Id
+                                            2. Sort and Filetr by Order Status
+                                            3. Sort and Filetr by Billing Date
+                                            4. Sort and Filetr by Total Amount
+                                            5. Sort and Filetr by Delivery Option
+                                            Enter your Filter by Id within [1-5]: '''))
+                        if(type < 1 or type > 5):
+                            print('Please enter the valid Filter Number.')
+                            exit(0)
+                        else:
+                            app.getOrdersList(type)
+                    except Exception:
+                        print("Please Enter the Integer Value.")
+                        exit(0)
+                elif(sortCode.lower() == 'n'):
+                    app.getOrdersList(0)
+                else:
+                    print('Enter the valid Option')
+                    exit(0)
+            # Viewing the Shopping Categories
+            elif(taskCode == 4):
+                app.viewShoppingCategories()
+            # Viewing the Shopping Items
+            elif(taskCode == 5):
+                sortCode = input('Do you want to Sort the Products? [y/n]: ')
+                if(sortCode.lower() == 'y'):
+                    try:
+                        type = int(input('''Available Sorts and Filters are:
+                                            1. Sort and Filetr by Item Name
+                                            2. Sort and Filetr by Item Price
+                                            3. Sort and Filetr by Item Discount Price
+                                            4. Sort and Filetr by Item Weight
+                                            5. Sort and Filetr by Item Category Id
+                                            Enter your Filter by Id within [1-5]: '''))
+                        if(type < 1 or type > 5):
+                            print('Please enter the valid Filter Number.')
+                            exit(0)
+                        else:
+                            app.viewShoppingItems(type)
+                    except Exception:
+                        print("Please Enter the Integer Value.")
+                        exit(0)
+                elif(sortCode.lower() == 'n'):
+                    app.viewShoppingItems(0)
+                else:
+                    print('Enter the valid Option')
+                    exit(0)
+            # Chainging the Order Status
+            elif(taskCode == 6):
+                orders = database.cursor.execute('''SELECT order_id, customer_name, order_status, billingTime FROM finalOrders''').fetchall()
+                print('List of Orders Placed')
+                print('\t Order Id \t Customer Name \t Order Status \t Billing Time')
+                for i in range(0, len(orders)):
+                    print('\t {} \t {} \t {} \t {}'.format(orders[i][0], orders[i][1], orders[i][2], orders[i][3]))
+                id = input('Enter your Order Id: ')
+                orderStatus = ['in progress', 'completed', 'canceled']
+                status = None
+
+                while True:
+                    try:
+                        status = int(input('Available Status for the Order\n 1. In Progress\n 2. completed\n 3. Canceled\n Enter your status:'))
+                        if(status < 1 or status > 3):
+                            print('please enter value within range [1-3]: ')
+                            continue
+                        else:
+                            break
+                    except ValueError:
+                        print('Please enter a proper value')
+                        exit(0)
+                
+                app.changeOrderStatus(id, orderStatus[status-1])
+        except ValueError:
+            print("Please Enter the Integer Value.")
+            exit(0)
+
+    elif useMode == 2:
+        print('################################ WELCOME TO Customer MODE ################################')
+        print('''
+            Enter the Task Number to perform the following task\n
+            1. Order a Product
+            2. Order Status
+        ''')
+        try:
+            taskCode = int(input('Enter the task code within range [1-2]:'))
+            if(taskCode == 1):
+                app.createOrder()
+            elif(taskCode == 2):
+                id = input('Enter your Order Id: ')
+                app.getCustomerOrderStatus(id)
+        except ValueError:
+            print("Please Enter the Integer Value within range [1-2]")
+            exit(0)
+    userChoice = input('Do you want to perform another Operation: [y/n]')
+    if(userChoice.lower() == 'n'):
+        break
+    elif(userChoice.lower() == 'y'):
+        continue
 
 database.cursor.close()
