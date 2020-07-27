@@ -151,18 +151,22 @@ class Application:
         amount = database.generateBilling(itemNames, itemQuantity)
 
         finalAmount = amount[0]
+        totalFinalTaxAmount = amount[1]
         shippingCharges = 0
-        if(distance > 5 and distance <= 20):
-            shippingCharges = 30
-            finalAmount += 30
-        elif(distance > 20 and distance <= 50):
-            shippingCharges = 60
-            finalAmount += 60
+        if(isinstance(distance, float)):
+            if(distance > 5 and distance <= 20):
+                shippingCharges = 30
+                finalAmount += 30 + (30 * 0.06)
+                totalFinalTaxAmount += (30 * 0.06)
+            elif(distance > 20 and distance <= 50):
+                shippingCharges = 60
+                finalAmount += 60 + (60 * 0.06)
+                totalFinalTaxAmount += (60 * 0.06)
 
         billingTime = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         orderStatus = "inProgress"
         
-        database.finalOrder(cReceiptId, orderID, cName, cPhoneNumber, cShippingAddress, cDistance, finalAmount, amount[1], amount[2], orderStatus, billingTime, paymentMethod[method - 1], deliveryOptions[options - 1], shippingCharges)
+        database.finalOrder(cReceiptId, orderID, cName, cPhoneNumber, cShippingAddress, cDistance, finalAmount, totalFinalTaxAmount, amount[2], orderStatus, billingTime, paymentMethod[method - 1], deliveryOptions[options - 1], shippingCharges)
 
         print('#################### ORDER BILLING #########################')
 
@@ -179,12 +183,13 @@ class Application:
             print('Item Name : {} Item Quantity: {} Item Price : {} Discount Price: {}'.format(itemNames[i], itemQuantity[i], priceResults[0], priceResults[1]))
 
         print('Total Amount to be paid: {}'.format(finalAmount))
-        print('Total tax Amount: {}'.format(amount[1]))
+        print('Total tax Amount: {}'.format(totalFinalTaxAmount))
         print('Your Savings: {}'.format(amount[2]))
-        if(distance > 0):
-            print('Total Shipping Charges: {}'.format(shippingCharges))
-            print('Shipping Address: {}'.format(cShippingAddress))
-            print('Distance: {}'.format(cDistance))
+        if(isinstance(distance, float)):
+            if(distance > 0):
+                print('Total Shipping Charges: {}'.format(shippingCharges))
+                print('Shipping Address: {}'.format(cShippingAddress))
+                print('Distance: {}'.format(cDistance))
 
         print('Payment Method Used: {}'.format(paymentMethod[method - 1]))
         print('Your Billing Time: {}'.format(billingTime))
@@ -337,7 +342,7 @@ while True:
                     if(code.lower() == 'y'):
                         app.addStoreItem()
                     elif(code.lower() == 'n'):
-                        exit(0)
+                        break
                     else:
                         print('Please enter a valid code.')
 

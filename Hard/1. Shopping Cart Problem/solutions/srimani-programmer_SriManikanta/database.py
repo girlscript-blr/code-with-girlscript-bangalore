@@ -77,15 +77,17 @@ class ShoppingDatabase:
 
         for i in range(0, len(orderedItems)):
             result = self.cursor.execute('''SELECT item_price, discount_price FROM shopping_items WHERE item_name=?''', (orderedItems[i],)).fetchall()
-            print(result)
+            # print(result)
             if(result[0][1] > 0):
-                totalAmount += (result[0][1] * orderedQuantity[i])
+                # print("Ordered Quantity: {}".format(orderedQuantity[i]))
+                totalAmount = totalAmount + (result[0][1] * orderedQuantity[i])
                 tatalSavings += ((result[0][0] - result[0][1]) * orderedQuantity[i])
+                # print(totalAmount)
             else:
                 totalAmount += result[0][0]
             
-        totalTax += ((totalAmount * 0.06))
-        totalAmount += totalAmount + totalTax
+        totalTax = ((totalAmount * 0.06))
+        totalAmount = totalAmount + totalTax
 
         return [totalAmount, totalTax, tatalSavings]
 
