@@ -3,8 +3,9 @@ n = (input("Enter your name: "))
 p = int(input("Enter your phoneno.: "))
 pm = (input("Enter the payment method(cash/card/online): "))
 
-dict = {'Earphones':1200,'Tablet':10000,'Bluetooth Speaker':900,'Bluetooth Mouse':350,'Smart Phone':15000}
-print(dict)
+dict = {'0.Earphones':1200 ,'1.Tablet':10000,'2.Bluetooth Speaker':900,'3.Bluetooth Mouse':350,'4.Smart Phone':15000}
+for key,value in dict.items():
+    print(key, ':', value)
 s, q =input("Enter a single shopping item(index no. from list) and its quantity: ").split()
 s=int(s)
 key=list(dict)
