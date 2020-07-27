@@ -9,6 +9,8 @@ Created on Wed Jul 22 14:43:31 2020
 import pandas as pd
 from random import randint
 
+pd.set_option('display.max_columns', 500)
+
 def vendor_list():
     print("\n**********VENDOR MODE****************")
     print("\nPress 1 to Add shopping category")
@@ -19,21 +21,11 @@ def vendor_list():
     print("\nPress 6 to Change order status.")
     print("\nPress 0 to exit.")
 
-def category_present(a,new):
+def is_present(a,new):
     x=False
     for i in a:
         if(i == new):
             x= True 
-            break;
-        else:
-            x=False
-    return x 
-
-def item_present(a,new):
-    x=False
-    for i in a:
-        if(i == new):
-            x= True
             break;
         else:
             x=False
@@ -51,7 +43,10 @@ def vendor_mode():
             print(df)
             print("\nEnter the category you want to add. ")
             new = input("\nCategory: ")
-            if(category_present(df['Name'],new)==True):
+            while(len(new)==0):
+                print("Invalid Category Name.")
+                new = input("\nCategory: ")
+            if(is_present(df['Name'],new)==True):
                 print("\nCategory Already Present")
             else:
                 y=new
@@ -67,19 +62,27 @@ def vendor_mode():
             print(df)
             print("\n")
             name=input("\nEnter the name of the product name: ")
-            if(item_present(df['Name'],name)==False):
+            if(is_present(df['Name'],name)==False):
                 o_price=int(input("\nEnter the original price of the product:"))
                 d_price=int(input("\nEnter the dicount price of the product:"))
                 weight=input("\nEnter the weight for the product: ")
                 gf=pd.read_csv("Category.csv",index_col=0)
                 print(gf)
-                ID=input("\nEnter the Category ID:")
-                PID=df['Product ID '][len(df['Product ID '])-1] + 1
-                new_entry={'Name':name,'Original Price':o_price,'Discount Price':d_price,'Weight':weight,'Category ID':ID,'Product ID ':PID}
-                df=df.append(new_entry,ignore_index=True)
-                print("\nThe updated item list is as follows: ")
-                print(df)
-                df.to_csv("Items.csv")
+                check=True
+                while(check):
+                 ID=int(input("\nEnter the Category ID:"))
+                 y=is_present(gf['Category ID'],ID)
+                 if(y == True):
+                   PID=df['Product ID '][len(df['Product ID '])-1] + 1
+                   new_entry={'Name':name,'Original Price':o_price,'Discount Price':d_price,'Weight':weight,'Category ID':ID,'Product ID ':PID}
+                   df=df.append(new_entry,ignore_index=True)
+                   print("\nThe updated item list is as follows: ")
+                   print(df)
+                   df.to_csv("Items.csv")
+                   check=False
+                 else:
+                    print("Invalid Category ID.Please Retry.")
+                    check=True
             else:
                 print("Item already present.")   
         
@@ -104,8 +107,18 @@ def vendor_mode():
         
         elif(k==4):
             df=pd.read_csv("Category.csv",index_col=0)
-            name=input("\nEnter the Category name: ")
-            print(df[df['Name']==name])
+            choice=int(input("\nDo you wish to filter or sort the categories by name.Press 1 to filter and 0 to sort : "))
+            if(choice == 1):
+               print("\nThe list of the categories: ")
+               print("\n")
+               print(df['Name'])
+               name=input("\nEnter the Category name: ")
+               if(is_present(df['Name'],name)==False):
+                print("\nCategory Not Present.")
+               else:
+                print(df[df['Name']==name])
+            else:
+                print(df.sort_values('Name'))
             
         elif(k==5):
             df=pd.read_csv("Orders.csv",index_col=0)
@@ -125,18 +138,22 @@ def vendor_mode():
                     value=input("Enter the Order status/Billing date/Delivery option you want to filter out: ")
                     print(df[df[column] == value])
             else:
-                 print("\nColumns which can be used to filter:")
+                 print("\nColumns which can be used to sort:")
                  print("\nOrder ID")
-                 print("\nOrder status")
+                 print("\nOrder Status")
                  print("\nBilling date")
                  print("\nTotal amount")
                  print("\nDelivery option")
-                 column=input("\nBy which column would you want to filter  the orders?  ")
+                 column=input("\nBy which column would you want to sort the orders?  ")
                  print(df.sort_values(column))
          
         elif(k==6):
                 df=pd.read_csv("Orders.csv",index_col=0)
                 print(df)
+                print("\n Status Change Options:-")
+                print("\n Received")
+                print("\n Delivered")
+                print("\n Cancelled")
                 ID=int(input("\nEnter the order ID for the order whose status you want to change: "))
                 Status=input("\nEnter the new status for the order ID: ")
                 n=df[df['Order ID']==ID].index.values[0]
@@ -213,17 +230,25 @@ def customer_mode():
                 name=input("\nEnter your name : ")
                 phone=input("\nEnter your phone number: ")
                 payment=input("\nPayment method to be used(Card/Cash/Online): ")
-                print("\nChoose the Items from the list below by their Product ID")
-                pf=pd.read_csv("Items.csv",index_col=0)
-                print(pf)
-                j=2
-                while(j!=0):
+                check=True
+                while(check):
+                  print("\nChoose the Items from the list below by their Product ID")
+                  pf=pd.read_csv("Items.csv",index_col=0)
+                  print(pf)
+                  j=2
+                  while(j!=0):
                     t=int(input("\nEnter the Product ID: "))
-                    p_list.append(t)
-                    r=int(input("\nEnter the quantity of the product: "))
-                    q_list.append(r)
-                    j=int(input("\nDo you want to add more items?Press 0 to exit and 1 to add more items?  "))
-                
+                    y= is_present(pf['Product ID '],t)
+                    if(y == True):
+                      p_list.append(t)
+                      r=int(input("\nEnter the quantity of the product: "))
+                      q_list.append(r)
+                      j=int(input("\nDo you want to add more items?Press 0 to exit and 1 to add more items?  "))
+                      check = False
+                    else:
+                      print("Enter the correct Product ID")
+                      check = True
+                        
                 delivery=int(input("\nPress 0 for Home Delivery and 1 for Takeaway:  "))
                 if(delivery==0):
                     distance=int(input("What is the distance between your residence and the outlet: "))
@@ -244,6 +269,7 @@ def customer_mode():
                         print("Address :",address)
                         order_status="in progress"
                         o_ID=randint(100,999)
+                        print("Order ID: ",o_ID)
                         print("Order Status: ",order_status)
                         new_entry={'Order ID':o_ID,'Order Status':order_status,'Billing Date & Time':now,'Total amount':total,'Delivery option':"Home delivery",'Payment method':payment}
                         df=df.append(new_entry,ignore_index=True)
@@ -253,7 +279,6 @@ def customer_mode():
                         c=int(input("Do you wish to continue.Press 1 to  continue and 0 to exit."))
                         if(c==0):
                             order_status="Cancelled"
-                            print("Order Status: ",order_status)
                             total=0
                             from datetime import datetime
                             now = datetime.now()
@@ -261,6 +286,8 @@ def customer_mode():
                             payment = "None"
                             o_ID=randint(100,999)
                             new_entry={'Order ID':o_ID,'Order Status':order_status,'Billing Date & Time':now,'Total amount':total,'Delivery option':"Takeaway",'Payment method':payment}
+                            print("Order ID: ",o_ID)
+                            print("Order Status: ",order_status)
                             df=df.append(new_entry,ignore_index=True)
                             df.to_csv("Orders.csv")
                             print("Thank you for visiting us today")
@@ -280,8 +307,9 @@ def customer_mode():
                             print("\nBilling date and time :",now)
                             order_status="Received"
                             o_ID=randint(100,999)
-                            print("Order Status: ",order_status)
                             new_entry={'Order ID':o_ID,'Order Status':order_status,'Billing Date & Time':now,'Total amount':total,'Delivery option':"Takeaway",'Payment method':payment}
+                            print("Order ID: ",o_ID)
+                            print("Order Status: ",order_status)
                             df=df.append(new_entry,ignore_index=True)
                             df.to_csv("Orders.csv")
     
@@ -301,14 +329,23 @@ def customer_mode():
                             print("\nBilling date and time :",now)
                             order_status="Received"
                             o_ID=randint(100,999)
-                            print("Order Status: ",order_status)
                             new_entry={'Order ID':o_ID,'Order Status':order_status,'Billing Date & Time':now,'Total amount':total,'Delivery option':"Takeaway",'Payment method':payment}
+                            print("Order ID: ",o_ID)
+                            print("Order Status: ",order_status)
                             df=df.append(new_entry,ignore_index=True)
                             df.to_csv("Orders.csv")   
             elif(k==2):
-                ID=int(input("\nEnter the ID whose status you wish to see"))
                 df=pd.read_csv("Orders.csv",index_col=0)
-                print("The Status of the Order ID {} is: ".format(ID),df[df['Order ID']== ID]['Order Status'].values[0])
+                check=True
+                while(check):
+                 ID=int(input("\nEnter the ID whose status you wish to see: "))
+                 y= is_present(df['Order ID'],ID)
+                 if(y == True):
+                   print("\nThe Status of the Order ID {} is: ".format(ID),df[df['Order ID']== ID]['Order Status'].values[0])
+                   check=False
+                 else:
+                    print("\nIncorrect Order ID.Please Re-enter.")
+                    check=True
             else:
                 if(k==0):
                     break;
