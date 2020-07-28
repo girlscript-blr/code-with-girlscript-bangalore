@@ -14,6 +14,7 @@ public class ShoppingCartMedium {
     private double shippingCharge = 0;
     private double amountSaved = 0;
     private double tax;
+    private int deliveryChoice = 0;
     private static Scanner scanner = new Scanner(System.in);
 
     private Map<Integer, Integer> choosenItems = new HashMap<Integer, Integer>();
@@ -53,11 +54,11 @@ public class ShoppingCartMedium {
 
     public void fillCustomerDetails() // method to enter customer details
     {
-        String name="",number="";
+        String name = "", number = "";
         System.out.println("Enter Your Name:");
-        name+= scanner.next();
+        name += scanner.nextLine();
         System.out.print("Enter Your Phone Number:");
-        number+= scanner.next();
+        number += scanner.nextLine();
         this.customer = new Customer(name, number);
         System.out.print("\n");
         System.out.println(
@@ -83,11 +84,11 @@ public class ShoppingCartMedium {
                 break;
         }
         System.out.println("Choose your delivery method\n1.Home Delivery\n2.Takeway");
-        choice = scanner.nextInt();
+        this.deliveryChoice = scanner.nextInt();
 
         while (!(choice == 1 || choice == 2)) {
             System.out.println("Please choose again");
-            choice = scanner.nextInt();
+            this.deliveryChoice = scanner.nextInt();
         }
         if (choice == 1) {
             this.customer.setDeliveryMode(true);
@@ -101,16 +102,23 @@ public class ShoppingCartMedium {
     {
         System.out.print("\n");
         boolean stillChoosing = true;
-        String answer="";
+        String answer = "";
         while (stillChoosing) {
             System.out.println("Please enter the item number of items among the list of items from menu");
             this.choosenItemIndex = scanner.nextInt();
             System.out.println("Enter quantity of choosen item");
             this.quantity = scanner.nextInt();
-            this.choosenItems.put(this.choosenItemIndex, this.quantity);
+            scanner.nextLine();
+            if (this.choosenItems.containsKey(this.choosenItemIndex)) {
+                this.choosenItems.put(this.choosenItemIndex,
+                        this.choosenItems.get(this.choosenItemIndex) + this.quantity);
+            } else {
+                this.choosenItems.put(this.choosenItemIndex, this.quantity);
+            }
             System.out.println("Do you want to choose more? (Y/N)");
-            answer = scanner.next();
-            if (answer.equals("N") || answer.equals("no") || answer.equals("NO") || answer.equals("No"))
+            answer = scanner.nextLine();
+            if (answer.equals("n") || answer.equals("N") || answer.equals("no") || answer.equals("NO")
+                    || answer.equals("No"))
                 stillChoosing = false;
         }
     }
@@ -134,22 +142,25 @@ public class ShoppingCartMedium {
     }
 
     public void calculatePayment() { // calcuating payment
-        double originalAmount=0;
+        double originalAmount = 0;
         for (int index : choosenItems.keySet()) {
             if (shoppingItems.get(index).getDiscountPrice() != 0) {
-                this.totalAmount += (shoppingItems.get(index).getDiscountPrice())*this.choosenItems.get(index);
+                this.totalAmount += (shoppingItems.get(index).getDiscountPrice()) * this.choosenItems.get(index);
             } else {
-                this.totalAmount += (shoppingItems.get(index).getOriginalPrice())*this.choosenItems.get(index);
+                this.totalAmount += (shoppingItems.get(index).getOriginalPrice()) * this.choosenItems.get(index);
             }
-            originalAmount+=(shoppingItems.get(index).getOriginalPrice())*this.choosenItems.get(index);
+            originalAmount += (shoppingItems.get(index).getOriginalPrice()) * this.choosenItems.get(index);
         }
-        this.amountSaved=originalAmount-this.totalAmount;
-        this.totalAmount+=this.shippingCharge;
+        this.amountSaved = originalAmount - this.totalAmount;
+        this.totalAmount += this.shippingCharge;
         this.tax = 0.06 * totalAmount;
     }
 
     public void generateBill() { // generating bill
         this.fillCustomerDetails();
+        if (this.deliveryChoice == 1) {
+            this.shippingCharge();
+        }
         this.calculatePayment();
     }
 
@@ -164,17 +175,21 @@ public class ShoppingCartMedium {
     {
         System.out.println("-----Shopping Bill-------");
         this.shopInfo();
-        int quantity=0;
+        int quantity = 0;
         System.out.println(this.customer.toString());
         System.out.println("Items Bought");
-        for (int index : choosenItems.keySet())
-        {
-            this.choosenItem=this.shoppingItems.get(index).getName();
-            quantity=this.choosenItems.get(index);
-            System.out.println("Item Bought: " + this.choosenItem+ ", Item Quantity: " +quantity);
+        for (int index : choosenItems.keySet()) {
+            ShopItem item = this.shoppingItems.get(index);
+            this.choosenItem = item.getName();
+            quantity = this.choosenItems.get(index);
+            System.out.println("Item Bought: " + this.choosenItem + ", Item Quantity: " + quantity
+                    + ", Original Price: " + item.getOriginalPrice() + ", Discount Price: " + item.getDiscountPrice());
+        }
+        if (this.deliveryChoice == 1) {
+            System.out.println("Shipping Charge: Rs." + this.shippingCharge());
         }
         System.out.println("Total Tax: Rs." + this.tax);
-        System.out.println("Amount Saved: Rs." +this.amountSaved) ;
+        System.out.println("Amount Saved: Rs." + this.amountSaved);
         System.out.println("Sum amount to be paid: Rs." + (this.totalAmount + this.tax));
         System.out.println("Billing Date:" + this.billTime().split(" ")[0]);
         System.out.println("Billing Date:" + this.billTime().split(" ")[1]);
