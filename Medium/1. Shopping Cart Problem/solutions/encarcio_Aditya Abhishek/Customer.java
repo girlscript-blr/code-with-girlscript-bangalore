@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class Customer {
     private String name;
-    private String phoneNo;
+    private long phoneNo;
     private String paymentMethod;
     private String deliveryMode;
     private int homeDistance;
     private String shippingAddress;
     private static Scanner scanner = new Scanner(System.in);
 
-    public Customer(String name, String phoneNo) { // setting customer name and phone number
+    public Customer(String name, long phoneNo) { // setting customer name and phone number
         this.name = name;
         this.phoneNo = phoneNo;
     }

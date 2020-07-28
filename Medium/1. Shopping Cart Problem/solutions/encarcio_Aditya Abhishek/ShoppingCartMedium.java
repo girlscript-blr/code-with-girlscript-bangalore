@@ -54,11 +54,23 @@ public class ShoppingCartMedium {
 
     public void fillCustomerDetails() // method to enter customer details
     {
-        String name = "", number = "";
+        String name = "";
+        long number = 0;
         System.out.println("Enter Your Name:");
         name += scanner.nextLine();
         System.out.print("Enter Your Phone Number:");
-        number += scanner.nextLine();
+        boolean flag=false;
+        while (!flag) {
+            try {
+                number = scanner.nextLong();
+                scanner.nextLine();
+                flag=true;
+            } catch (Exception e) {
+                System.out.println("Please enter a valid number");
+                scanner.next();
+            } 
+        }
+
         this.customer = new Customer(name, number);
         System.out.print("\n");
         System.out.println(
@@ -86,11 +98,11 @@ public class ShoppingCartMedium {
         System.out.println("Choose your delivery method\n1.Home Delivery\n2.Takeway");
         this.deliveryChoice = scanner.nextInt();
 
-        while (!(choice == 1 || choice == 2)) {
+        while (!(this.deliveryChoice == 1 || this.deliveryChoice == 2)) {
             System.out.println("Please choose again");
             this.deliveryChoice = scanner.nextInt();
         }
-        if (choice == 1) {
+        if (this.deliveryChoice == 1) {
             this.customer.setDeliveryMode(true);
         } else {
             this.customer.setDeliveryMode(false);
@@ -106,6 +118,10 @@ public class ShoppingCartMedium {
         while (stillChoosing) {
             System.out.println("Please enter the item number of items among the list of items from menu");
             this.choosenItemIndex = scanner.nextInt();
+            while (!(this.choosenItemIndex >= 1 && this.choosenItemIndex <= 5)) {
+                System.out.println("Invalid Item Number\nPlease enter again");
+                this.choosenItemIndex = scanner.nextInt();
+            }
             System.out.println("Enter quantity of choosen item");
             this.quantity = scanner.nextInt();
             scanner.nextLine();
@@ -189,10 +205,10 @@ public class ShoppingCartMedium {
             System.out.println("Shipping Charge: Rs." + this.shippingCharge());
         }
         System.out.println("Total Tax: Rs." + this.tax);
-        System.out.println("Amount Saved: Rs." + this.amountSaved);
+        System.out.printf("Amount Saved: Rs. %.2f\n", this.amountSaved);
         System.out.println("Sum amount to be paid: Rs." + (this.totalAmount + this.tax));
-        System.out.println("Billing Date:" + this.billTime().split(" ")[0]);
-        System.out.println("Billing Date:" + this.billTime().split(" ")[1]);
+        System.out.println(
+                "Billing Date:" + this.billTime().split(" ")[0] + ", Billing Time:" + this.billTime().split(" ")[1]);
     }
 
     public static void main(String[] args) {
