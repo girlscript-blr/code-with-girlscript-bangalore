@@ -103,7 +103,9 @@ Input & output can be in any format or variation but it must include the followi
 
 ## Requirements for submission
 
+- A document containing a screenshot showing the results must also be pushed along with final submission. A brief description(not more than 4-5 lines/100 words) should be included containing the approach used for solving the problem. 
 - Last Submission Date : `30th July 2020`
+- If you haven’t filled our [participation form](https://tinyurl.com/codewithgsblr) 📃yet, fill it now. 
 
 ## How to submit solution?
 
