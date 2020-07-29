@@ -24,12 +24,13 @@ else :
 
 for i in range(len(options)):
     print(str(i+1) + ":", options[i])
-pay_method= int(input("Enter a number: "))
-try:
-    if pay_method in range(1, 5):
-        pay_method = options[pay_method-1]
-except IndexError:
-        pay_method= int(input(" Renter a number: "))           
+pay_method= input("Enter a number: ")
+list1=[1,2,3]
+if pay_method.isdigit():
+               if pay_method in list1:
+                   pay_method = options[pay_method-1] 
+else:
+      pay_method= input(" Renter a number: ")
 item_choosen = int(input("Enter the item_id of item you want to purchase: "))
 quant = int(input("Enter the quantity of item you want to purchase: "))
 
@@ -48,7 +49,9 @@ print("Shop contact number: +91 9988776655\n")
 print('Customer Name: ' + name)
 print('Customer phone number: ' + phone_no)
 print ('the tax percentage is 6%')
+
 print('Item purchased: ' + items_in_shop[item_choosen-1][0] + '  Quantity: ' + str(quant) + '  Price/unit : ' + str(items_in_shop[item_choosen-1][1]))
+print('tax amount:',tax)
 print('Total amount to be paid: ' + str(amount_with_tax))
 print('Payment method choosen: ' +str(pay_method))
 
