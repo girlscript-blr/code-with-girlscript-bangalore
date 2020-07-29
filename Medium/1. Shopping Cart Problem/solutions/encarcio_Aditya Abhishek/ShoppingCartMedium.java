@@ -204,11 +204,10 @@ public class ShoppingCartMedium {
         if (this.deliveryChoice == 1) {
             System.out.println("Shipping Charge: Rs." + this.shippingCharge());
         }
-        System.out.println("Total Tax: Rs." + this.tax);
+        System.out.printf("Total Tax: Rs. %.2f\n", this.tax);
         System.out.printf("Amount Saved: Rs. %.2f\n", this.amountSaved);
         System.out.println("Sum amount to be paid: Rs." + (this.totalAmount + this.tax));
-        System.out.println(
-                "Billing Date:" + this.billTime().split(" ")[0] + ", Billing Time:" + this.billTime().split(" ")[1]);
+        System.out.println("Billing Date:" + this.billTime().split(" ")[0] + ", Billing Time:" + this.billTime().split(" ")[1]);
     }
 
     public static void main(String[] args) {
