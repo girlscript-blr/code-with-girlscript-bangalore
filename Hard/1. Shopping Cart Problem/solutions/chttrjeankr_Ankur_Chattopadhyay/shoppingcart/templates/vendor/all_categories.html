@@ -1,0 +1,79 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h1>All Category List</h1>
+  <div class="col-sm-auto">
+    <button
+      type="submit"
+      class="btn btn-outline-secondary"
+      onclick="window.location.href='/vendor'"
+    >
+      Back to Vendor Home
+    </button>
+  </div>
+  <hr />
+  <div class="container row">
+    <form id="search" class="form-inline" action="">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          name="q"
+          value=""
+          placeholder="Search by Name"
+        />
+        <button type="submit" class="btn btn-success btn-sm">Search</button>
+      </div>
+    </form>
+    <div class="container" style="text-align: right;">
+      <form action="/create_category">
+        <button type="submit" class="btn btn-info btn-lg">
+          Add Category
+        </button>
+      </form>
+    </div>
+  </div>
+  <br />
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Category ID</th>
+          <th>Category Name</th>
+          <th>Items in Category</th>
+          <th>Edit Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for category in categories %}
+        <tr>
+          <td>{{ category.pk }}</td>
+          <td>{{ category.name }}</td>
+          <td>
+            <form class="form-inline" action="" method="post">
+              {% csrf_token %}
+              <input
+                type="hidden"
+                name="category_id"
+                value="{{ category.pk }}"
+              />
+              <button type="submit" class="btn btn-info btn-sm">
+                All Items in {{ category.name }}
+              </button>
+            </form>
+          </td>
+          <td>
+            <form action="/edit_category/{{ category.pk }}">
+              <button type="submit" class="btn btn-dark btn-sm">
+                Edit Category
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

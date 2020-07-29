@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h1>Order Status</h1>
+  <hr />
+  <div class="container">
+    <form class="create_order" id="create_order" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="order_id" class="col-sm-2 col-form-label">
+          Order ID:
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="order_id"
+            name="order_id"
+            placeholder="Enter your Order ID"
+            required
+          />
+        </div>
+        <label for="phone_number" class="col-sm-2 col-form-label">
+          Mobile No.:
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="phone_number"
+            name="phone_number"
+            placeholder="Enter your Phone Number"
+            required
+          />
+        </div>
+      </div>
+      <div class="container" style="text-align: right;">
+        <button type="submit" form="create_order" class="btn btn-success">
+          View Status
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

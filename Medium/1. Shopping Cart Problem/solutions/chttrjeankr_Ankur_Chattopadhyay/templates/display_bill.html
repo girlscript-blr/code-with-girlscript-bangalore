@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h1>Created Bill</h1>
+  <hr />
+  <div class="d-inline">
+    <div class="alert alert-success" role="alert">
+      Bill successfully generated
+    </div>
+    <div class="text-right">
+      <button
+        type="button"
+        class="btn btn-success btn-lg"
+        onclick="window.print()"
+      >
+        Print Bill
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <ul>
+      <li>Date: {{ bill['billingDateTime'] }}</li>
+    </ul>
+  </div>
+  <div class="container">
+    <ul>
+      <li>Shop Name: {{ bill['shopName'] }}</li>
+      <li>Shop Address: {{ bill['shopAddress'] }}</li>
+      <li>Shop Contact Number: {{ bill['shopContactNumber'] }}</li>
+    </ul>
+  </div>
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">S.No.</th>
+          <th scope="col">Item</th>
+          <th scope="col">Price Per Item</th>
+          <th scope="col">Savings Per Item</th>
+          <th scope="col">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item_tuple, quantity in bill['cart'].items() %}
+        <tr>
+          <th scope="row">{{ loop.index }}</th>
+          <td>{{ item_tuple.item_name }}</td>
+          <td>&#8377; {{ item_tuple.final_price_per_item }}</td>
+          <td>&#8377; {{ item_tuple.amount_saved_per_item }}</td>
+          <td>{{ quantity }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <ul>
+      <li>Customer Name: {{ bill['customerName'] }}</li>
+      <li>Customer Contact Number: {{ bill['customerPhoneNumber'] }}</li>
+      <li>Tax Included: &#8377; {{ bill['totalTax'] }}</li>
+      {% if bill['deliveryMethod'] == 'homedel' %}
+      <li>Delivery Charges: &#8377; {{ bill['deliveryCost'] }}</li>
+      {% endif %}
+      <li>Total Price: &#8377; {{ bill['totalPrice'] }}</li>
+      <li>Total Savings: &#8377; {{ bill['totalSavings'] }}</li>
+      <li>Payment Method: {{ bill['paymentMethod'] }}</li>
+      {% if bill['deliveryMethod'] == 'homedel' %}
+      <li>Shipping Address: {{ bill['shippingAddress'] }}</li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <div class="container">
+    <button
+      type="submit"
+      class="btn btn-dark btn-sm"
+      onclick="window.location.href='/shopping_list'"
+    >
+      Start Shopping
+    </button>
+  </div>
+</div>
+
+{% endblock %}
