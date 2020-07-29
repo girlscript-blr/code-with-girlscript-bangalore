@@ -3,7 +3,7 @@ from datetime import datetime
 print('Welcome to GadgetifyWithGSBlr\n')
 
 items_in_shop = [['Basshead earphones', 1200], ['Dell Keyboard', 850], ['Bluetooth computer mouse', 600], ['Dell monitor', 12000], ['Dell charger', 2500], ['Asus gaming mouse', 820], ['Mobile cover', 200]]
-
+options=['cash','card','online']
 
 print("\nItems available in Shop:\n")
 item_id = 1
@@ -16,8 +16,18 @@ for item in items_in_shop:
 
 
 name = input("Enter your name: ")
-phone_no = input("Enter your phone number: ")
-pay_method = input("Your payment method: Cash/Card/Online: ")
+phone = input("Enter your phone number: ")
+if phone.isdigit():
+	phone_no=int(phone)
+else :
+	print('accepts only numbers not integer')
+for i in range(len(options)):
+    print(str(i+1) + ":", options[i])
+pay_method= int(input("Enter a number: "))
+if pay_method in range(1, 5):
+    pay_method = options[pay_method-1]
+else:
+    print("Invalid input!")
 item_choosen = int(input("Enter the item_id of item you want to purchase: "))
 quant = int(input("Enter the quantity of item you want to purchase: "))
 
@@ -35,6 +45,7 @@ print("Shop contact number: +91 9988776655\n")
 
 print('Customer Name: ' + name)
 print('Customer phone number: ' + phone_no)
+print ('the tax percentage is 6%')
 print('Item purchased: ' + items_in_shop[item_choosen-1][0] + '  Quantity: ' + str(quant) + '  Price/unit : ' + str(items_in_shop[item_choosen-1][1]))
 print('Total amount to be paid: ' + str(amount_with_tax))
 print('Payment method choosen: ' + pay_method)
