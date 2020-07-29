@@ -1,15 +1,15 @@
 ,Order ID,Order Status,Billing Date & Time,Total amount,Delivery option,Payment method
-0,118.0,in progress,2020-05-14 15:50:53.273417,9600.0,Takeaway,Cash
-1,498.0,in progress,2020-02-12 15:50:53.273417,4300.0,Takeaway,Cash
-2,348.0,Received,2020-03-19 15:50:53.273417,2000.0,Takeaway,Cash
-3,768.0,Cancelled,2020-02-16 15:50:53.273417,13040.0,Takeaway,Cash
-4,210.0,in progress,2020-01-31 15:50:53.273417,3210.0,Takeaway,Cash
-5,445.0,Cancelled,2020-4-16 15:50:53.273417,8760.0,Takeaway,Cash
-6,321.0,in progress,2020-4-15 15:50:53.273417,2650.0,Takeaway,Cash
-7,765.0,in progress,2020-7-18 15:50:53.273417,3100.0,Takeaway,Cash
-8,327.0,in progress,2020-7-06 15:50:53.273417,7600.0,Takeaway,Cash
-9,335.0,Received,2020-07-21 17:13:09.949242,2965.88,Takeaway,Cash
-10,502.0,Received,2020-07-21 17:17:59.590119,6781.88,Takeaway,Card
-11,371.0,Received,2020-07-22 16:09:37.860282,1590.0,Takeaway,Card
-12,624.0,in progress,2020-07-22 17:00:23.334042,1501.6,Home delivery,Online
-13,931.0,Received,2020-07-22 17:24:08.642365,381.6,Takeaway,online
+0,118,in progress,2020-05-14 15:50:53.273417,9600.0,Takeaway,Cash
+1,498,in progress,2020-02-12 15:50:53.273417,4300.0,Takeaway,Cash
+2,348,Received,2020-03-19 15:50:53.273417,2000.0,Takeaway,Cash
+3,768,Cancelled,2020-02-16 15:50:53.273417,13040.0,Takeaway,Cash
+4,210,in progress,2020-01-31 15:50:53.273417,3210.0,Takeaway,Cash
+5,445,Cancelled,2020-4-16 15:50:53.273417,8760.0,Takeaway,Cash
+6,321,in progress,2020-4-15 15:50:53.273417,2650.0,Takeaway,Cash
+7,765,in progress,2020-7-18 15:50:53.273417,3100.0,Takeaway,Cash
+8,327,in progress,2020-7-06 15:50:53.273417,7600.0,Takeaway,Cash
+9,335,Received,2020-07-21 17:13:09.949242,2965.88,Takeaway,Cash
+10,502,Received,2020-07-21 17:17:59.590119,6781.88,Takeaway,Card
+11,371,Received,2020-07-22 16:09:37.860282,1590.0,Takeaway,Card
+12,624,in progress,2020-07-22 17:00:23.334042,1501.6,Home delivery,Online
+13,931,Received,2020-07-22 17:24:08.642365,381.6,Takeaway,online
