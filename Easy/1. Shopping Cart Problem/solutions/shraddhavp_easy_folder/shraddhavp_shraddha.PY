@@ -18,16 +18,18 @@ for item in items_in_shop:
 name = input("Enter your name: ")
 phone = input("Enter your phone number: ")
 if phone.isdigit():
-	phone_no=int(phone)
+    phone_no=phone      
 else :
-	print('accepts only numbers not integer')
+    phone= input("Renter your phone number: ")
+
 for i in range(len(options)):
     print(str(i+1) + ":", options[i])
 pay_method= int(input("Enter a number: "))
-if pay_method in range(1, 5):
-    pay_method = options[pay_method-1]
-else:
-    print("Invalid input!")
+try:
+    if pay_method in range(1, 5):
+        pay_method = options[pay_method-1]
+except IndexError:
+        pay_method= int(input(" Renter a number: "))           
 item_choosen = int(input("Enter the item_id of item you want to purchase: "))
 quant = int(input("Enter the quantity of item you want to purchase: "))
 
@@ -48,7 +50,7 @@ print('Customer phone number: ' + phone_no)
 print ('the tax percentage is 6%')
 print('Item purchased: ' + items_in_shop[item_choosen-1][0] + '  Quantity: ' + str(quant) + '  Price/unit : ' + str(items_in_shop[item_choosen-1][1]))
 print('Total amount to be paid: ' + str(amount_with_tax))
-print('Payment method choosen: ' + pay_method)
+print('Payment method choosen: ' +str(pay_method))
 
 print('\n')
 now = datetime.now()
@@ -56,4 +58,3 @@ dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 print("Billing date and time =", dt_string)
 
 print('Thank you for visiting us!Come Back Soon!!') 
- 
