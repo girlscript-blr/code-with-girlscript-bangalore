@@ -47,7 +47,7 @@ print("Shop address: 311/5 Akshay nagar, Bangalore, Karnataka, India")
 print("Shop contact number: +91 9988776655\n")
 
 print('Customer Name: ' + name)
-print('Customer phone number: ' + phone_no)
+print('Customer phone number: ' + phone)
 print ('the tax percentage is 6%')
 
 print('Item purchased: ' + items_in_shop[item_choosen-1][0] + '  Quantity: ' + str(quant) + '  Price/unit : ' + str(items_in_shop[item_choosen-1][1]))
