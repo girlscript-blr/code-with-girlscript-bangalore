@@ -329,16 +329,12 @@ def customer_mode():
                 q_list=[] #q_list
                 n_check=True
                 while(n_check):
-                  name=input("\nEnter your name : ")
-                  if(len(name)==0):
+                   name=input("\nEnter your name : ")
+                   if(len(name)==0):
                      print("\nMandatory Field.Please enter Customer's Name.")
-                     n_check = True
-                  else:
-                      if(name.isalpha()):
-                          n_check = False
-                      else:
-                          print("\nOnly alphabets allowed.Please Re-enter")
-                          n_check = True
+                     n_check=True
+                   else:
+                     n_check=False
                 p_check=True
                 while(p_check):
                   phone=input("\nEnter your phone number: ")
@@ -424,9 +420,30 @@ def customer_mode():
                                 
                 delivery=int(input("\nPress 0 for Home Delivery and 1 for Takeaway:  "))
                 if(delivery==0):
-                    distance=int(input("What is the distance between your residence and the outlet: "))
-                    if(distance<50):
-                        address=input("Enter your address: ")
+                 distance=int(input("What is the distance between your residence and the outlet: "))
+                 d_check=True
+                 while(d_check):
+                     distance=input("What is the distance between your residence and the outlet: ")
+                     if(len(distance)==0):
+                         print("\nMandatory Field.Please enter the distance as home delivery has been selected.")
+                         d_check=True
+                      else:
+                          try:
+                              distance=int(distance)
+                              d_check=False
+                          except(ValueError):
+                              print("Only numeric digits can be entered.Try again")
+                              d_check=True
+                   
+                   if(distance<50):
+                        a_check=True
+                        while(a_check):
+                           address=input("Enter your address: ")
+                           if(len(address)==0):
+                               print("\nMandatory Field.Please enter the address as home delivery has been selected.")
+                               a_check=True
+                           else:
+                               a_check=False
                         print("\n*************************************************************************")
                         print("\n**************************Welcome to GSBLr*******************************")
                         print("\n                  Shop name: GadgetifyWithGSBlr")
