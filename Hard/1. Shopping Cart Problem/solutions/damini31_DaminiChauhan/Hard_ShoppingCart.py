@@ -33,9 +33,10 @@ def is_present(a,new):
 
 
 def vendor_mode():
-    k=2
-    while(k!=0):
-        vendor_list()
+  k=2
+  while(k!=0):
+     vendor_list()
+     try:  
         k = int(input("\nEnter the operation you want to perform.To exit,press 0: "))
 
         if(k==1):
@@ -44,47 +45,98 @@ def vendor_mode():
             print("\nEnter the category you want to add. ")
             new = input("\nCategory: ")
             while(len(new)==0):
-                print("Invalid Category Name.")
+                print("Mandatory Field.Please enter Category Name.")
                 new = input("\nCategory: ")
             if(is_present(df['Name'],new)==True):
                 print("\nCategory Already Present")
             else:
-                y=new
-                x=randint(100, 999)
-                new_entry={'Name':y,'Category ID':x}
-                df=df.append(new_entry,ignore_index=True)
-            print("\nThe updated category list is as follows :")
-            print(df)
-            df.to_csv("Category.csv")
+                if(new.isalpha()):
+                    y=new
+                    x=randint(100, 999)
+                    new_entry={'Name':y,'Category ID':x}
+                    df=df.append(new_entry,ignore_index=True)
+                    print("\nThe updated category list is as follows :")
+                    print(df)
+                    df.to_csv("Category.csv")
+                else:
+                    print("Category name can only contain alphabets....")
+                    print("Returning to the operations list.............")
+                    
+                
+            
          
         elif(k==2):
             df=pd.read_csv("Items.csv",index_col=0)
             print(df)
             print("\n")
             name=input("\nEnter the name of the product name: ")
-            if(is_present(df['Name'],name)==False):
-                o_price=int(input("\nEnter the original price of the product:"))
-                d_price=int(input("\nEnter the discount price of the product:"))
+            while(len(name)==0):
+                print("Mandatory Field.Please enter a value")
+                name = input("\nProduct name: ")
+                if(is_present(df['Name'],name)==False):
+                  o_check=False
+                  while(o_check == False):
+                    o_price = input("\nEnter the original price of the product:")
+                    if(len(o_price)==0):
+                        print("\nMandatory Field.Please Enter a value.")
+                        o_check ==False
+                    else: 
+                        try:
+                           o_price= int(o_price)
+                           o_check=True
+                        except(ValueError):
+                            print("Only integer values are allowed.")
+                            o_check =False
+            
+                d_check=False
+                while(d_check == False):
+                    d_price = input("\nEnter the discount price of the product:")
+                    if(len(d_price)==0):
+                        print("\nMandatory Field.Please Enter a value.")
+                        d_check = False
+                    else: 
+                        try:
+                           d_price= int(d_price)
+                           d_check=True
+                        except(ValueError):
+                            print("Only integer values are allowed.")
+                            d_check = False
                 weight=input("\nEnter the weight for the product: ")
+                while(len(weight)==0):
+                   print("Invalid Value.Try Again")
+                   weight = input("\nWeight : ")
                 gf=pd.read_csv("Category.csv",index_col=0)
                 print(gf)
-                check=True
-                while(check):
-                 ID=int(input("\nEnter the Category ID:"))
-                 y=is_present(gf['Category ID'],ID)
-                 if(y == True):
-                   PID=df['Product ID '][len(df['Product ID '])-1] + 1
-                   new_entry={'Name':name,'Original Price':o_price,'Discount Price':d_price,'Weight':weight,'Category ID':ID,'Product ID ':PID}
-                   df=df.append(new_entry,ignore_index=True)
-                   print("\nThe updated item list is as follows: ")
-                   print(df)
-                   df.to_csv("Items.csv")
-                   check=False
+                check=False
+                while(check==False):
+                 ID=input("\nEnter the Category ID:")
+                 if(len(ID)==0):
+                      print("\nMandatory Field.Please Enter a value.")
+                      check = False
                  else:
-                    print("Invalid Category ID.Please Retry.")
-                    check=True
+                   try:
+                       ID=int(ID)
+                       check=False
+                       y=is_present(gf['Category ID'],ID)
+                       
+                       if(y == True):
+                         PID=df['Product ID '][len(df['Product ID '])-1] + 1
+                         new_entry={'Name':name,'Original Price':o_price,'Discount Price':d_price,'Weight':weight,'Category ID':ID,'Product ID ':PID}
+                         df=df.append(new_entry,ignore_index=True)
+                         print("\nThe updated item list is as follows: ")
+                         print(df)
+                         df.to_csv("Items.csv")
+                         check=True
+                       else:
+                         print("Category ID not present.Please retry. ")
+                         check=False
+                         
+               
+                   except(ValueError):
+                       print("Invalid Category ID.Please Retry.")
+                       check=False
             else:
-                print("Item already present.")   
+                  print("Item already present.")
         
         elif(k==3):
                 df=pd.read_csv("Items.csv",index_col=0)
@@ -94,22 +146,38 @@ def vendor_mode():
                 print("Column List: ",df.columns)
                 choice=int(input("\nDo you wish to filter or sort items.Press 1 to filter and 0 to sort: "))
                 if(choice==1):
-                    column=input("\nBy which column would you want to filter  the product: ")
-                    if(column == "Name" or column == "Weight"):
-                        value=input("Enter the product name/original price/Discount price/ID/weight of the product you want to filter out: ")
+                  column=input("\nBy which column would you want to filter  the product: ")
+                  y=is_present(df.columns,column)
+                  if(y == True):
+                     if(column == "Name" or column == "Weight"):
+                        value=input("Enter the {} of the product you want to filter out: ".format(column))
                         if(is_present(df[column],value)==True):
-                              print(df[df[column] == value])
+                            print(df[df[column] == value])
                         else:
                             print("The value entered is not present.")
-                    else:
-                        value=int(input("Enter the original price/Discount price/ID of the product you want to filter out: "))
+                  
+                     else:
+                        value=int(input("Enter the {} of the product you want to filter out: ".format(column)))
                         if(is_present(df[column],value)==True):
-                              print(df[df[column] == value])
+                            print(df[df[column] == value])
                         else:
                             print("The value entered is not present.")
-                else:
+                  else:
+                            print("Column name entered cannot be found.")
+                            print("\nLoading the vendor menu again.................")
+                
+                elif(choice==0):
                     column=input("\nBy which column would you want to sort the product: ")
-                    print(df.sort_values(column))
+                    y=is_present(df.columns,column)
+                    if(y==True):
+                       print(df.sort_values(column))
+                    else:
+                        print("Column name entered cannot be found.")
+                        print("\nLoading the vendor menu again.................")
+            
+                else:
+                       print("\nInvalid choice.Please try again.")
+                       print("\nLoading the vendor menu again.................")
         
         elif(k==4):
             df=pd.read_csv("Category.csv",index_col=0)
@@ -123,8 +191,11 @@ def vendor_mode():
                 print("\nCategory Not Present.")
                else:
                 print(df[df['Name']==name])
-            else:
+            elif(choice==0):
                 print(df.sort_values('Name'))
+            else:
+                print("\nInvalid choice.Please try again.")
+                print("\nLoading the vendor menu again.................")
             
         elif(k==5):
             df=pd.read_csv("Orders.csv",index_col=0)
@@ -137,19 +208,24 @@ def vendor_mode():
                 print("\nTotal amount")
                 print("\nDelivery option")
                 column=input("\nBy which column would you want to filter  the orders?   ")
-                if(column == "Order ID" or column == "Total amount"):
-                    value=int(input("Enter the OrderID/Total amount of the order you want to filter out: "))
+                y=is_present(df.columns,column)
+                if(y == True):
+                  if(column == "Order ID" or column == "Total amount"):
+                    value=int(input("Enter the {} of the order you want to filter out: ".format(column)))
+                    if(is_present(df[column],value)==True):
+                              print(df[df[column] == value])
+                    else:
+                            print("The value entered is not present.")
+                  else:
+                    value=input("Enter the {} you want to filter out: ".format(column))
                     if(is_present(df[column],value)==True):
                               print(df[df[column] == value])
                     else:
                             print("The value entered is not present.")
                 else:
-                    value=input("Enter the Order status/Billing date/Delivery option you want to filter out: ")
-                    if(is_present(df[column],value)==True):
-                              print(df[df[column] == value])
-                    else:
-                            print("The value entered is not present.")
-            else:
+                    print("Column name entered cannot be found.")
+                   
+            elif(choice==0):
                  print("\nColumns which can be used to sort:")
                  print("\nOrder ID")
                  print("\nOrder Status")
@@ -158,7 +234,11 @@ def vendor_mode():
                  print("\nDelivery option")
                  column=input("\nBy which column would you want to sort the orders?  ")
                  print(df.sort_values(column))
-         
+            
+            else:
+                print("\nInvalid choice.Please try again.")
+                print("\nLoading the vendor menu again.................")
+                
         elif(k==6):
                 df=pd.read_csv("Orders.csv",index_col=0)
                 print(df)
@@ -167,18 +247,26 @@ def vendor_mode():
                 print("\n Delivered")
                 print("\n Cancelled")
                 ID=int(input("\nEnter the order ID for the order whose status you want to change: "))
-                Status=input("\nEnter the new status for the order ID: ")
-                n=df[df['Order ID']==ID].index.values[0]
-                df.at[n,'Order Status']=Status
-                print("\nThe updated Order Details: ")
-                print(df[df["Order ID"]==ID])
-                df.to_csv("Orders.csv")
+                y=is_present(df['Order ID'],ID)
+                if(y == True):
+                  Status=input("\nEnter the new status for the order ID: ")
+                  n=df[df['Order ID']==ID].index.values[0]
+                  df.at[n,'Order Status']=Status
+                  print("\nThe updated Order Details: ")
+                  print(df[df["Order ID"]==ID])
+                  df.to_csv("Orders.csv")
+                else:
+                  print("The Order ID entered is not present")
         else:
             if(k==0):
                 break;
-            else:
+            else:   
                 print("\nThe option chosen is not available") 
-            
+       
+     except(ValueError):
+         print("No operation selected!")
+         
+         
 def customer_list():
     print("\n**********CUSTOMER MODE****************")
     print("\n1.Press 1 to Create a new order")
@@ -228,10 +316,10 @@ def calculate_bill(p_list,q_list,distance):
         return total+(total*0.06) + fee            
 
 def customer_mode():
-        print("\n**********CUSTOMER MODE****************")
-        k=2
-        while(k!=0):
-            customer_list()
+   k=2
+   while(k!=0):
+       customer_list()
+       try:
             k = int(input("\nEnter the operation you want to perform.To exit,press 0  "))
             
             if(k==1):
@@ -239,9 +327,48 @@ def customer_mode():
                 #Details
                 p_list=[] #product list
                 q_list=[] #q_list
-                name=input("\nEnter your name : ")
-                phone=input("\nEnter your phone number: ")
-                payment=input("\nPayment method to be used(Card/Cash/Online): ")
+                n_check=True
+                while(n_check):
+                  name=input("\nEnter your name : ")
+                  if(len(name)==0):
+                     print("\nMandatory Field.Please enter Customer's Name.")
+                     n_check = True
+                  else:
+                      if(name.isalpha()):
+                          n_check = False
+                      else:
+                          print("\nOnly alphabets allowed.Please Re-enter")
+                          n_check = True
+                p_check=True
+                while(p_check):
+                  phone=input("\nEnter your phone number: ")
+                  if(len(phone)==0):
+                     print("\nMandatory Field.Please enter Customer's Phone number.")
+                     p_check = True
+                  else:
+                      if(phone.isdigit()):
+                          p_check = False
+                      else:
+                          print("\nOnly Digits allowed.Please Re-enter")
+                          p_check=True
+                
+                py_check=True
+                while(py_check):
+                  payment=input("\nPayment method to be used(Card/Cash/Online): ")
+                  if(len(payment)==0):
+                     print("\nMandatory Field.Please enter a valid Payment method.")
+                     print("\nOptions Available :")
+                     print("\n1.Cash")
+                     print("\n2.Card")
+                     print("\n3.Online")
+                     py_check = True
+                  else:
+                      if(payment == "Cash" or payment == "Card" or payment == "Online"):
+                          py_check=False
+                      else:
+                          print("Please enter a valid option.")
+                          py_check=True
+                 
                 check=True
                 while(check):
                   print("\nChoose the Items from the list below by their Product ID")
@@ -249,18 +376,52 @@ def customer_mode():
                   print(pf)
                   j=2
                   while(j!=0):
-                    t=int(input("\nEnter the Product ID: "))
-                    y= is_present(pf['Product ID '],t)
-                    if(y == True):
-                      p_list.append(t)
-                      r=int(input("\nEnter the quantity of the product: "))
-                      q_list.append(r)
-                      j=int(input("\nDo you want to add more items?Press 0 to exit and 1 to add more items?  "))
-                      check = False
-                    else:
-                      print("Enter the correct Product ID")
-                      check = True
-                        
+                      p_check=True
+                      while(p_check):
+                         t=input("\nEnter the Product ID: ") 
+                         if(len(t)==0):
+                             print("\nMandatory Field.Please enter Product ID.")
+                             p_check = True
+                         else:
+                             try:
+                                t=int(t)
+                                y=is_present(pf['Product ID '],t)
+                                
+                                if(y == True):
+                                    p_list.append(t)
+                                    q_check=True
+                                    while(q_check):
+                                       r=input("\nEnter the quantity of the product: ")
+                                       if(len(r)==0 or r == "0"):
+                                            print("\nMandatory Field.Quantity Cannot be zero or blank.")
+                                            q_check = True
+                                       else:
+                                           try:
+                                               r=int(r)
+                                               q_list.append(r)
+                                               j=int(input("\nDo you want to add more items?Press 0 to exit and 1 to add more items?  "))
+                                               if(j==0):
+                                                   check=False
+                                               else:
+                                                   check=True 
+                                               q_check=False
+                                               p_check = False
+                                            
+                                           except(ValueError):
+                                                print("\nQuantity is numeric.Please Re-enter ")
+                                                q_check=True
+                                       
+                                       
+          
+                                
+                                else:
+                                    print("\nEnter the correct Product ID")
+                                    p_check = True
+                            
+                             except(ValueError):
+                                print("\nProduct ID is numeric.Please Re-enter")
+                                p_check=True
+                                
                 delivery=int(input("\nPress 0 for Home Delivery and 1 for Takeaway:  "))
                 if(delivery==0):
                     distance=int(input("What is the distance between your residence and the outlet: "))
@@ -346,24 +507,40 @@ def customer_mode():
                             print("Order Status: ",order_status)
                             df=df.append(new_entry,ignore_index=True)
                             df.to_csv("Orders.csv")   
+             
             elif(k==2):
                 df=pd.read_csv("Orders.csv",index_col=0)
-                check=True
-                while(check):
-                 ID=int(input("\nEnter the ID whose status you wish to see: "))
-                 y= is_present(df['Order ID'],ID)
-                 if(y == True):
-                   print("\nThe Status of the Order ID {} is: ".format(ID),df[df['Order ID']== ID]['Order Status'].values[0])
-                   check=False
-                 else:
-                    print("\nIncorrect Order ID.Please Re-enter.")
-                    check=True
+                o_check=True
+                while(o_check):
+                    ID=input("\nEnter the ID whose status you wish to see: ")
+                    if(len(ID)==0):
+                        print("\nMandatory Field.Please enter the Order ID.")
+                        o_check = True
+                    else:
+                        try:
+                            ID=int(ID) 
+                            y = is_present(df['Order ID'],ID)
+                            if(y == True):
+                                print("\nThe Status of the Order ID {} is: ".format(ID),df[df['Order ID']== ID]['Order Status'].values[0])
+                                o_check=False
+                            else:
+                                print("\nIncorrect Order ID.Please Re-enter.")
+                                o_check=True
+                        
+                        except(ValueError):
+                             print("Only integer values are allowed.")
+                             o_check=True
+           
             else:
                 if(k==0):
                     break;
                 else:
                     print("\nThe option chosen is not available") 
-            
+       
+       except(ValueError):
+            print("No operation selected!")
+        
+        
 #User Interface to take input
 def menu():
     print("\n********************Welcome to GSBLr****************************")
@@ -376,8 +553,9 @@ def menu():
 
 ch=2
 while(ch!=0):
-    menu()
-    print("\nEnter the mode you want to operate in ,Else press 0 to exit.\n")
+   menu()
+   print("\nEnter the mode you want to operate in ,Else press 0 to exit.\n")
+   try:
     ch=int(input())
     if(ch==1):
         vendor_mode()
@@ -388,3 +566,6 @@ while(ch!=0):
            break;
         else:
             print("\nMode not available")
+   except(ValueError):
+        print("No mode selected!")
+        print("-----------Restarting the application----------------")
