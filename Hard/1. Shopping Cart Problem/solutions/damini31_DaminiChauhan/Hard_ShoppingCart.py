@@ -31,6 +31,9 @@ def is_present(a,new):
             x=False
     return x 
 
+def check_for_digits(a):
+    return any(char.isdigit() for char in a)
+    
 
 def vendor_mode():
   k=2
@@ -43,24 +46,33 @@ def vendor_mode():
             df=pd.read_csv("Category.csv",index_col=0)
             print(df)
             print("\nEnter the category you want to add. ")
-            new = input("\nCategory: ")
-            while(len(new)==0):
-                print("Mandatory Field.Please enter Category Name.")
-                new = input("\nCategory: ")
-            if(is_present(df['Name'],new)==True):
-                print("\nCategory Already Present")
-            else:
-                if(new.isalpha()):
-                    y=new
-                    x=randint(100, 999)
-                    new_entry={'Name':y,'Category ID':x}
-                    df=df.append(new_entry,ignore_index=True)
-                    print("\nThe updated category list is as follows :")
-                    print(df)
-                    df.to_csv("Category.csv")
-                else:
-                    print("Category name can only contain alphabets....")
-                    print("Returning to the operations list.............")
+            category_check=True
+            while(category_check):
+               new = input("\nCategory: ")
+               if(len(new)==0):
+                  print("Mandatory Field.Please enter Category Name.")
+                  category_check=True
+               else:
+                      if(is_present(df['Name'],new)==True):
+                        print("\nCategory Already Present")
+                        category_check=False
+                        
+                      else:
+                        if(check_for_digits(new)):
+                          print("Category name can only contain alphabets....")
+                          category_check=True
+                        
+                        else:
+                          y=new
+                          x=randint(100, 999)
+                          new_entry={'Name':y,'Category ID':x}
+                          df=df.append(new_entry,ignore_index=True)
+                          print("\nThe updated category list is as follows :")
+                          print(df)
+                          df.to_csv("Category.csv")  
+                          category_check=True
+                          
+                   
                     
                 
             
@@ -69,13 +81,25 @@ def vendor_mode():
             df=pd.read_csv("Items.csv",index_col=0)
             print(df)
             print("\n")
-            name=input("\nEnter the name of the product name: ")
-            while(len(name)==0):
+            name_check=True
+            while(name_check):
+              name=input("\nEnter the name of the product name: ")
+              if(len(name)==0):
                 print("Mandatory Field.Please enter a value")
-                name = input("\nProduct name: ")
-                if(is_present(df['Name'],name)==False):
-                  o_check=False
-                  while(o_check == False):
+                name_check=True
+              else: 
+                 if(is_present(df['Name'],name)==True):
+                     print("\nProduct name Already Present")
+                     name_check=False
+                 else:
+                     if(check_for_digits(name)):
+                          print("Product name can only contain alphabets....")
+                          name_check=True
+                     else:
+                         name_check=False
+                      
+            o_check=False
+            while(o_check == False):
                     o_price = input("\nEnter the original price of the product:")
                     if(len(o_price)==0):
                         print("\nMandatory Field.Please Enter a value.")
@@ -88,8 +112,8 @@ def vendor_mode():
                             print("Only integer values are allowed.")
                             o_check =False
             
-                d_check=False
-                while(d_check == False):
+            d_check=False
+            while(d_check == False):
                     d_price = input("\nEnter the discount price of the product:")
                     if(len(d_price)==0):
                         print("\nMandatory Field.Please Enter a value.")
@@ -101,14 +125,14 @@ def vendor_mode():
                         except(ValueError):
                             print("Only integer values are allowed.")
                             d_check = False
-                weight=input("\nEnter the weight for the product: ")
-                while(len(weight)==0):
+            weight=input("\nEnter the weight for the product: ")
+            while(len(weight)==0):
                    print("Invalid Value.Try Again")
                    weight = input("\nWeight : ")
-                gf=pd.read_csv("Category.csv",index_col=0)
-                print(gf)
-                check=False
-                while(check==False):
+            gf=pd.read_csv("Category.csv",index_col=0)
+            print(gf)
+            check=False
+            while(check==False):
                  ID=input("\nEnter the Category ID:")
                  if(len(ID)==0):
                       print("\nMandatory Field.Please Enter a value.")
@@ -135,8 +159,6 @@ def vendor_mode():
                    except(ValueError):
                        print("Invalid Category ID.Please Retry.")
                        check=False
-            else:
-                  print("Item already present.")
         
         elif(k==3):
                 df=pd.read_csv("Items.csv",index_col=0)
@@ -264,7 +286,7 @@ def vendor_mode():
                 print("\nThe option chosen is not available") 
        
      except(ValueError):
-         print("No operation selected!")
+         print("Invalid Value for the operation!")
          
          
 def customer_list():
@@ -334,7 +356,11 @@ def customer_mode():
                      print("\nMandatory Field.Please enter Customer's Name.")
                      n_check=True
                    else:
-                     n_check=False
+                     if(check_for_digits(name)):
+                         print("\nCustomer name can only contain alphabets.")
+                         n_check=True
+                     else:
+                         n_check=False
                 p_check=True
                 while(p_check):
                   phone=input("\nEnter your phone number: ")
@@ -363,6 +389,10 @@ def customer_mode():
                           py_check=False
                       else:
                           print("Please enter a valid option.")
+                          print("\nOptions Available :")
+                          print("\n1.Cash")
+                          print("\n2.Card")
+                          print("\n3.Online")
                           py_check=True
                  
                 check=True
@@ -420,14 +450,14 @@ def customer_mode():
                                 
                 delivery=int(input("\nPress 0 for Home Delivery and 1 for Takeaway:  "))
                 if(delivery==0):
-                 distance=int(input("What is the distance between your residence and the outlet: "))
-                 d_check=True
-                 while(d_check):
+                  distance=int(input("What is the distance between your residence and the outlet: "))
+                  d_check=True
+                  while(d_check):
                      distance=input("What is the distance between your residence and the outlet: ")
                      if(len(distance)==0):
                          print("\nMandatory Field.Please enter the distance as home delivery has been selected.")
                          d_check=True
-                      else:
+                     else:
                           try:
                               distance=int(distance)
                               d_check=False
@@ -435,7 +465,7 @@ def customer_mode():
                               print("Only numeric digits can be entered.Try again")
                               d_check=True
                    
-                   if(distance<50):
+                  if(distance<50):
                         a_check=True
                         while(a_check):
                            address=input("Enter your address: ")
@@ -464,7 +494,7 @@ def customer_mode():
                         new_entry={'Order ID':o_ID,'Order Status':order_status,'Billing Date & Time':now,'Total amount':total,'Delivery option':"Home delivery",'Payment method':payment}
                         df=df.append(new_entry,ignore_index=True)
                         df.to_csv("Orders.csv")
-                    else:
+                  else:
                         print("Home Delivery not available for distance more than 50 kms :")
                         c=int(input("Do you wish to continue.Press 1 to  continue and 0 to exit."))
                         if(c==0):
