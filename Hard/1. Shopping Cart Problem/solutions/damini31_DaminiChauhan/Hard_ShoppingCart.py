@@ -450,7 +450,6 @@ def customer_mode():
                                 
                 delivery=int(input("\nPress 0 for Home Delivery and 1 for Takeaway:  "))
                 if(delivery==0):
-                  distance=int(input("What is the distance between your residence and the outlet: "))
                   d_check=True
                   while(d_check):
                      distance=input("What is the distance between your residence and the outlet: ")
