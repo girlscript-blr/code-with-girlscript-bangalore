@@ -31,7 +31,7 @@ In this section, the Pacman needs to collect the ‘points’ as it moves in the
   - The ghost should start moving in a random direction (left, right, up or down) and continue to move until it hits a wall.
   - After hitting the wall the direction of movement of that ghost should change to a random direction.
 - The game should end after all the points have been collected and move on to the next level.
-- After the last level is completed “You won” should be displayed.
+- After the last level is completed “Congratulations, You Won!” should be displayed.
 
 ### Inputs
 
@@ -39,7 +39,7 @@ The user should be able to control the pacman with arrow keys, or (W,A,S,D).
 
 ### Output
 
-The maze should be displayed on the screen and the player should be able to control the pacman.
+The maze should be displayed on the screen and the player should be able to control the pacman. Once first level is completed it should redirect to the next till all levels are completed.
 
 ## Requirements for submission
 
