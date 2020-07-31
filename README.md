@@ -20,9 +20,9 @@ Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) 
 
 ## Problem Statements
 
-- [Beginner Level Problems](Easy/README.md)
-- [Intermediate Level Problems](Medium/README.md)
-- [Advanced Level Problems](Hard/README.md)
+- [Beginner Level Problems](Easy/2.%20Pacman%20Game/README.md)
+- [Intermediate Level Problems](Medium/2.%20Pacman%20Game/README.md)
+- [Advanced Level Problems](Hard/2.%20Pacman%20Game/README.md)
 
 ## General Guidelines
 
