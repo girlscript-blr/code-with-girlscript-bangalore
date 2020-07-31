@@ -17,6 +17,8 @@ In this section, the Pacman needs to collect the ‘points’ as it moves in the
   - One to represent the Pacman. (Ex: ‘@’)
   - Character to represent points that Pacman can collect. (Ex: ‘.’)
   - One to represent a ghost. (Ex: ‘&’)
+  - Example <br> ![Example image](../../assets/images/pacmanGameMedium.png)
+
 - The 2D array must have a minimum of 10 rows and 40 columns.
 - When the app runs, the 2D maze should be displayed along with the horizontal & vertical walls, blank space, points, ghosts and the Pacman.
 - When the arrow keys are pressed the Pacman should move in the respective direction. (The Pacman obviously cannot move through the walls)

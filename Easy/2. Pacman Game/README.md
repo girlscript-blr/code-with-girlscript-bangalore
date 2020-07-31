@@ -14,6 +14,7 @@ The objective of the problem is to allow the Pacman to move along the walls of t
   - One will represent a vertical wall. (Ex: ‘|’)
   - One will represent blank space. (Ex: ‘ ’)
   - One to represent the Pacman. (Ex: ‘@’)
+  - Example <br> ![Example image](../../assets/images/pacmanGameEasy.jpeg)
 
 - The 2D array must have a minimum of 10 rows and 40 columns.
 - When the app runs, the 2D maze should be displayed along with the horizontal & vertical walls, blank space, and the Pacman.
