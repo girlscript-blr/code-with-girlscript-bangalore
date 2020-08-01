@@ -3,6 +3,17 @@
 > Date : 1st August 2020
 
 ## Prerequisites
+- Basic data manipulation in two dimentional array / matrix.
+  - https://beginnersbook.com/2014/01/2d-arrays-in-c-example
+- How to use keyboard's arrow keys as input.
+  - For C/C++:
+    - https://www.researchgate.net/post/How_to_use_arrow_keys_in_c_programming_language
+    - http://cprogrampracticals.blogspot.com/2016/04/c-program-to-use-arrow-keys.html
+  - For Python:
+    - https://pythonhosted.org/pynput/keyboard.html
+    - https://www.geeksforgeeks.org/python-drawing-design-using-arrow-keys-in-pygame/
+  - for JavaScript:
+    - https://www.geeksforgeeks.org/javascript-detecting-the-pressed-arrow-key/
 
 ## Problem Statement
 
