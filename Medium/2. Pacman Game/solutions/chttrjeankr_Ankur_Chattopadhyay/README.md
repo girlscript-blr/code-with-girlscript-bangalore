@@ -2,7 +2,13 @@
 
 ## Simulation
 
+### PacMan gets all points
+
 > ![Peek 2020-08-26 11-16](https://user-images.githubusercontent.com/39518771/91265507-8884d380-e78e-11ea-8e7d-7be7a04acd97.gif)
+
+### Ghost Eats PacMan
+
+> ![Peek 2020-08-26 11-26](https://user-images.githubusercontent.com/39518771/91266490-03e68500-e78f-11ea-8545-d2abd9db1b10.gif)
 
 ## Approach
 
