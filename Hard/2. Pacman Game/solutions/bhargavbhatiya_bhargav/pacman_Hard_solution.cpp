@@ -4,12 +4,13 @@
 
 using namespace std;
 char board[10][40];
+int flag = 0;
 char temp[10][40];
 
 void reset(int &level);
 
 //for moving ghosts...
-void ghost_move(int &m, int &n)
+int ghost_move(int &m, int &n)
 {
    int ran;
    ran = rand() % 4 + 1;
@@ -70,6 +71,35 @@ void ghost_move(int &m, int &n)
       }
       break;
    }
+   // cout << endl
+   //   << board[m][n];
+   // if (board[m - 1][n] == '@' || board[m + 1][n] == '@' || board[m][n + 1] == '@' || board[m][n - 1] == '@')
+   // {
+
+   //    return 2;
+   // }
+   if (board[m - 1][n] == '@')
+   {
+      m--;
+      return 2;
+   }
+   else if (board[m + 1][n] == '@')
+   {
+      m++;
+      return 2;
+   }
+   else if (board[m][n + 1] == '@')
+   {
+      n++;
+      return 2;
+   }
+   else if (board[m][n - 1] == '@')
+   {
+      n--;
+      return 2;
+   }
+
+   return 3;
 }
 void set_board(int &score, int &level)
 {
@@ -223,7 +253,12 @@ void set_board(int &score, int &level)
 
 void print(int &m, int &n, int &ghost1_row, int &ghost1_column, int &ghost2_row, int &ghost2_column, int &ghost3_row, int &ghost3_column, int &level, int &score)
 {
+
    //printing board
+   board[9][40] = '|';
+   board[10][1] = '-';
+   board[10][2] = '-';
+   board[10][3] = '-';
    cout << "```````````````level:" << level << "```````````````````" << endl;
    for (int i = 1; i <= 10; i++)
    {
@@ -250,7 +285,7 @@ void print(int &m, int &n, int &ghost1_row, int &ghost1_column, int &ghost2_row,
    ch1 = getch();
    if (ch1 == 0xE0)
    {
-      int flag = 0;
+      flag = 0;
       ch2 = getch();
       switch (ch2)
       {
@@ -269,12 +304,14 @@ void print(int &m, int &n, int &ghost1_row, int &ghost1_column, int &ghost2_row,
             flag = 2;
             goto dead;
          }
+         else if (board[m - 1][n] == '|' || board[m - 1][n] == '-')
+         {
+         }
          else
          {
             flag = 1;
             goto dead;
          }
-
          break;
       case 80: //down arrow key
          if (board[m + 1][n] != '-' && board[m + 1][n] != '|' && board[m + 1][n] != '&')
@@ -290,6 +327,9 @@ void print(int &m, int &n, int &ghost1_row, int &ghost1_column, int &ghost2_row,
          {
             flag = 2;
             goto dead;
+         }
+         else if (board[m + 1][n] == '|' || board[m + 1][n] == '-')
+         {
          }
          else
          {
@@ -312,6 +352,9 @@ void print(int &m, int &n, int &ghost1_row, int &ghost1_column, int &ghost2_row,
             flag = 2;
             goto dead;
          }
+         else if (board[m][n - 1] == '|' || board[m][n - 1] == '-')
+         {
+         }
          else
          {
             flag = 1;
@@ -333,6 +376,9 @@ void print(int &m, int &n, int &ghost1_row, int &ghost1_column, int &ghost2_row,
             flag = 2;
             goto dead;
          }
+         else if (board[m][n + 1] == '|' || board[m][n + 1] == '-')
+         {
+         }
          else
          {
             flag = 1;
@@ -342,36 +388,100 @@ void print(int &m, int &n, int &ghost1_row, int &ghost1_column, int &ghost2_row,
       }
       board[m][n] = '@';
 
+      //moving ghosts
+      int ch;
+      if (level == 1)
+      {
+         ch = ghost_move(ghost1_row, ghost1_column);
+         if (ch == 2)
+         {
+            flag = 2;
+            goto dead;
+         }
+      }
+      else if (level == 2)
+      {
+         ch = ghost_move(ghost1_row, ghost1_column);
+         if (ch == 2)
+         {
+            flag = 2;
+            goto dead;
+         }
+         ch = ghost_move(ghost2_row, ghost2_column);
+         if (ch == 2)
+         {
+            flag = 2;
+            goto dead;
+         }
+      }
+      else if (level == 3)
+      {
+         ch = ghost_move(ghost1_row, ghost1_column);
+         if (ch == 2)
+         {
+            flag = 2;
+            goto dead;
+         }
+         ch = ghost_move(ghost2_row, ghost2_column);
+         if (ch == 2)
+         {
+            flag = 2;
+            goto dead;
+         }
+         ch = ghost_move(ghost3_row, ghost3_column);
+         if (ch == 2)
+         {
+            flag = 2;
+            goto dead;
+         }
+      }
+
    dead: //when pacman collide with wall or ghost
+
       if (flag == 2)
       {
+         //printing board
+         board[9][40] = '|';
+         board[10][1] = '-';
+         board[10][2] = '-';
+         board[10][3] = '-';
+         cout << "```````````````level:" << level << "```````````````````" << endl;
+         for (int i = 1; i <= 10; i++)
+         {
+            for (int j = 1; j <= 40; j++)
+            {
+               cout << board[i][j];
+            }
+            cout << endl;
+         }
+         cout << endl
+              << "point score: " << score << endl;
+
+         // cout << endl
+         //   << board[ghost1_row][ghost1_column] << endl;
          cout << endl
               << "```SORRY,You collide with ghost!! U lost the game!!```" << endl;
          return;
       }
-      else if (flag == 1)
-      {
-         cout << endl
-              << "```SORRY, YOU CAN't MOVE!! U lost the game!!```" << endl;
-         return;
-      }
+      // else if (flag == 1)
+      // {
+      //    //printing board
+      //    cout << "```````````````level:" << level << "```````````````````" << endl;
+      //    for (int i = 1; i <= 10; i++)
+      //    {
+      //       for (int j = 1; j <= 40; j++)
+      //       {
+      //          cout << board[i][j];
+      //       }
+      //       cout << endl;
+      //    }
+      //    cout << endl
+      //         << "point score: " << score<<endl;
 
-      //moving ghosts
-      if (level == 1)
-      {
-         ghost_move(ghost1_row, ghost1_column);
-      }
-      else if (level == 2)
-      {
-         ghost_move(ghost1_row, ghost1_column);
-         ghost_move(ghost2_row, ghost2_column);
-      }
-      else if (level == 3)
-      {
-         ghost_move(ghost1_row, ghost1_column);
-         ghost_move(ghost2_row, ghost2_column);
-         ghost_move(ghost3_row, ghost3_column);
-      }
+      //    cout << endl
+      //         << "```SORRY, YOU CAN't MOVE!! U lost the game!!```" << endl;
+      //    return;
+      // }
 
       //if U not lost game, continue...
       if (flag == 0)
