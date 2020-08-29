@@ -1,4 +1,6 @@
-#include <iostream>
+#include <bits/stdc++.h>
+#include <conio.h>
+#include<cstdlib>
 using namespace std;
 
 #define height 11
@@ -49,59 +51,65 @@ void print()
 
 void input()
 {
-    char ch;
-    cin >> ch;
-    switch (ch)
+    int ch1,ch2=0;
+    ch1 = getch();
+    if(ch1 = 0xE0)
     {
-    case 'W':
-    case 'w':
-        if(Matrix[PacmanX-1][PacmanY]=='|' || Matrix[PacmanX-1][PacmanY]=='-')
-            gameOver = true;
-        else
+        ch2 = getch();
+        switch (ch2)
         {
-            Matrix[PacmanX--][PacmanY] = ' ';
-            Matrix[PacmanX][PacmanY] = '@';
-            print();
-        }
-        break;
-    case 'S':
-    case 's':
-        if(Matrix[PacmanX+1][PacmanY]=='|' || Matrix[PacmanX+1][PacmanY]=='-')
+        case 72:
+            if(Matrix[PacmanX-1][PacmanY]=='|' || Matrix[PacmanX-1][PacmanY]=='-')
+                gameOver = true;
+            else
+            {
+                Matrix[PacmanX--][PacmanY] = ' ';
+                Matrix[PacmanX][PacmanY] = '@';
+                print();
+            }
+            break;
+        case 80:
+            if(Matrix[PacmanX+1][PacmanY]=='|' || Matrix[PacmanX+1][PacmanY]=='-')
+                gameOver = true;
+            else
+            {
+                Matrix[PacmanX++][PacmanY] = ' ';
+                Matrix[PacmanX][PacmanY] = '@';
+                print();
+            }
+            break;
+        case 77:
+            if(Matrix[PacmanX][PacmanY+1]=='|' || Matrix[PacmanX][PacmanY+1]=='-')
+                gameOver = true;
+            else
+            {
+                Matrix[PacmanX][PacmanY++] = ' ';
+                Matrix[PacmanX][PacmanY] = '@';
+                print();
+            }
+            break;
+        case 75:
+            if(Matrix[PacmanX][PacmanY-1]=='|' || Matrix[PacmanX][PacmanY-1]=='-')
+                gameOver = true;
+            else
+            {
+                Matrix[PacmanX][PacmanY--] = ' ';
+                Matrix[PacmanX][PacmanY] = '@';
+                print();
+            }
+            break;
+        default:
+            cout << "Invalid Input" << endl;
             gameOver = true;
-        else
-        {
-            Matrix[PacmanX++][PacmanY] = ' ';
-            Matrix[PacmanX][PacmanY] = '@';
-            print();
+            break;
         }
-        break;
-    case 'D':
-    case 'd':
-        if(Matrix[PacmanX][PacmanY+1]=='|' || Matrix[PacmanX][PacmanY+1]=='-')
-            gameOver = true;
-        else
-        {
-            Matrix[PacmanX][PacmanY++] = ' ';
-            Matrix[PacmanX][PacmanY] = '@';
-            print();
-        }
-        break;
-    case 'A':
-    case 'a':
-        if(Matrix[PacmanX][PacmanY-1]=='|' || Matrix[PacmanX][PacmanY-1]=='-')
-            gameOver = true;
-        else
-        {
-            Matrix[PacmanX][PacmanY--] = ' ';
-            Matrix[PacmanX][PacmanY] = '@';
-            print();
-        }
-        break;
-    default:
+    }
+    else
+    {
         cout << "Invalid Input" << endl;
         gameOver = true;
-        break;
     }
+    
 }
 
 int main()
