@@ -29,12 +29,14 @@ Input can be in any format or variation but it must include the following.
 - How much dal in grams he/she eats per day?:
 - Any 2 special food item required to be chosen from choices: (choices should be based on Age & Gender selected)
 
-| Infants: Below 2years | Cerelac, Amul powder, Nandini Milk TetraPacks |
-| Children: Between 3 to 18 years | Bread, Tiger/Parle G, Nandini Milk TetraPacks, Canned Fruits, Canned Veggies |
-| Old Age: Above 70 years | Canned Fruits, Canned Veggies, Nandini Milk TetraPacks, Medicine Packs |
+| Age Group                            | Special Food Options                                                           |
+| ------------------------------------ | ------------------------------------------------------------------------------ |
+| Infants: Below 2years                | Cerelac, Amul powder, Nandini Milk TetraPacks                                  |
+| Children: Between 3 to 18 years      | Bread, Tiger/Parle G, Nandini Milk TetraPacks, Canned Fruits, Canned Veggies   |
+| Old Age: Above 70 years              | Canned Fruits, Canned Veggies, Nandini Milk TetraPacks, Medicine Packs         |
 | Adult Female: Between 18 to 69 years | Canned Fruits, Canned Veggies, Nandini Milk TetraPacks, Calcium Sandoz Tablets |
-| Adult Male: Between 18 to 69 years | Canned Fruits, Canned Veggies, Nandini Milk TetraPacks |
-| Adult Other: Between 18 to 69 years | Canned Fruits, Canned Veggies, Nandini Milk TetraPacks, Calcium Sandoz Tablets |
+| Adult Male: Between 18 to 69 years   | Canned Fruits, Canned Veggies, Nandini Milk TetraPacks                         |
+| Adult Other: Between 18 to 69 years  | Canned Fruits, Canned Veggies, Nandini Milk TetraPacks, Calcium Sandoz Tablets |
 
 ### Output
 
