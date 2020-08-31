@@ -69,8 +69,8 @@ Input can be in any format or variation but it must include the following.
 
 ### Note:
 
-> Person Info Table should display the number of people as per their age category.
-> In the Food Info Table, the Required Quantity is the total number of food items(in kg or number of units) selected by each individual on taking the Survey.
+> - **Person Info Table** should display the number of people as per their age category.
+> - In the **Food Info Table**, the Required Quantity is the total number of food items(in kg or number of units) selected by each individual on taking the Survey.
 
 ## Requirements for submission
 

@@ -35,9 +35,9 @@ It is your time to rise and shine as you have a golden opportunity to help Banku
 
 ### Note
 
-> Survey results are as per Required Quantity
-> Required Quantity is the total number of food items(in kg or number of units) selected by each individual on taking the Survey.
-> Monthly Quantity is the total number of Food item packets to be distributed to an individual for a Month/30 days.
+> - **Survey results** are as per Required Quantity
+> - **Required Quantity** is the total number of food items(in kg or number of units) selected by each individual on taking the Survey.
+> - **Monthly Quantity** is the total number of Food item packets to be distributed to an individual for a Month/30 days.
 
 ### Inputs
 
