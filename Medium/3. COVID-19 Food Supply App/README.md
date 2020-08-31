@@ -41,7 +41,7 @@ It is your time to rise and shine as you have a golden opportunity to help Banku
 
 ### Inputs
 
-Input can be in any format or variation but it must include the following.
+App should allow the user to fill **multiple surveys for multiple users**. Input can be in any format or variation but it must include the following.
 
 - Aadhar Card Number:
 - Name:
@@ -91,10 +91,10 @@ Input can be in any format or variation but it must include the following.
 
 ##### Total Amount Required = Sum of Prices
 
-### Note:
+### Note
 
 > - **Person Info Table** should display the number of people as per their age category.
-> - In the **Food Info Table**, the **Required Quantity** is the number of food items(in kg or number of units) selected by each individual on taking the Survey.
+> - In the **Food Info Table**, the **Required Quantity** is the sum of number of food items(in kg or number of units) selected by each individual on taking the Survey.
 >   - Calculate the following by referring to the **Monthly Food Stock Table**(as above)
 >     - **Quantity** = Required Quantity as per Survey X No. of Packets per Food Item
 >     - **Price** = Quantity X Price from Food Product Table
@@ -148,5 +148,5 @@ Follow the steps mentioned in [this](../../CONTRIBUTING.md) file to submit your 
 
 Solved this problem? Then you might want to checkout the other versions of this problem.
 
-- [Medium](../../Medium/3.%20COVID-19%20Food%20Supply%20App/README.md)
+- [Easy](../../Easy/3.%20COVID-19%20Food%20Supply%20App/README.md)
 - [Hard](../../Hard/3.%20COVID-19%20Food%20Supply%20App/README.md)

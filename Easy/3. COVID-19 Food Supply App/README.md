@@ -19,7 +19,7 @@ It is your time to rise and shine as you have a golden opportunity to help Banku
 
 ### Inputs
 
-Input can be in any format or variation but it must include the following.
+App should allow the user to fill **multiple surveys for multiple users**. Input can be in any format or variation but it must include the following.
 
 - Aadhar Card Number:
 - Name:
