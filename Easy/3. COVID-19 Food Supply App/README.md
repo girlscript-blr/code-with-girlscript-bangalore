@@ -1,4 +1,4 @@
-# Pacman Game - Easy
+# COVID-19 Food Supply App - Easy
 
 > Date : 1st September 2020
 

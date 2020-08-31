@@ -1,4 +1,4 @@
-# Pacman Game - Hard
+# COVID-19 Food Supply App - Hard
 
 > Date : 1st September 2020
 
