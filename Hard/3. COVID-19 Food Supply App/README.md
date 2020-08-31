@@ -39,11 +39,13 @@ Your task is to create an App that should support the following functionalities:
 
      - App should allow the user to fill **Monthly Food Stock** details like **Product Name, Price & Monthly Quantity**.
        > Here **Monthly Quantity** is the total number of Food item packets to be distributed to an individual for a Month/30 days.
-     - The Table should maintain fields like **Id, Product Name & Monthly Quantity**.
+     - The Table/file named **Monthly Food Stock** should maintain fields like **Id, Product Name & Monthly Quantity**.
 
    - **Estimate Total Quantity of food products & Total Amount Required**
 
      - **Fetch Food Info By Area Name**: User should just enter the Slum Name and the App should return the following as Output:
+
+     ### Output
 
      #### Person Info:
 
@@ -72,7 +74,7 @@ Your task is to create an App that should support the following functionalities:
      | Medicine Packs          | ?                 | ?                | ?              |
      | Calcium Sandoz Tablets  | ?                 | ?                | ?              |
 
-     ##### Total Amount Required = Sum of Prices
+     #### Total Amount Required = Sum of Prices
 
      ### Note
 
@@ -80,7 +82,7 @@ Your task is to create an App that should support the following functionalities:
      > - In the **Food Info Table**, the **Required Quantity** is the sum of number of food items(in kg or number of units) selected by all individual on taking the Survey.
      >   - Calculate the following by referring to the **Monthly Food Stock Table**(as created from above **Update Food Products with Prices per quantity** functionality)
      >     - **Quantity** = Required Quantity as per Survey X No. of Packets per Food Item
-     >     - **Price** = Required Quantity X Monthly Quantity X Price from Food Product Table
+     >     - **Price** = Required Quantity X Monthly Quantity X Price from Monthly Food Stock Table
      > - **Total Amount** can be calculated based on the Sum of Prices in the Food Info Table.
 
      ### Example for Calculating Food Info Table & Total Amount Required
@@ -115,7 +117,7 @@ Your task is to create an App that should support the following functionalities:
      | Bread                       | 1                                  | 4                | `1*4*25 = 100`                                                      |
      | Calcium Sandoz Tablets      | 1                                  | 1                | `1*1*500 = 500`                                                     |
 
-     ##### Total Amount Required = Sum of Prices = 2220+1657.5+400+90+720+100+500 = Rs. 5687.5
+     #### Total Amount Required = Sum of Prices = 2220+1657.5+400+90+720+100+500 = Rs. 5687.5
 
    - **Fetch Food Info By Individual's Id(Aadhar Card Number)**: The User should just enter Individual’s Id and the App should return Individual's Info as output along with the food products that need to be provided to him/her.
 

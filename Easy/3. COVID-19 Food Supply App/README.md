@@ -70,7 +70,7 @@ App should allow the user to fill **multiple surveys for multiple users**. Input
 ### Note:
 
 > - **Person Info Table** should display the number of people as per their age category.
-> - In the **Food Info Table**, the Required Quantity is the total number of food items(in kg or number of units) selected by each individual on taking the Survey.
+> - In the **Food Info Table**, the **Required Quantity** is the sum of number of food items(in kg or number of units) selected by each individual on taking the Survey.
 
 ## Requirements for submission
 

@@ -89,7 +89,7 @@ App should allow the user to fill **multiple surveys for multiple users**. Input
 | Medicine Packs          | ?                 | ?                | ?              |
 | Calcium Sandoz Tablets  | ?                 | ?                | ?              |
 
-##### Total Amount Required = Sum of Prices
+#### Total Amount Required = Sum of Prices
 
 ### Note
 
@@ -97,7 +97,7 @@ App should allow the user to fill **multiple surveys for multiple users**. Input
 > - In the **Food Info Table**, the **Required Quantity** is the sum of number of food items(in kg or number of units) selected by each individual on taking the Survey.
 >   - Calculate the following by referring to the **Monthly Food Stock Table**(as above)
 >     - **Quantity** = Required Quantity as per Survey X No. of Packets per Food Item
->     - **Price** = Quantity X Price from Food Product Table
+>     - **Price** = Required Quantity X Monthly Quantity X Price from Monthly Food Stock
 > - Total Amount can be calculated based on the Sum of Prices in the Food Info Table.
 
 ### Example for Calculating Food Info Table & Total Amount Required
@@ -132,7 +132,7 @@ After taking survey of 3 Individuals we got to know
 | Bread                       | 1                                  | 4                | `1*4*25 = 100`                                                      |
 | Calcium Sandoz Tablets      | 1                                  | 1                | `1*1*500 = 500`                                                     |
 
-##### Total Amount Required = Sum of Prices = 2220+1657.5+400+90+720+100+500 = Rs. 5687.5
+#### Total Amount Required = Sum of Prices = 2220+1657.5+400+90+720+100+500 = Rs. 5687.5
 
 ## Requirements for submission
 
