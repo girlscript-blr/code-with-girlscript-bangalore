@@ -152,6 +152,7 @@ Your task is to create an App that should support the following functionalities:
      - Name:
      - Gender: (3 Options: Male, Female, Other)
      - Age:
+     - Slum Name:
      - How much rice in grams he/she eats per day?:
      - How much dal in grams he/she eats per day?:
      - Any 2 special food item required to be chosen from choices: (choices should be based on Age & Gender selected)
