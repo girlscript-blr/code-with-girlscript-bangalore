@@ -60,7 +60,7 @@ void input()
         {
         case 72:
             if(Matrix[PacmanX-1][PacmanY]=='|' || Matrix[PacmanX-1][PacmanY]=='-')
-                gameOver = true;
+                cout << "Warning : You are trying to move through walls.";
             else
             {
                 Matrix[PacmanX--][PacmanY] = ' ';
@@ -70,7 +70,7 @@ void input()
             break;
         case 80:
             if(Matrix[PacmanX+1][PacmanY]=='|' || Matrix[PacmanX+1][PacmanY]=='-')
-                gameOver = true;
+                cout << "Warning : You are trying to move through walls.";
             else
             {
                 Matrix[PacmanX++][PacmanY] = ' ';
@@ -80,7 +80,7 @@ void input()
             break;
         case 77:
             if(Matrix[PacmanX][PacmanY+1]=='|' || Matrix[PacmanX][PacmanY+1]=='-')
-                gameOver = true;
+                cout << "Warning : You are trying to move through walls.";
             else
             {
                 Matrix[PacmanX][PacmanY++] = ' ';
@@ -90,7 +90,7 @@ void input()
             break;
         case 75:
             if(Matrix[PacmanX][PacmanY-1]=='|' || Matrix[PacmanX][PacmanY-1]=='-')
-                gameOver = true;
+                cout << "Warning : You are trying to move through walls.";
             else
             {
                 Matrix[PacmanX][PacmanY--] = ' ';
