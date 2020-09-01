@@ -20,9 +20,9 @@ Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) 
 
 ## Problem Statements
 
-- [Beginner Level Problems](Easy/README.md)
-- [Intermediate Level Problems](Medium/README.md)
-- [Advanced Level Problems](Hard/README.md)
+- [Beginner Level Problems](Easy/3.%20COVID-19%20Food%20Supply%20App/README.md)
+- [Intermediate Level Problems](Medium/3.%20COVID-19%20Food%20Supply%20App/README.md)
+- [Advanced Level Problems](Hard/3.%20COVID-19%20Food%20Supply%20App/README.md)
 
 ## General Guidelines
 
