@@ -4,5 +4,6 @@
 
 ### Table of Content
 
-- [1. Shopping Cart Problem](1.%20Shopping%20Cart%20Problem/README.md)
-- [2. Pacman Game](2.%20Pacman%20Game/README.md)
+- [1. Shopping Cart Problem - July 2020](1.%20Shopping%20Cart%20Problem/README.md)
+- [2. Pacman Game - August 2020](2.%20Pacman%20Game/README.md)
+- [3. COVID-19 Food Supply App - September 2020](3.%20COVID-19%20Food%20Supply%20App/README.md)
