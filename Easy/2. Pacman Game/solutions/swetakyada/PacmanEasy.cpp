@@ -53,14 +53,14 @@ void input()
 {
     int ch1,ch2=0;
     ch1 = getch();
-    if(ch1 = 0xE0)
+    if(ch1 = 0xE0 || ch1==27)
     {
         ch2 = getch();
         switch (ch2)
         {
         case 72:
             if(Matrix[PacmanX-1][PacmanY]=='|' || Matrix[PacmanX-1][PacmanY]=='-')
-                cout << "Warning : You are trying to move through walls.";
+                break;
             else
             {
                 Matrix[PacmanX--][PacmanY] = ' ';
@@ -70,7 +70,7 @@ void input()
             break;
         case 80:
             if(Matrix[PacmanX+1][PacmanY]=='|' || Matrix[PacmanX+1][PacmanY]=='-')
-                cout << "Warning : You are trying to move through walls.";
+                break;
             else
             {
                 Matrix[PacmanX++][PacmanY] = ' ';
@@ -80,7 +80,7 @@ void input()
             break;
         case 77:
             if(Matrix[PacmanX][PacmanY+1]=='|' || Matrix[PacmanX][PacmanY+1]=='-')
-                cout << "Warning : You are trying to move through walls.";
+                break;
             else
             {
                 Matrix[PacmanX][PacmanY++] = ' ';
@@ -90,7 +90,7 @@ void input()
             break;
         case 75:
             if(Matrix[PacmanX][PacmanY-1]=='|' || Matrix[PacmanX][PacmanY-1]=='-')
-                cout << "Warning : You are trying to move through walls.";
+                break;
             else
             {
                 Matrix[PacmanX][PacmanY--] = ' ';
@@ -98,18 +98,13 @@ void input()
                 print();
             }
             break;
-        default:
-            cout << "Invalid Input" << endl;
+        case 27:
             gameOver = true;
+            break;
+        default:
             break;
         }
     }
-    else
-    {
-        cout << "Invalid Input" << endl;
-        gameOver = true;
-    }
-    
 }
 
 int main()
@@ -120,6 +115,6 @@ int main()
     {
         input();
     }
-    cout << "Game Over" << endl;
+    cout << "Game Ended..." << endl;
     return 0;
 }
