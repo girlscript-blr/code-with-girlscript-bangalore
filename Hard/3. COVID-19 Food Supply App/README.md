@@ -170,6 +170,17 @@ Your task is to create an App that should support the following functionalities:
    - After the records are updated in the table, the app should reply with the message **“Thank You for taking the Survey!”**
    - App should also check if this particular user had already taken the survey earlier from the table based on User’s **Aadhar Card Number**. If it is found that the user had already taken the survey earlier, then the app shouldn’t store the user details again in the table/file and reply with the message **“User had already taken the Survey earlier!”**.
 
+### Tables or Files Required
+
+| Serial No. | Table/File Name  | Description                                                                                                                                         |
+| ---------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.         | SlumDetails      | Slum details to be added/updated here so as to display the list of slums to select from when Survey Taker fills the survey.                         |
+| 2.         | SpecialFoodItems | Special Food Items list to be displayed as options for different Age Groupes taking the Survey.                                                     |
+| 3.         | MonthlyFoodStock | Monthly Food Stock to add Prices for the food items & required quantity of items to be provided to an individual for a period of 30days or a month. |
+| 4.         | SurveyRecords    | Survey details entered by the Survey Taker should be stored here.                                                                                   |
+
+> Added here are the minimum required Tables/Files. These are just for your reference. You are free to use more tables/files or columns/fields depending upon the need and the approach you take..
+
 ## Requirements for submission
 
 - A document containing a screenshot showing the results must also be pushed along with final submission. A brief description(not more than 4-5 lines/100 words) should be included containing the approach used for solving the problem.
