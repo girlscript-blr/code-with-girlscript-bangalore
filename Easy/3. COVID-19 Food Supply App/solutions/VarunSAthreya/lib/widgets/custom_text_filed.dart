@@ -7,7 +7,7 @@ class CustomTextField extends StatelessWidget {
     this.autofocus = false,
     this.textCapitalization = TextCapitalization.none,
     this.onChanged = null,
-    this.keyboardType = TextInputType.name,
+    this.keyboardType = TextInputType.text,
   });
 
   final String labelText;

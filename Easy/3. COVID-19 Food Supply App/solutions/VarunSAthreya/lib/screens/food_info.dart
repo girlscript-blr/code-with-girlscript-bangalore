@@ -48,64 +48,78 @@ class FoodInfo extends StatelessWidget {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(50.0),
-                      child: Column(
-                        children: [
-                          CustomListContainer(
-                            title: 'Rice in Kg per day',
-                            value: foodInfo['rice'],
-                          ),
-                          const SizedBox(height: 5),
-                          CustomListContainer(
-                            title: 'Dal in Kg per day',
-                            value: foodInfo['dal'],
-                          ),
-                          const SizedBox(height: 5),
-                          CustomListContainer(
-                            title: 'Ceralic',
-                            value: foodInfo['ceralic'],
-                          ),
-                          const SizedBox(height: 5),
-                          CustomListContainer(
-                            title: 'Amul powder',
-                            value: foodInfo['amul'],
-                          ),
-                          const SizedBox(height: 5),
-                          CustomListContainer(
-                            title: 'Nandini Milk TetraPacks',
-                            value: foodInfo['milk'],
-                          ),
-                          const SizedBox(height: 5),
-                          CustomListContainer(
-                            title: 'Bread',
-                            value: foodInfo['bread'],
-                          ),
-                          const SizedBox(height: 5),
-                          CustomListContainer(
-                            title: 'Tiger/Parle G Biscuits',
-                            value: foodInfo['biscuits'],
-                          ),
-                          const SizedBox(height: 5),
-                          CustomListContainer(
-                            title: 'Canned Veggies',
-                            value: foodInfo['veggis'],
-                          ),
-                          const SizedBox(height: 5),
-                          CustomListContainer(
-                            title: 'Canned Fruits',
-                            value: foodInfo['fruits'],
-                          ),
-                          const SizedBox(height: 5),
-                          CustomListContainer(
-                            title: 'Medicine Packs',
-                            value: foodInfo['medicine'],
-                          ),
-                          const SizedBox(height: 5),
-                          CustomListContainer(
-                            title: 'Calcium Sandoz Tablets',
-                            value: foodInfo['calcTab'],
-                          ),
-                        ],
-                      ),
+                      child: foodInfo.isEmpty
+                          ? Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                              child: Text(
+                                'No Users Added',
+                                textScaleFactor: 1.3,
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                              ),
+                            )
+                          : Column(
+                              children: [
+                                CustomListContainer(
+                                  title: 'Rice in Kg per day',
+                                  value: foodInfo['rice'],
+                                ),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                  title: 'Dal in Kg per day',
+                                  value: foodInfo['dal'],
+                                ),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                  title: 'Ceralic',
+                                  value: foodInfo['ceralic'],
+                                ),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                  title: 'Amul powder',
+                                  value: foodInfo['amul'],
+                                ),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                  title: 'Nandini Milk TetraPacks',
+                                  value: foodInfo['milk'],
+                                ),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                  title: 'Bread',
+                                  value: foodInfo['bread'],
+                                ),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                  title: 'Tiger/Parle G Biscuits',
+                                  value: foodInfo['biscuits'],
+                                ),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                  title: 'Canned Veggies',
+                                  value: foodInfo['veggis'],
+                                ),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                  title: 'Canned Fruits',
+                                  value: foodInfo['fruits'],
+                                ),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                  title: 'Medicine Packs',
+                                  value: foodInfo['medicine'],
+                                ),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                  title: 'Calcium Sandoz Tablets',
+                                  value: foodInfo['calcTab'],
+                                ),
+                              ],
+                            ),
                     ),
                   ),
                 ],

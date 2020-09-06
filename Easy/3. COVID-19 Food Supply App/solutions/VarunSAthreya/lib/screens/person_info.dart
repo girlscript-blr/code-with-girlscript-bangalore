@@ -23,55 +23,75 @@ class PersonInfo extends StatelessWidget {
         ),
         alignment: Alignment.center,
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                const Text(
-                  'Profile Info',
-                  textScaleFactor: 3.0,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Popins',
-                    letterSpacing: 2.0,
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).backgroundColor,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(50.0),
-                    child: Column(
-                      children: [
-                        CustomListContainer(
-                            title: 'Infant', value: profileInfo['infant']),
-                        const SizedBox(height: 5),
-                        CustomListContainer(
-                            title: 'Children', value: profileInfo['children']),
-                        const SizedBox(height: 5),
-                        CustomListContainer(
-                            title: 'Adult Male', value: profileInfo['adultM']),
-                        const SizedBox(height: 5),
-                        CustomListContainer(
-                            title: 'Adult Female',
-                            value: profileInfo['adultF']),
-                        const SizedBox(height: 5),
-                        CustomListContainer(
-                            title: 'Adult Other', value: profileInfo['adultO']),
-                        const SizedBox(height: 5),
-                        CustomListContainer(
-                            title: 'Old', value: profileInfo['old']),
-                      ],
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  const Text(
+                    'Profile Info',
+                    textScaleFactor: 3.0,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Popins',
+                      letterSpacing: 2.0,
                     ),
                   ),
-                ),
-              ],
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).backgroundColor,
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(50.0),
+                      child: profileInfo.isEmpty
+                          ? Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                              child: Text(
+                                'No Users Added',
+                                textScaleFactor: 1.3,
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                              ),
+                            )
+                          : Column(
+                              children: [
+                                CustomListContainer(
+                                    title: 'Infant',
+                                    value: profileInfo['infant']),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                    title: 'Children',
+                                    value: profileInfo['children']),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                    title: 'Adult Male',
+                                    value: profileInfo['adultM']),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                    title: 'Adult Female',
+                                    value: profileInfo['adultF']),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                    title: 'Adult Other',
+                                    value: profileInfo['adultO']),
+                                const SizedBox(height: 5),
+                                CustomListContainer(
+                                    title: 'Old', value: profileInfo['old']),
+                              ],
+                            ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -37,6 +37,8 @@ class UserData extends ChangeNotifier {
   }
 
   Map<String, int> proflieInfoCounter() {
+    if (_user.isEmpty) return {};
+
     Map<String, int> profileInfo = {};
 
     int infant = 0;
@@ -80,6 +82,8 @@ class UserData extends ChangeNotifier {
   }
 
   Map<String, int> foodInfoCounter() {
+    if (_user.isEmpty) return {};
+
     Map<String, int> foodInfo = {};
 
     int rice = 0;
