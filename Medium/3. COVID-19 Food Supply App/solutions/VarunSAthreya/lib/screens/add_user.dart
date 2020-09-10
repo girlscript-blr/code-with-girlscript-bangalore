@@ -213,7 +213,7 @@ class _AddUserState extends State<AddUser> {
                 dal: dal,
                 rice: rice,
                 specialFood1: specialFood1,
-                specialFood2: specialFood1,
+                specialFood2: specialFood2,
               );
               Navigator.pop(context);
             },
