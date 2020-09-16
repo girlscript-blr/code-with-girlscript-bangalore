@@ -1,11 +1,12 @@
 import 'dart:collection';
 import 'package:flutter/foundation.dart';
 
+import 'monthy_quantity_price_mixin.dart';
 import 'user.dart';
 
 class UserData extends ChangeNotifier {
   final List<User> _user = [];
-  int get taskCount {
+  int get userCount {
     return _user.length;
   }
 
@@ -170,17 +171,61 @@ class UserData extends ChangeNotifier {
     rice = rice / 1000;
     dal = dal / 1000;
 
-    foodInfo['rice'] = [rice, 30, (rice * 30 * 40)];
-    foodInfo['dal'] = [dal, 30, (dal * 30 * 65)];
-    foodInfo['ceralic'] = [ceralic, 3, (ceralic * 3 * 140)];
-    foodInfo['amul'] = [amul, 1, (amul * 1 * 240)];
-    foodInfo['milk'] = [milk, 8, (milk * 8 * 45)];
-    foodInfo['bread'] = [bread, 4, (bread * 4 * 25)];
-    foodInfo['biscuits'] = [biscuits, 3, (biscuits * 3 * 30)];
-    foodInfo['veggis'] = [veggis, 4, (veggis * 4 * 100)];
-    foodInfo['fruits'] = [fruits, 4, (fruits * 4 * 100)];
-    foodInfo['medicine'] = [medicine, 1, (medicine * 1 * 500)];
-    foodInfo['calcTab'] = [calcTab, 1, (calcTab * 1 * 500)];
+    foodInfo['rice'] = [
+      rice,
+      MonthlyQuantity.rice,
+      (rice * MonthlyQuantity.rice * MonthlyPrice.rice).round()
+    ];
+    foodInfo['dal'] = [
+      dal,
+      MonthlyQuantity.dal,
+      (dal * MonthlyQuantity.dal * MonthlyPrice.dal).round()
+    ];
+    foodInfo['ceralic'] = [
+      ceralic,
+      MonthlyQuantity.ceralic,
+      (ceralic * MonthlyQuantity.ceralic * MonthlyPrice.ceralic).round()
+    ];
+    foodInfo['amul'] = [
+      amul,
+      MonthlyQuantity.amul,
+      (amul * MonthlyQuantity.amul * MonthlyPrice.amul).round()
+    ];
+    foodInfo['milk'] = [
+      milk,
+      MonthlyQuantity.milk,
+      (milk * MonthlyQuantity.milk * MonthlyPrice.milk).round()
+    ];
+    foodInfo['bread'] = [
+      bread,
+      MonthlyQuantity.bread,
+      (bread * MonthlyQuantity.bread * MonthlyPrice.bread).round()
+    ];
+    foodInfo['biscuits'] = [
+      biscuits,
+      MonthlyQuantity.biscuits,
+      (biscuits * MonthlyQuantity.biscuits * MonthlyPrice.biscuits).round()
+    ];
+    foodInfo['veggis'] = [
+      veggis,
+      MonthlyQuantity.veggis,
+      (veggis * MonthlyQuantity.veggis * MonthlyPrice.veggis).round()
+    ];
+    foodInfo['fruits'] = [
+      fruits,
+      MonthlyQuantity.fruits,
+      (fruits * MonthlyQuantity.fruits * MonthlyPrice.fruits).round()
+    ];
+    foodInfo['medicine'] = [
+      medicine,
+      MonthlyQuantity.medicine,
+      (medicine * MonthlyQuantity.medicine * MonthlyPrice.medicine).round()
+    ];
+    foodInfo['calcTab'] = [
+      calcTab,
+      MonthlyQuantity.calcTab,
+      (calcTab * MonthlyQuantity.calcTab * MonthlyPrice.calcTab).round()
+    ];
 
     foodInfo['total'] = [
       (foodInfo['rice'][2] +

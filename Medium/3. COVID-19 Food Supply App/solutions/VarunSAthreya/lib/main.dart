@@ -12,8 +12,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => UserData(),
+    return MultiProvider(
+      providers: [
+        Provider<UserData>(create: (context) => UserData()),
+      ],
       child: MaterialApp(
         title: 'Food Survey App',
         theme: ThemeData(

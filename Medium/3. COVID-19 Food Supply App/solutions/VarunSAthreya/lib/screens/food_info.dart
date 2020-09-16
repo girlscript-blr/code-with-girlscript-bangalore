@@ -1,9 +1,9 @@
-import 'package:Food_supply_survey/widgets/profile_info_list_container.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/user_data.dart';
 import '../widgets/food_info_list_container.dart';
+import '../widgets/profile_info_list_container.dart';
 
 class FoodInfo extends StatelessWidget {
   @override

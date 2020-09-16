@@ -11,14 +11,16 @@ class AddUser extends StatefulWidget {
 }
 
 class _AddUserState extends State<AddUser> {
-  String name;
-  String aadhar;
+  String name = '';
+  String aadhar = '';
   String gender = "Gender";
   int age = -1;
-  int dal;
-  int rice;
+  int dal = -1;
+  int rice = -1;
   String specialFood1 = "Special Food 1";
   String specialFood2 = "Special Food 2";
+
+  bool isLoading = false;
 
   List<String> getFoodList() {
     if (age < 2 && age > 0) {
@@ -89,8 +91,10 @@ class _AddUserState extends State<AddUser> {
                   title: 'Enter Your Name',
                   labelText: 'Name',
                   textCapitalization: TextCapitalization.sentences,
-                  onChanged: (newText) {
-                    name = newText.toString();
+                  onChanged: (String newText) {
+                    setState(() {
+                      name = newText;
+                    });
                   },
                 ),
                 const SizedBox(
@@ -101,8 +105,10 @@ class _AddUserState extends State<AddUser> {
                   labelText: 'Aadhar',
                   textCapitalization: TextCapitalization.sentences,
                   keyboardType: TextInputType.number,
-                  onChanged: (newText) {
-                    aadhar = newText.toString();
+                  onChanged: (String newText) {
+                    setState(() {
+                      aadhar = newText;
+                    });
                   },
                 ),
                 const SizedBox(
@@ -113,9 +119,9 @@ class _AddUserState extends State<AddUser> {
                   labelText: 'Age',
                   textCapitalization: TextCapitalization.sentences,
                   keyboardType: TextInputType.number,
-                  onChanged: (newText) {
+                  onChanged: (String newText) {
                     setState(() {
-                      age = int.parse(newText.toString());
+                      age = int.parse(newText);
                     });
                   },
                 ),
@@ -127,9 +133,9 @@ class _AddUserState extends State<AddUser> {
                   labelText: 'Rice',
                   textCapitalization: TextCapitalization.sentences,
                   keyboardType: TextInputType.number,
-                  onChanged: (newText) {
+                  onChanged: (String newText) {
                     setState(() {
-                      rice = int.parse(newText.toString());
+                      rice = int.parse(newText);
                     });
                   },
                 ),
@@ -141,9 +147,9 @@ class _AddUserState extends State<AddUser> {
                   labelText: 'Dal',
                   textCapitalization: TextCapitalization.sentences,
                   keyboardType: TextInputType.number,
-                  onChanged: (newText) {
+                  onChanged: (String newText) {
                     setState(() {
-                      dal = int.parse(newText.toString());
+                      dal = int.parse(newText);
                     });
                   },
                 ),
@@ -156,6 +162,7 @@ class _AddUserState extends State<AddUser> {
                   value: gender,
                   onChanged: (val) {
                     setState(() {
+                      FocusScope.of(context).requestFocus(FocusNode());
                       gender = val.toString();
                     });
                   },
@@ -169,6 +176,7 @@ class _AddUserState extends State<AddUser> {
                   value: specialFood1,
                   onChanged: (val) {
                     setState(() {
+                      FocusScope.of(context).requestFocus(FocusNode());
                       specialFood1 = val.toString();
                     });
                   },
@@ -182,6 +190,7 @@ class _AddUserState extends State<AddUser> {
                   value: specialFood2,
                   onChanged: (val) {
                     setState(() {
+                      FocusScope.of(context).requestFocus(FocusNode());
                       specialFood2 = val.toString();
                     });
                   },
@@ -197,31 +206,61 @@ class _AddUserState extends State<AddUser> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             gradient: LinearGradient(
-              colors: [
-                Theme.of(context).primaryColor,
-                Theme.of(context).accentColor,
-              ],
+              colors: (name != '' &&
+                      aadhar != '' &&
+                      gender != "Gender" &&
+                      age != -1 &&
+                      dal != -1 &&
+                      rice != -1 &&
+                      specialFood1 != "Special Food 1" &&
+                      specialFood2 != "Special Food 2")
+                  ? [
+                      Theme.of(context).primaryColor,
+                      Theme.of(context).accentColor,
+                    ]
+                  : [
+                      Colors.grey[700],
+                      Colors.grey,
+                    ],
             ),
           ),
           child: FlatButton(
             onPressed: () {
-              Provider.of<UserData>(context, listen: false).addUser(
-                name: name,
-                aadhar: aadhar,
-                age: age,
-                gender: gender,
-                dal: dal,
-                rice: rice,
-                specialFood1: specialFood1,
-                specialFood2: specialFood2,
-              );
-              Navigator.pop(context);
+              if (name != '' &&
+                  aadhar != '' &&
+                  gender != "Gender" &&
+                  age != -1 &&
+                  dal != -1 &&
+                  rice != -1 &&
+                  specialFood1 != "Special Food 1" &&
+                  specialFood2 != "Special Food 2") {
+                setState(() {
+                  isLoading = true;
+                });
+                Provider.of<UserData>(context, listen: false).addUser(
+                  name: name,
+                  aadhar: aadhar,
+                  age: age,
+                  gender: gender,
+                  dal: dal,
+                  rice: rice,
+                  specialFood1: specialFood1,
+                  specialFood2: specialFood2,
+                );
+                Navigator.pop(context);
+              } else {
+                return null;
+              }
             },
-            child: const Text(
-              'Submit',
-              textScaleFactor: 1.5,
-              style: TextStyle(color: Colors.white),
-            ),
+            child: isLoading
+                ? const CircularProgressIndicator(
+                    backgroundColor: Colors.white,
+                  )
+                : const Text(
+                    'Submit',
+                    textScaleFactor: 1.5,
+                    style: TextStyle(color: Colors.white),
+                  ),
           ),
         ),
       ),

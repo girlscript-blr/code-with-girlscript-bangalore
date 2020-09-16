@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -50,7 +51,13 @@ class CustomTextField extends StatelessWidget {
               autofocus: autofocus,
               autocorrect: true,
               textCapitalization: textCapitalization,
-              onChanged: (String str) => onChanged(str),
+              inputFormatters: [
+                keyboardType == TextInputType.number
+                    ? WhitelistingTextInputFormatter.digitsOnly
+                    : TextInputFormatter.withFunction(
+                        (oldValue, newValue) => newValue)
+              ],
+              onChanged: (str) => onChanged(str),
               cursorColor: Theme.of(context).primaryColor,
             ),
           ],
