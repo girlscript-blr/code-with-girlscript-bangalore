@@ -48,8 +48,9 @@ For all the young duckings, we have posted some useful resources to go through a
 - [GitHub Guides](https://guides.github.com/)
 - [Git Documentation](https://git-scm.com/docs)
 
-## References
+### References
 
 Here are a few references for you :
 
 - One of the most important things in the FOSS world are your commits, check here to know all about it - [GitCommitMessages - OpenStack](https://wiki.openstack.org/wiki/GitCommitMessages)
+
