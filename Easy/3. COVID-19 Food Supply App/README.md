@@ -87,6 +87,5 @@ Follow the steps mentioned in [this](../../CONTRIBUTING.md) file to submit your 
 Solved this problem? Then you might want to checkout the other versions of this problem.
 
 - [Medium](../../Medium/3.%20COVID-19%20Food%20Supply%20App/README.md)
-
 - [Hard](../../Hard/3.%20COVID-19%20Food%20Supply%20App/README.md)
 
