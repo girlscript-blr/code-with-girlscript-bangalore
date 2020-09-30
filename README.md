@@ -24,10 +24,10 @@ Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) 
 
 ## Problem Statements
 
-- [Beginner Level Problems](Easy/4.%20Digital%20Hospital%20Manager%20/README.md)
-- [Intermediate Level Problems](Medium/4.%20Digital%20Hospital%20Manager%20/README.md)
-- [Advanced Level Problems](Hard/4.%20Digital%20Hospital%20Manager%20/README.md)
-- [Bonus Level Problems](Bonus/4.%20Digital%20Hospital%20Manager%20/README.md)
+- [Beginner Level Problems](Easy/4.%20Digital%20Hospital%20Manager/README.md)
+- [Intermediate Level Problems](Medium/4.%20Digital%20Hospital%20Manager/README.md)
+- [Advanced Level Problems](Hard/4.%20Digital%20Hospital%20Manager/README.md)
+- [Bonus Level Problems](Bonus/4.%20Digital%20Hospital%20Manager/README.md)
 
 ## General Guidelines
 
