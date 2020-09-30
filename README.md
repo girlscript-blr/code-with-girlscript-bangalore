@@ -20,9 +20,10 @@ Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) 
 
 ## Problem Statements
 
-- [Beginner Level Problems](Easy/3.%20COVID-19%20Food%20Supply%20App/README.md)
-- [Intermediate Level Problems](Medium/3.%20COVID-19%20Food%20Supply%20App/README.md)
-- [Advanced Level Problems](Hard/3.%20COVID-19%20Food%20Supply%20App/README.md)
+- [Beginner Level Problems](Easy/4.%20Digital%20Hospital%20Manager%20/README.md)
+- [Intermediate Level Problems](Medium/4.%20Digital%20Hospital%20Manager%20/README.md)
+- [Advanced Level Problems](Hard/4.%20Digital%20Hospital%20Manager%20/README.md)
+- [Bonus Level Problems](Bonus/4.%20Digital%20Hospital%20Manager%20/README.md)
 
 ## General Guidelines
 
