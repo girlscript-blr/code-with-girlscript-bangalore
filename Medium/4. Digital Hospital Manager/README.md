@@ -153,6 +153,6 @@ Follow the steps mentioned in [this](../../CONTRIBUTING.md) file to submit your 
 
 Solved this problem? Then you might want to checkout the other versions of this problem.
 
-- [Easy](../../Easy/4.%20Digital%20Hospital%20Manager%20/README.md)
-- [Hard](../../Hard/4.%20Digital%20Hospital%20Manager%20/README.md)
-- [Bonus](../../Bonus/4.%20Digital%20Hospital%20Manager%20/README.md)
+- [Easy](../../Easy/4.%20Digital%20Hospital%20Manager/README.md)
+- [Hard](../../Hard/4.%20Digital%20Hospital%20Manager/README.md)
+- [Bonus](../../Bonus/4.%20Digital%20Hospital%20Manager/README.md)

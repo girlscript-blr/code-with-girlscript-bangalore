@@ -4,4 +4,4 @@
 
 ### Table of Content
 
-- [4. Digital Hospital Manager - October 2020](4.%20Digital%20Hospital%20Manager%20/README.md)
+- [4. Digital Hospital Manager - October 2020](4.%20Digital%20Hospital%20Manager/README.md)

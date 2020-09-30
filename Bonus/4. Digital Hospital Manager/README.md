@@ -228,4 +228,4 @@ Solved this problem? Then you might want to checkout the other versions of this 
 
 - [Easy](../../Easy/4.%20Digital%20Hospital%20Manager%20/README.md)
 - [Medium](../../Medium/4.%20Digital%20Hospital%20Manager%20/README.md)
-- [Hard](../../Hard/4.%20Digital%20Hospital%20Manager%20/README.md)
+- [Hard](../../Hard/4.%20Digital%20Hospital%20Manager/README.md)
