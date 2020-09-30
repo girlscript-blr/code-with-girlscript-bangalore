@@ -1,4 +1,4 @@
-![Code with GirlScript Bangalore](assets/images/cwgsblrl.png)
+![Code with GirlScript Bangalore- Hacktoberfest Edition](assets/images/hacktoberEdition2020.png)
 
 ## About the program
 
@@ -42,9 +42,9 @@ Since you are here, you should most definitely consider joining us on this ride.
 
 Don’t forget to fill the [participation form](https://tinyurl.com/codewithgsblr) 📃 to take part in the program, if not already done.
 
-RSVP to our [Code with GirlScript Bangalore- Hacktoberfest Edition](https://tinyurl.com/gsblr-hacktoberfest2020) event to earn limited edition Hacktoberfest Tee-shirt or a plant.
+RSVP here[https://tinyurl.com/gsblr-hacktoberfest2020](https://tinyurl.com/gsblr-hacktoberfest2020) to win\* a limited edition Hacktoberfest Tee-shirt or a plant.
 
-> You must make four valid pull requests Pull Requests between October 1-31 to any public repo on Github
+> \*You must make four valid pull requests Pull Requests between October 1-31 to any public repo on Github
 
 Start contributing!😊
 
