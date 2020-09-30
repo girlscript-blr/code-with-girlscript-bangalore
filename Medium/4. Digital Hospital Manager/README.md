@@ -144,6 +144,7 @@ The app should be able to maintain the medical record of each patient of a hospi
 - A document containing a screenshot showing the results must also be pushed along with final submission. A brief description(not more than 4-5 lines/100 words) should be included containing the approach used for solving the problem.
 - Last Submission Date : `31st October 2020`
 - If you haven’t filled our [participation form](https://tinyurl.com/codewithgsblr) 📃yet, fill it now.
+- RSVP here [https://tinyurl.com/gsblr-hacktoberfest2020](https://tinyurl.com/gsblr-hacktoberfest2020) to win a limited edition Hacktoberfest Tee-shirt or a plant.
 
 ## How to submit solution?
 
