@@ -18,7 +18,7 @@ Don’t forget to fill the [participation form](https://tinyurl.com/codewithgsbl
 
 RSVP here [https://tinyurl.com/gsblr-hacktoberfest2020](https://tinyurl.com/gsblr-hacktoberfest2020) to win\* a limited edition Hacktoberfest Tee-shirt or a plant.
 
-> \*You must make four valid pull requests Pull Requests between October 1-31 to any public repo on Github
+> \*You must make four valid Pull Requests between October 1-31 to any public repo on Github
 
 Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) file, and "Optimize and Elevate".
 
