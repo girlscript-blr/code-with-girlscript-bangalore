@@ -13,18 +13,18 @@
 - **Clone the repository**: Clone the repository by copying the clone link (find it against the name of the repository on the right) and using it as mentioned in below CLI command
 
   `git clone https://github.com/<your-username>/code-with-girlscript-bangalore`
-  
+
 - **Move to the directory**: Move to the directory by using the below CLI command
- 
+
   `cd code-with-girlscript-bangalore`
 
 - **Create a new branch**: Follow proper naming convention before creating your own branch. The example of the naming is as follows
 
-    - **Example**: If you want to create a pull request in the Shopping Cart Problem - Easy, your branch name can be `ShoppingCartEasy`.
-    
+  - **Example**: If you want to create a pull request in the Shopping Cart Problem - Easy, your branch name can be `ShoppingCartEasy`.
+
   Now, execute the following command to create your own branch
-  
-    `git checkout -b <your-branch-name>`
+
+  `git checkout -b <your-branch-name>`
 
 - **Update the changes to repo**: Add your solution in the new branch. The solution must be in a specified format. Your code should be inside the SOLUTIONS folder of the respective problem statement. The codes/files should be inside a single folder following specific naming convention. The solution folder name should be `<your GitHub Id>_<your name>`.
   - Root Folder
@@ -40,7 +40,7 @@
   `git commit -m "<your-message>"`
 
   For GitHub web, simply add the commit message and description at the bottom of the page to add the new file.(Please use an appropriate commit message and follow this git commit message guidelines)
-  
+
 - **Push the file(s)**: For locally cloned repository, use the following CLI command to push your file(s).
 
   `git push -u origin <you-branch>`.
@@ -59,7 +59,7 @@
   - [Bhanu Pratap](https://github.com/ibhanu)
   - [Yati Padia](https://github.com/yati1998)
   - [Irshad Ansari](https://github.com/irshadjsr21)
-
+  - [Smile Gupta](https://github.com/smilegupta)
 
 If there are any changes suggested by the reviewers, do make the same and follow to steps to update:
 
@@ -76,13 +76,14 @@ The PR with correct and optimised solution, which satisfies the deadline criteri
 
 To know more about the program and it's guidelines do check [README.md](README.md) file.
 
-A gentle reminder if you still haven’t filled our [participation form](https://tinyurl.com/codewithgsblr) 📃, fill it now😀.
+A gentle reminder if you still haven’t filled our [participation form](https://tinyurl.com/codewithgsblr) 📃, fill it now😀. Also, [RSVP here](https://tinyurl.com/gsblr-hacktoberfest2020) to win\* a limited edition Hacktoberfest 👕Tee-shirt or a 🎍plant.
 
-Also,we love your input! We want to make contributing to this project as easy and transparent as possible. When contributing to this repository, please discuss the queries you have via issue or [email](mailto:girlscriptblr@gmail.com), with the maintainers of this repository to successfully complete the tasks.
+Also, we love your input! We want to make contributing to this project as easy and transparent as possible. When contributing to this repository, please discuss the queries you have via issue or [email](mailto:girlscriptblr@gmail.com), with the maintainers of this repository to successfully complete the tasks.
 
 - [Yajushi Srivastava](https://github.com/yajushiSri)
 - [Bhanu Pratap](https://github.com/ibhanu)
 - [Yati Padia](https://github.com/yati1998)
 - [Irshad Ansari](https://github.com/irshadjsr21)
+- [Smile Gupta](https://github.com/smilegupta)
 
 That's it! Thank you for your contribution! 😃
