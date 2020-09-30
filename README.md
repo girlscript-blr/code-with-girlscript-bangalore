@@ -16,7 +16,7 @@ We have a range of problem statements for beginner, intermediate, and advanced l
 
 Don’t forget to fill the [participation form](https://tinyurl.com/codewithgsblr) 📃 to take part in the program, if not already done.
 
-RSVP here [https://tinyurl.com/gsblr-hacktoberfest2020](https://tinyurl.com/gsblr-hacktoberfest2020) to win\* a limited edition Hacktoberfest Tee-shirt or a plant.
+[RSVP here](https://tinyurl.com/gsblr-hacktoberfest2020) to win\* a limited edition Hacktoberfest 👕Tee-shirt or a 🎍plant.
 
 > \*You must make four valid Pull Requests between October 1-31 to any public repo on Github
 
@@ -24,10 +24,10 @@ Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) 
 
 ## Problem Statements
 
-- [Beginner Level Problems](Easy/4.%20Digital%20Hospital%20Manager/README.md)
-- [Intermediate Level Problems](Medium/4.%20Digital%20Hospital%20Manager/README.md)
-- [Advanced Level Problems](Hard/4.%20Digital%20Hospital%20Manager/README.md)
-- [Bonus Level Problems](Bonus/4.%20Digital%20Hospital%20Manager/README.md)
+- [Beginner Level Problem](Easy/4.%20Digital%20Hospital%20Manager/README.md)
+- [Intermediate Level Problem](Medium/4.%20Digital%20Hospital%20Manager/README.md)
+- [Advanced Level Problem](Hard/4.%20Digital%20Hospital%20Manager/README.md)
+- [Bonus Level Problem](Bonus/4.%20Digital%20Hospital%20Manager/README.md)
 
 ## General Guidelines
 
@@ -46,7 +46,7 @@ Since you are here, you should most definitely consider joining us on this ride.
 
 Don’t forget to fill the [participation form](https://tinyurl.com/codewithgsblr) 📃 to take part in the program, if not already done.
 
-RSVP here [https://tinyurl.com/gsblr-hacktoberfest2020](https://tinyurl.com/gsblr-hacktoberfest2020) to win a limited edition Hacktoberfest Tee-shirt or a plant.
+[RSVP here](https://tinyurl.com/gsblr-hacktoberfest2020) to win\* a limited edition Hacktoberfest 👕Tee-shirt or a 🎍plant.
 
 Start contributing!😊
 
