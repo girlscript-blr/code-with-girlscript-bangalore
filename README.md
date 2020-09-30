@@ -40,7 +40,13 @@ Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) 
 
 Since you are here, you should most definitely consider joining us on this ride. If you still have any doubts, listen to Richard Stallman's perspective on [Free software, free society](https://www.tedxgeneva.net/talks/richard-stallman-free-software-free-society/)
 
-Don’t forget to fill the [participation form](https://tinyurl.com/codewithgsblr) 📃 to take part in the program, if not already done. Start contributing!😊
+Don’t forget to fill the [participation form](https://tinyurl.com/codewithgsblr) 📃 to take part in the program, if not already done.
+
+RSVP to our [Code with GirlScript Bangalore- Hacktoberfest Edition](https://tinyurl.com/gsblr-hacktoberfest2020) event to earn limited edition Hacktoberfest Tee-shirt or a plant.
+
+> You must make four valid pull requests Pull Requests between October 1-31 to any public repo on Github
+
+Start contributing!😊
 
 ## Resources
 
