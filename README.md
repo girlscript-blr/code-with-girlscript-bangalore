@@ -16,6 +16,10 @@ We have a range of problem statements for beginner, intermediate, and advanced l
 
 Don’t forget to fill the [participation form](https://tinyurl.com/codewithgsblr) 📃 to take part in the program, if not already done.
 
+RSVP here [https://tinyurl.com/gsblr-hacktoberfest2020](https://tinyurl.com/gsblr-hacktoberfest2020) to win\* a limited edition Hacktoberfest Tee-shirt or a plant.
+
+> \*You must make four valid pull requests Pull Requests between October 1-31 to any public repo on Github
+
 Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) file, and "Optimize and Elevate".
 
 ## Problem Statements
@@ -42,9 +46,7 @@ Since you are here, you should most definitely consider joining us on this ride.
 
 Don’t forget to fill the [participation form](https://tinyurl.com/codewithgsblr) 📃 to take part in the program, if not already done.
 
-RSVP here[https://tinyurl.com/gsblr-hacktoberfest2020](https://tinyurl.com/gsblr-hacktoberfest2020) to win\* a limited edition Hacktoberfest Tee-shirt or a plant.
-
-> \*You must make four valid pull requests Pull Requests between October 1-31 to any public repo on Github
+RSVP here [https://tinyurl.com/gsblr-hacktoberfest2020](https://tinyurl.com/gsblr-hacktoberfest2020) to win a limited edition Hacktoberfest Tee-shirt or a plant.
 
 Start contributing!😊
 
