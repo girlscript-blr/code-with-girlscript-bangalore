@@ -384,102 +384,120 @@ if __name__ == "__main__":
             # Admin Work
             while True:
                 userChoice = int(input("Enter your option to work\n 1. Admin\n 2. Survey Taker\n 3. quit\n Your Option: "))
-               
+            
+                
                 if(userChoice == 1):
-                    try:
-                        adminWork = int(input("Enter you option\n 1. Add/Update Slum Record\n 2. Update Food Products\n 3. Fetch Food Information\n 4. Add/Update Special Items\n 5. Fetch the food product Details\n 6. Fetch Special Items Details\n Your Choice:"))
-                        if(adminWork == 1):
-                            slum_name = input("Enter the new slum name: ")
-                            slum_description = input("Enter the slum description: ")
-                            app.add_or_update_slum_record(slum_name, slum_description)
-                        elif (adminWork == 2):
+                    while True:
+                        try:
+                            adminWork = int(input("Enter you option\n 1. Add/Update Slum Record\n 2. Update Food Products\n 3. Fetch Food Information\n 4. Add/Update Special Items\n 5. Fetch the food product Details\n 6. Fetch Special Items Details\n 7. Quit\n Your Choice:"))
+                            if(adminWork == 1):
+                                slum_name = input("Enter the new slum name: ")
+                                slum_description = input("Enter the slum description: ")
+                                app.add_or_update_slum_record(slum_name, slum_description)
+                            elif (adminWork == 2):
 
-                            while True:
-                                product_name = input("Enter the food product name: ")
-                                product_price = None
-                                product_quantity = None
-                                
-                                # Product Price
                                 while True:
-                                    try:
-                                        product_price = int(input("Enter the product price: "))
-                                        if(product_price > 0):
-                                            break
-                                    except ValueError:
-                                        print("Please enter a valid price.!")
-                                        continue
-                                
-                                # Product Qunatity
-                                while True:
-                                    try:
-                                        product_quantity = int(input("Enter the product monthly Qunatity: "))
-                                        if(product_quantity > 0):
-                                            break
-                                        elif (product_quantity <= 0):
-                                            print("please enter a proper quantity.!")
-                                            continue
-                                    except ValueError:
-                                        print("Please enter a valid price.!")
-                                        continue
-                                
-                                app.add_or_update_food_product(product_name, product_quantity, product_price)
-                                update_choice = input("Do you want to add/update an another food product [y/n]: ")
-                                if(update_choice.lower() == 'y'):
-                                    continue
-                                elif(update_choice.lower() == 'n'):
-                                    break
-                                else:
-                                    break
-                        
-                        elif (adminWork == 3):
-                            slum_name = input("Enter the slum Name: ")
-                            app.generate_final_survey_sheet(slum_name)
-
-                        elif (adminWork == 4):
-                            while True:
-                                try:
-                                    special_item_choice = int(input("Select the Option to Add the food Item Category\n 1. Infants\n 2. Childern\n 3. Old Age\n 4. Adult Female\n 5. Adult Male\n 6. Adult Other\n Select your Option:"))
-                                    if(special_item_choice == 1):
-                                        special_food_item_name = input("Enter your Item Name: ")
-                                        app.add_special_category_items(app.cateoryList[0][0], special_food_item_name.strip().capitalize())
-                                    elif (special_item_choice == 2):
-                                        special_food_item_name = input("Enter your Item Name: ")
-                                        app.add_special_category_items(app.cateoryList[1][0], special_food_item_name.strip().capitalize())
-                                    elif (special_item_choice == 3):
-                                        special_food_item_name = input("Enter your Item Name: ")
-                                        app.add_special_category_items(app.cateoryList[2][0], special_food_item_name.strip().capitalize())
-                                    elif (special_item_choice == 4):
-                                        special_food_item_name = input("Enter your Item Name: ")
-                                        app.add_special_category_items(app.cateoryList[3][0], special_food_item_name.strip().capitalize())
-                                    elif (special_item_choice == 5):
-                                        special_food_item_name = input("Enter your Item Name: ")
-                                        app.add_special_category_items(app.cateoryList[4][0], special_food_item_name.strip().capitalize())
-                                    elif (special_item_choice == 6):
-                                        special_food_item_name = input("Enter your Item Name: ")
-                                        app.add_special_category_items(app.cateoryList[5][0], special_food_item_name.strip().capitalize())
-                                    else:
-                                        print("Please Select a valid Option number.!")
-                                        continue
+                                    product_name = input("Enter the food product name: ")
+                                    product_price = None
+                                    product_quantity = None
                                     
-                                    item_add_choice = input('Do you want to add another Item [y/n]:')
-                                    if(item_add_choice.lower() == 'y'):
+                                    # Product Price
+                                    while True:
+                                        try:
+                                            product_price = int(input("Enter the product price: "))
+                                            if(product_price > 0):
+                                                break
+                                        except ValueError:
+                                            print("Please enter a valid price.!")
+                                            continue
+                                    
+                                    # Product Qunatity
+                                    while True:
+                                        try:
+                                            product_quantity = int(input("Enter the product monthly Qunatity: "))
+                                            if(product_quantity > 0):
+                                                break
+                                            elif (product_quantity <= 0):
+                                                print("please enter a proper quantity.!")
+                                                continue
+                                        except ValueError:
+                                            print("Please enter a valid price.!")
+                                            continue
+                                    
+                                    app.add_or_update_food_product(product_name, product_quantity, product_price)
+                                    update_choice = input("Do you want to add/update an another food product [y/n]: ")
+                                    if(update_choice.lower() == 'y'):
                                         continue
-                                    elif (item_add_choice.lower() == 'n'):
+                                    elif(update_choice.lower() == 'n'):
                                         break
                                     else:
-                                        print("You have entered the out of options.!")
                                         break
+                            
+                            elif (adminWork == 3):
+                                slum_name = input("Enter the slum Name: ")
+                                app.generate_final_survey_sheet(slum_name)
 
-                                except ValueError:
-                                    print("please enter a valid Option.!")
-                                    continue
-                        elif (adminWork == 5):
-                            app.fetch_food_product_results()
-                        elif (adminWork == 6):
-                            app.fetch_special_items()
-                    except ValueError:
-                        print("Enter a valid Option.!")
-                        continue
+                            elif (adminWork == 4):
+                                while True:
+                                    try:
+                                        special_item_choice = int(input("Select the Option to Add the food Item Category\n 1. Infants\n 2. Childern\n 3. Old Age\n 4. Adult Female\n 5. Adult Male\n 6. Adult Other\n Select your Option:"))
+                                        if(special_item_choice == 1):
+                                            special_food_item_name = input("Enter your Item Name: ")
+                                            app.add_special_category_items(app.cateoryList[0][0], special_food_item_name.strip().capitalize())
+                                        elif (special_item_choice == 2):
+                                            special_food_item_name = input("Enter your Item Name: ")
+                                            app.add_special_category_items(app.cateoryList[1][0], special_food_item_name.strip().capitalize())
+                                        elif (special_item_choice == 3):
+                                            special_food_item_name = input("Enter your Item Name: ")
+                                            app.add_special_category_items(app.cateoryList[2][0], special_food_item_name.strip().capitalize())
+                                        elif (special_item_choice == 4):
+                                            special_food_item_name = input("Enter your Item Name: ")
+                                            app.add_special_category_items(app.cateoryList[3][0], special_food_item_name.strip().capitalize())
+                                        elif (special_item_choice == 5):
+                                            special_food_item_name = input("Enter your Item Name: ")
+                                            app.add_special_category_items(app.cateoryList[4][0], special_food_item_name.strip().capitalize())
+                                        elif (special_item_choice == 6):
+                                            special_food_item_name = input("Enter your Item Name: ")
+                                            app.add_special_category_items(app.cateoryList[5][0], special_food_item_name.strip().capitalize())
+                                        else:
+                                            print("Please Select a valid Option number.!")
+                                            continue
+                                        
+                                        item_add_choice = input('Do you want to add another Item [y/n]:')
+                                        if(item_add_choice.lower() == 'y'):
+                                            continue
+                                        elif (item_add_choice.lower() == 'n'):
+                                            break
+                                        else:
+                                            print("You have entered the out of options.!")
+                                            break
+
+                                    except ValueError:
+                                        print("please enter a valid Option.!")
+                                        continue
+                            elif (adminWork == 5):
+                                app.fetch_food_product_results()
+                            elif (adminWork == 6):
+                                app.fetch_special_items()
+                            elif (adminWork == 7):
+                                break
+                            else:
+                                print("Please enter a valid option.!")
+                                continue
+                        except ValueError:
+                            print("Enter a valid Option.!")
+                            continue
+                
+                        workOption = input("Do you want to continue again: [y/n]")
+                        if(workOption.lower() == 'y'):
+                            continue
+                        elif(workOption.lower() == 'n'):
+                            break
+                        else:
+                            print("You have entered the out of options.!")
+                            sys.exit(0)
+        
+
                 elif(userChoice == 2):
                     while True:
                         try:
@@ -530,24 +548,29 @@ if __name__ == "__main__":
                                 
                                 # print(person_age)
                                 # Slum Name
-                                slum_name_results = app.cursor.execute("SELECT slum_name FROM slum_data").fetchall()
-                                slum_list = list()
+                                slum_name_results = list(app.cursor.execute("SELECT slum_name FROM slum_data").fetchall())
+                                # slum_list = list()
 
                                 print("**********Slum names**********")
                     
-                                for item in slum_name_results:
-                                    print(item[0])
-                                    slum_list.append(item[0])
+                                for item in range(0, len(slum_name_results)):
+                                    print(item+1, " ", slum_name_results[item][0])
+                                    # slum_list.append(item[0])
 
                                 person_slum_name = None
                                 while True:
-                                    person_slum_name = input("Enter the person slum name properly from the above list: ")
-
-                                    person_slum_name = person_slum_name.capitalize()
-                                    if(person_slum_name in slum_list):
-                                        break
-                                    else:
-                                        print("Please enter a valid slum name that is available in the list")
+                                    try:
+                                        person_slum_id = int(input("Enter the person slum Id properly from the above list: "))
+                                        
+                                        if(person_slum_id > len(slum_name_results) or person_slum_id <= 0):
+                                            print("Please enter a valid slum name details")
+                                            continue
+                                        else:
+                                            person_slum_name = slum_name_results[person_slum_id - 1][0]
+                                            # print(person_slum_name)
+                                            break
+                                    except Exception:
+                                        print("Please enter a valid Slum Id.!")
                                         continue
                                 
                                 # print(person_slum_name)
@@ -791,8 +814,11 @@ if __name__ == "__main__":
                                     
                                 
                             elif(survey_choice == 3):
-                                print("Thanks for using our Application.!")
-                                sys.exit(0)
+                                break
+                                # print("Thanks for using our Application.!")
+                                # sys.exit(0)
+                            else:
+                                print("Please enter a valid option.!")
 
                         except ValueError:
                             print("You have entered a wrong Option choice.!")
@@ -803,17 +829,9 @@ if __name__ == "__main__":
                     print("Thanks for using our Application.!")
                     sys.exit(0)
         
-                workOption = input("Do you want to continue again: [y/n]")
-                if(workOption.lower() == 'y'):
-                    continue
-                elif(workOption.lower() == 'n'):
-                    break
                 else:
-                    print("You have entered the out of options.!")
-                    sys.exit(0)
-            else:
-                print("Please enter a valid option.!")
-                continue
+                    print("Please enter a valid option.!")
+                    continue
         except ValueError:
             print("Please enter a valid option.!")
             continue
