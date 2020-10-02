@@ -88,4 +88,3 @@ Solved this problem? Then you might want to checkout the other versions of this 
 
 - [Medium](../../Medium/3.%20COVID-19%20Food%20Supply%20App/README.md)
 - [Hard](../../Hard/3.%20COVID-19%20Food%20Supply%20App/README.md)
-
