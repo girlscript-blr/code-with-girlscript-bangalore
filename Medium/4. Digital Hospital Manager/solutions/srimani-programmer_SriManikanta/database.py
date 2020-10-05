@@ -77,7 +77,7 @@ def fetchDetails():
 def fetchDetailsById(pid): 
     with sqlite3.connect('database.db') as conn:
         cursor = conn.cursor()
-        details = cursor.execute('SELECT * FROM patients WHERE patient_id=?', (pid, )).fetchall()
+        details = cursor.execute('SELECT * FROM patients WHERE patient_id=? OR patient_name=?', (pid, pid)).fetchall()
         print(details)
         return details
 

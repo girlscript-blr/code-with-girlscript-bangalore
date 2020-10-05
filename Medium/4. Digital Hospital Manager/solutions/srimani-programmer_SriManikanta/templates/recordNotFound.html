@@ -15,7 +15,16 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 text-center">
                     <span class="display-1 d-block">404</span>
-                    <div class="mb-4 lead">The <i><b>Patient Record with Record Id: {{ recordId }}</b></i> you are looking for was not found.</div>
+                    <div class="mb-4 lead">
+                        {% if 'PTCOVID' in recordId %}
+                            The <i><b>Patient Record with Record Id: {{ recordId }}</b></i> you are looking for was not found.
+                        {% endif %}
+
+                        {% if 'PTCOVID' not in recordId %}
+                            The <i><b>Patient Record {{ recordId }}</b></i> you are looking for was not found.
+                        {% endif %}
+
+                    </div>
                     <a href="{{url_for('home')}}" class="btn btn-link">Back to Home</a>
                 </div>
             </div>
