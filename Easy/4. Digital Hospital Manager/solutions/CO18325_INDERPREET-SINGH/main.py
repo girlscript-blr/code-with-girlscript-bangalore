@@ -13,8 +13,8 @@ class Patient:
         self.cursor.execute(''' CREATE TABLE IF NOT EXISTS patients
         (id INTEGER PRIMARY KEY AUTOINCREMENT,
          name TEXT NOT NULL,
-         phone TEXT NOT NULL,
-         e_cont TEXT NOT NULL,
+         phone VARCHAR(10) NOT NULL,
+         e_cont VARCHAR(10) NOT NULL,
          age INTEGER NOT NULL,
          gender TEXT NOT NULL,
          blood_group TEXT NOT NULL,
