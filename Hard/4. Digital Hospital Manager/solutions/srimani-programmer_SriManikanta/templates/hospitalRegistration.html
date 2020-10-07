@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+    crossorigin="anonymous">
+
+    <title>Hospital Registration Portal</title>
+    
+</head>
+<body>
+    <script type="text/javascript">
+        function validateForm(){
+            let pincode = document.forms['registration']['hpincode'].value;
+            let pattern = /^\d{6}$/;
+
+            if (!pattern.test(pincode))  {
+                alert("Pin code should be 6 digits");
+                return false;
+            }
+        }
+    </script>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('admin') }}">Digital Hospital Monitor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+
+    <form method="POST" name="registration" onsubmit="return validateForm()" action="{{url_for('register_hospital')}}">
+        <div>
+            <p class="h3" style="text-align: center;">Hospital Registration</p>
+        </div>
+        <div class="container">
+          <label for="exampleInputEmail1">Hospital Name</label>
+          <input type="text" class="form-control" placeholder="Enter Hospital Name" name="hname" required>
+        </div>
+
+        <div class="container">
+            <label>Hospital Area</label>
+            <input type="text" class="form-control" placeholder="Enter Hospital Area" name="harea" required>
+        </div>
+
+
+        <div class="container">
+            <label>Hospital City</label>
+            <input type="text" class="form-control" placeholder="Enter Hospital City" name="hcity" required>
+        </div>
+
+        <div class="container">
+            <label>Hospital State</label>
+            <input type="text" class="form-control" placeholder="Enter Hospital State" name="hstate" required>
+        </div>
+        
+        <div class="container">
+            <label>Hospital Country</label>
+            <input type="text" class="form-control" placeholder="Enter Hospital Country" name="hcountry" required>
+        </div>
+
+        <div class="container">
+            <label>Hospital Pincode</label>
+            <input type="number" class="form-control" placeholder="Enter Hospital Pincode" name="hpincode" required>
+        </div>
+
+        <div class="container">
+            <label>Hospital Bed Capacity</label>
+            <input type="number" class="form-control" placeholder="Enter Hospital Bed Capacity" name="hbedcapacity" required>
+        </div>
+
+        <div class="container" style="align-items: center;">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    
+    </form>
+    
+
+</body>
+</html>

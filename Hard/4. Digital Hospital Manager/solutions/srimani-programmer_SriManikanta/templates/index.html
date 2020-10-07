@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <title>Digital Hospital Monitor</title>
+</head>
+<body class="bg">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('home') }}">Digital Hospital Monitor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url_for('register_hospital') }}">Hospital Registration<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url_for('patientForm') }}">Patient Registration<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url_for('patientDataUpdation')}}">Patient Data Updation</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('getPatientDetails') }}">Patients List</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('hospital_stats') }}">Hospital Statistics</a>
+            </li>
+           </ul>
+        
+          <form class="form-inline my-2 my-lg-0" method="GET" action="{{ url_for('fetchPatientDataById') }}">
+            <input class="form-control mr-sm-2" type="search" placeholder="Patient Id/Name" aria-label="Search" name="pid" required>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Fetch Patient Details</button>
+          </form>
+        </div>
+      </nav>
+</body>
+</html>
