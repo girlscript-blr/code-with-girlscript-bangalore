@@ -65,7 +65,7 @@
 
         <div class="container">
             <label>Discharge Date</label>
-            <input type="date" class="form-control"  placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31" name="dischargeDate" required>
+            <input type="date" class="form-control"  placeholder="dd-mm-yyyy" value="" min="{{ current_date }}" max="2030-12-31" name="dischargeDate" required>
         </div>
 
         <div class="container" style="align-content: center;">
@@ -82,7 +82,7 @@
 
         <div class="container" id="deadthDate" style="display: none;">
             <label>Deadth Date</label>
-            <input type="date" class="form-control"  placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31" name="deadthDate" id="deadthDate">
+            <input type="date" class="form-control"  placeholder="dd-mm-yyyy" value="" min="{{ current_date }}" max="2030-12-31" name="deadthDate" id="deadthDate">
         </div>
 
         <div class="container" id="deadthTime" style="display: none;">
