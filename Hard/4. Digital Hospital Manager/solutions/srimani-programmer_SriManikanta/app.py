@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from database import registerPatient, fetchDetails, fetchDetailsById, updateData, register_hospital_data, fetch_hospital_details, fetch_hospital_availability, get_hospital_statistics
-
+from datetime import datetime
 app = Flask(__name__)
 
 @app.route('/')
@@ -328,6 +328,9 @@ def fetchPatientDataById():
 
 @app.route('/PatientDataUpdation', methods=['GET', 'POST'])
 def patientDataUpdation():
+    current_date = datetime.now()
+    current_date = current_date.strftime("%Y-%m-%d")
+
     if request.method.lower() == 'post':
         patient_id = request.form.get('patient_id')
         medicalDetails = request.form.get('patient_medical')
@@ -357,11 +360,11 @@ def patientDataUpdation():
         print(deadthDate)
 
         if(updateData(patient_id, medicalDetails, dischargeDate, dischargeComments, deadthDate)):
-            return render_template('recordUpdationSucesses.html')
+            return render_template('recordUpdationSucesses.html', current_date=current_date)
         else:
             return render_template('recordNotFound.html', recordId=patient_id)
 
-    return render_template('update.html')
+    return render_template('update.html', current_date=current_date)
 
 
 @app.errorhandler(404)
