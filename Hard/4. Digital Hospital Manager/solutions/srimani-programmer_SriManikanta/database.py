@@ -86,20 +86,36 @@ def fetchDetailsById(pid):
         return details, hospital_details
 
 def updateData(patient_id, medical_comments, discharge_date, discharge_comments, deadDate):
-    
     updationStatus = True
+    already_date = 'NA'
     with sqlite3.connect('database.db') as conn:
         cursor = conn.cursor()
         result = cursor.execute('SELECT * FROM patients WHERE patient_id=?', (patient_id, )).fetchall()
         if(len(result) >= 1):
+            already_date = cursor.execute('SELECT date_of_discharge FROM patients WHERE patient_id=?', (patient_id, )).fetchone()
+            already_date = already_date[0]
             cursor.execute('''UPDATE patients SET medical_details=?, date_of_discharge=?,
             discharge_comments=?,
             time_of_death=? 
             WHERE
             patient_id=?
             ''', (medical_comments, discharge_date, discharge_comments, deadDate, patient_id))
+            conn.commit()
         else:
             updationStatus = False
+    if updationStatus and already_date == 'NA':
+        with sqlite3.connect('database.db') as conn:
+            cursor = conn.cursor()
+            hospital_name = cursor.execute('SELECT hospital_name FROM patients WHERE patient_id=?', (patient_id, )).fetchone()
+            hospital_name = hospital_name[0]
+            print(hospital_name)
+            capacity = cursor.execute('SELECT hospital_capacity FROM hospital WHERE hospital_name=?', (hospital_name, )).fetchone()
+            print(capacity)
+            capacity = int(capacity[0])
+            capacity += 1
+            cursor.execute('UPDATE hospital SET hospital_capacity=? WHERE hospital_name=?', (capacity, hospital_name))
+            conn.commit()
+
     return updationStatus
 
 # Hospital Registration
@@ -150,7 +166,7 @@ def get_hospital_statistics(search):
         cursor = conn.cursor()
         admissions = cursor.execute('''SELECT * FROM patients WHERE hospital_name=? AND date_of_admission=date('now')''', (search, )).fetchall()
         discharge = cursor.execute('''SELECT * FROM patients WHERE hospital_name=? AND date_of_discharge=date('now')''', (search, )).fetchall()
-        total_count = cursor.execute('''SELECT * FROM patients WHERE hospital_name=? AND date_of_admission <= date('now')''', (search, )).fetchall()
+        total_count = cursor.execute('''SELECT * FROM patients WHERE hospital_name=? AND date_of_admission <= date('now') AND date_of_discharge='NA' ''', (search, )).fetchall()
         item = cursor.execute('''SELECT * FROM patients WHERE hospital_name=?''', (search, )).fetchall()
        
         if len(item) == 0:
@@ -171,6 +187,6 @@ def get_hospital_statistics(search):
         else:
             total_count = len(total_count)
 
-        total_number_of_patients = total_count - discharge
+        total_number_of_patients = total_count
 
         return admissions, discharge, total_number_of_patients, status

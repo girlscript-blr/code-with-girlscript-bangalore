@@ -21,7 +21,14 @@
           <ul class="navbar-nav mr-auto">
            </ul>
           <form class="form-inline my-2 my-lg-0" method="POST" action="{{ url_for('hospital_stats') }}">
-            <input class="form-control mr-sm-2" type="search" placeholder="Enter Hospital Name" aria-label="Search" name="hospitalSearch" required>
+            <select class="custom-select" name="hospitalSearch" required>
+            <option value="">Select Hospital Name</option>
+            {% for name in data %}
+            {% if name[1] >= 1 %}
+              <option value="{{ name[0] }}">{{ name[0] }}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Hospital Statistics</button>
           </form>
         </div>

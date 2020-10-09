@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from database import registerPatient, fetchDetails, fetchDetailsById, updateData, register_hospital_data, fetch_hospital_details, fetch_hospital_availability, get_hospital_statistics
 from datetime import datetime
+import sqlite3
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -29,16 +31,17 @@ def search_hospital():
 # Hospital Statistics
 @app.route('/HospitalStatistics', methods=['GET', 'POST'])
 def hospital_stats():
+    results = fetch_hospital_details()
     if request.method.lower() == 'post':
         search_key = request.form.get('hospitalSearch')
         admissions, discharge, total, status = get_hospital_statistics(search_key)
 
         if status:
-            return render_template('hospitalStatistics.html', admissions=admissions, discharge=discharge, total=total, visibility=True)
+            return render_template('hospitalStatistics.html', data=results, admissions=admissions, discharge=discharge, total=total, visibility=True)
         else:
             return render_template('hospitalNotFound.html')
 
-    return render_template('hospitalStatistics.html', visibility=False)
+    return render_template('hospitalStatistics.html', visibility=False,  data=results)
 
 @app.route('/HospitalRegistration',methods=["GET", "POST"])
 def register_hospital():
@@ -60,7 +63,6 @@ def register_hospital():
 
 @app.route('/patientAdmitForm', methods=['GET', 'POST'])
 def patientForm():
-
     if request.method.lower() == 'get':
         data = fetch_hospital_details()
         return render_template('patientRegistration.html', data=data)
@@ -358,7 +360,7 @@ def patientDataUpdation():
         print(dischargeDate)
         print(dischargeComments)
         print(deadthDate)
-
+    
         if(updateData(patient_id, medicalDetails, dischargeDate, dischargeComments, deadthDate)):
             return render_template('recordUpdationSucesses.html', current_date=current_date)
         else:
