@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+    crossorigin="anonymous">
+    <title>Patient Form</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('admin') }}">Digital Hospital Monitor</a>
+        
+    </nav>
+    <script type="text/javascript"> 
+        function selected(){
+            if(document.getElementById('deadthYes').checked){
+                document.getElementById('deadthTime').style.display = 'block';
+                document.getElementById('deadthDate').style.display = 'block';
+            }else if(document.getElementById('deadthNo').checked){
+                document.getElementById('deadthDate').style.display = 'none';
+                document.getElementById('deadthTime').style.display = 'none';
+            }
+
+        }
+
+        function validateForm(){
+            if(document.getElementById('deadthYes').checked){
+            
+                let deadthDate = document.forms['dataForm']['deadthDate'].value;
+                let deadthTime = document.forms['dataForm']['deadthTime'].value;
+            
+                if(deadthDate == ""){
+                    alert("Please Enter Patient Expiry Date");
+                    return false;
+                }
+                if(deadthTime == ""){
+                    alert("Please enter the expiry time of the patient");
+                    return false;
+                }
+
+                return true;
+
+            }
+        }
+    </script>
+
+    <form method="POST" onsubmit="return validateForm()" name="dataForm" action="{{url_for('patientDataUpdation')}}" >
+        <div>
+            <p class="h3" style="text-align: center;">Patient Data Updation</p>
+        </div>
+
+        <div class="container">
+            <label for="exampleInputEmail1">Patient Id</label>
+            <input type="text" class="form-control" placeholder="Enter Patient Id" name="patient_id" required>
+        </div>
+
+        <div class="container">
+          <label for="exampleInputEmail1">Medical details/Comments</label>
+          <input type="text" class="form-control" placeholder="Enter Patient Name" name="patient_medical" required>
+        </div>
+
+        <div class="container">
+            <label>Discharge Date</label>
+            <input type="date" class="form-control"  placeholder="dd-mm-yyyy" value="" min="{{ current_date }}" max="2030-12-31" name="dischargeDate" required>
+        </div>
+
+        <div class="container" style="align-content: center;">
+            <label >Discharge Comment</label>
+            <div class="form-check form-check-inline">
+                <input onclick="javascript:selected()" class="form-check-input" type="radio" name="recoveryId" id="deadthYes" value="Yes">
+                <label class="form-check-label" for="inlineRadio1">Dead</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input onclick="javascript:selected()" class="form-check-input" type="radio" name="recoveryId" id="deadthNo" value="No" checked="checked">
+                <label class="form-check-label" for="inlineRadio2">Cured</label>
+              </div>
+        </div>
+
+        <div class="container" id="deadthDate" style="display: none;">
+            <label>Deadth Date</label>
+            <input type="date" class="form-control"  placeholder="dd-mm-yyyy" value="" min="{{ current_date }}" max="2030-12-31" name="deadthDate" id="deadthDate">
+        </div>
+
+        <div class="container" id="deadthTime" style="display: none;">
+            <label>Deadth Time - 24 Hour Format</label>
+            <input type="time" class="form-control" name="deadthTime" id="deadthTime">
+        </div>
+
+        <div class="container" style="align-items: center;">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    
+</body>
+</html>
