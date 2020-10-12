@@ -1,4 +1,4 @@
-# Digital Hospital Manager - Bonus
+﻿# Digital Hospital Manager - Bonus
 
 > Date : 1st October 2020
 
@@ -227,6 +227,7 @@ Follow the steps mentioned in [this](../../CONTRIBUTING.md) file to submit your 
 
 Solved this problem? Then you might want to checkout the other versions of this problem.
 
-- [Easy](../../Easy/4.%20Digital%20Hospital%20Manager%20/README.md)
-- [Medium](../../Medium/4.%20Digital%20Hospital%20Manager%20/README.md)
+- [Easy](../../Easy/4.%20Digital%20Hospital%20Manager/README.md)
+- [Medium](../../Medium/4.%20Digital%20Hospital%20Manager/README.md)
 - [Hard](../../Hard/4.%20Digital%20Hospital%20Manager/README.md)
+
