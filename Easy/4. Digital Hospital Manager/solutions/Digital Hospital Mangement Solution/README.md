@@ -13,3 +13,11 @@ Application also outputs:
 
 *Total number of patients present at current time.
 ```
+The index.php looks like this:
+![image](Dashboard.png)
+
+Clicking ADD button will take you to Patients_add.php
+![image](Adding_Details.png)
+
+Clicking VIEW button will take you to patients_view.php
+![image](View_Details.png)
