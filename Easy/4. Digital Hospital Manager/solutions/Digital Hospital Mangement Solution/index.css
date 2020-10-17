@@ -1,17 +1,17 @@
 .add{
-	background-color: red;
-	width:100px;
+	background-color: black;
+	width:150px;
 	height:70px;
 	text-align: center;
 	color: white;
-	transform: translate(350px, 250px);
+	transform: translate(500px, 250px);
 	font-size: 20px;
 
 }
 
 .view{
-	background-color: red;
-	width:100px;
+	background-color: black;
+	width:150px;
 	height:70px;
 	text-align: center;
 	color: white;
@@ -19,4 +19,25 @@
 	font-size: 20px;
 
 }
+.class1{
+	background-image: url('1.png');
+}
+.content1{
+	transform: translate(200px, 150px);
+}
+.content2{
+	background-color: white;
+	height:100%;
+	width:100%;
+
+}
+label{
+	display: inline-block;
+	text-align: right;
+	width:170px;
+}
+.block{
+	margin-bottom: 10px;
+}
+
 

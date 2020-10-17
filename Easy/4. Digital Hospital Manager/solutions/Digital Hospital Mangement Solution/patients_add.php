@@ -14,20 +14,51 @@ $sql=mysqli_query($con,"INSERT INTO `patient_details`(`Full Name`, `Phone Number
 }
 ?>
 <html>
-
-
-      
+<head>
+	<link rel="stylesheet" href="index.css">
+</head>
+<div class="content2">
+   <div class="content1">
 <form action='patients.php'  name='form1' method='post'>
-	<input name="full_name" type="text" style="width:170px" placeholder="Full Name" required="required" id="full_name" />
-	<input name="phone_number" type="text" style="width:170px" placeholder="Phone Number" required="required" id="phone_number" />
-	<input name="emergency_contact_number" type="text" style="width:170px" placeholder="Emergency Contact Number" required="required" id="emergency_contact_number" />
-	<input name="age" type="text" style="width:170px" placeholder="Age" required="required" id="age" />
-	<input name="gender" type="text" style="width:170px" placeholder="Gender" required="required" id="gender" />
-	<input name="blood_type" type="text" style="width:170px" placeholder="Blood Type" required="required" id="blood_type" />
-	<input name="weight" type="text" style="width:170px" placeholder="Weight" required="required" id="weight" />
-	<input name="height" type="text" style="width:170px" placeholder="Height" required="required" id="height" />
-	<input name="symptoms" type="text" style="width:170px" placeholder="Symptoms" required="required" id="symptoms" />
-	<input name="submit" type="submit" value="Submit"/>
+	<div class="block">
+	<label>Full Name</label>
+	<input name="full_name" type="text"  placeholder="Full Name" required="required" id="full_name"/><br>
+</div>
+<div class="block">
+	<label>Phone Number</label>
+	<input name="phone_number" type="text" placeholder="Phone Number" required="required" id="phone_number" /><br>
+</div>
+<div class="block">
+	<label>Emergency Contact Number</label>
+	<input name="emergency_contact_number" type="text" placeholder="Emergency Contact Number" required="required" id="emergency_contact_number" /><br>
+</div>
+<div class="block">
+	<label>Age</label>
+	<input name="age" type="text"  placeholder="Age" required="required" id="age" /><br>
+</div>
+<div class="block">
+	<label>Gender</label>
+	<input name="gender" type="text" placeholder="Gender" required="required" id="gender" /><br>
+</div>
+<div class="block">
+	<label>Blood Type</label>
+	<input name="blood_type" type="text" placeholder="Blood Type" required="required" id="blood_type" /><br>
+</div>
+<div class="block">
+	<label>Weight</label>
+	<input name="weight" type="text" placeholder="Weight" required="required" id="weight" /><br>
+</div>
+<div class="block">
+	<label for="height">Height</label>
+	<input name="height" type="text" placeholder="Height" required="required" id="height" /><br>
+</div>
+<div class="block">
+	<label for="symptoms">Symptoms</label>
+	<input name="symptoms" type="text" placeholder="Symptoms" required="required" id="symptoms" /><br>
+</div>
+	<input name="submit" style="color:white;background-color: black;height:30px;width:55px;text-align: center;transform: translate(200px, 60px);" type="submit" value="Submit"/>
 </form>
+</div>
+</div>
 
 </html>
