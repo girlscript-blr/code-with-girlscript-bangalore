@@ -1,0 +1,22 @@
+.add{
+	background-color: red;
+	width:100px;
+	height:70px;
+	text-align: center;
+	color: white;
+	transform: translate(350px, 250px);
+	font-size: 20px;
+
+}
+
+.view{
+	background-color: red;
+	width:100px;
+	height:70px;
+	text-align: center;
+	color: white;
+	transform: translate(550px, 250px);
+	font-size: 20px;
+
+}
+
