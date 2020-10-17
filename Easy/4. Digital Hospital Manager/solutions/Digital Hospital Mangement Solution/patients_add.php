@@ -19,7 +19,7 @@ $sql=mysqli_query($con,"INSERT INTO `patient_details`(`Full Name`, `Phone Number
 </head>
 <div class="content2">
    <div class="content1">
-<form action='patients.php'  name='form1' method='post'>
+<form action='patients_add.php'  name='form1' method='post'>
 	<div class="block">
 	<label>Full Name</label>
 	<input name="full_name" type="text"  placeholder="Full Name" required="required" id="full_name"/><br>
