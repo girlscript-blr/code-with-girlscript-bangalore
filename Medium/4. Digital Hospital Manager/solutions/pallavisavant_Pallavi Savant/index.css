@@ -1,0 +1,53 @@
+.add{
+	background-color: black;
+	width:250px;
+	height:70px;
+	text-align: center;
+	color: white;
+	transform: translate(150px, 250px);
+	font-size: 20px;
+
+}
+
+.view{
+	background-color: black;
+	width:250px;
+	height:70px;
+	text-align: center;
+	color: white;
+	transform: translate(250px, 250px);
+	font-size: 20px;
+
+}
+.update{
+	background-color: black;
+	width:250px;
+	height:70px;
+	text-align: center;
+	color: white;
+	transform: translate(350px, 250px);
+	font-size: 20px;
+
+}
+.class1{
+	background-image: url('1.png');
+}
+.content1{
+	transform: translate(200px, 10px);
+}
+.content2{
+	background-color: white;
+	height:100%;
+	width:100%;
+
+}
+label{
+	display: inline-block;
+	text-align: right;
+	width:170px;
+}
+.block{
+	margin-bottom: 10px;
+}
+
+
