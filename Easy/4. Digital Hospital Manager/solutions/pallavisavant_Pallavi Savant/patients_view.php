@@ -15,10 +15,14 @@ echo "<tr></tr><th>Patient ID</th><th>Full Name</th><th>Phone Number</th><th>Eme
  	echo "<td>" .$row['Weight']. "</td>";
  	echo "<td>" .$row['Height']. "</td>";
  	echo "<td>" .$row['Symptoms']. "</td>";
- 	echo "<td>" .$row['Date']. "</td>";
+ 	echo "<td>" .$row['Date Of Admission']. "</td>";
  	echo "</tr>";
-
-
  }
  echo "</table>";
  ?>
+ <html>
+ <head>
+ 	<link rel="stylesheet" href="index.css">
+ </head>
+ <a href="index.php"><input type="button" class="back1" value="HOME"></a>
+ </html>

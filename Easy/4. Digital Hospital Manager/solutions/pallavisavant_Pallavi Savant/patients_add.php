@@ -16,10 +16,15 @@ $sql=mysqli_query($con,"INSERT INTO `patient_details`(`Full Name`, `Phone Number
 <html>
 <head>
 	<link rel="stylesheet" href="index.css">
+	<script type="text/javascript">
+		function executeOnSubmit(){
+			alert("Data has been added successfully!!!");
+		}
+	</script>
 </head>
 <div class="content2">
    <div class="content1">
-<form action='patients_add.php'  name='form1' method='post'>
+<form action='patients_add.php'  onsubmit="return executeOnSubmit();" name='form1' method='post'>
 	<div class="block">
 	<label>Full Name</label>
 	<input name="full_name" type="text"  placeholder="Full Name" required="required" id="full_name"/><br>
@@ -34,11 +39,15 @@ $sql=mysqli_query($con,"INSERT INTO `patient_details`(`Full Name`, `Phone Number
 </div>
 <div class="block">
 	<label>Age</label>
-	<input name="age" type="text"  placeholder="Age" required="required" id="age" /><br>
+	<input name="age" type="number"  placeholder="Age" required="required" id="age" /><br>
 </div>
 <div class="block">
 	<label>Gender</label>
-	<input name="gender" type="text" placeholder="Gender" required="required" id="gender" /><br>
+	<select name="gender">
+	<option value="Male">Male</option>
+	<option value="Female">Female</option>
+	<option value="others">Others</option>
+	</select>
 </div>
 <div class="block">
 	<label>Blood Type</label>
@@ -46,7 +55,7 @@ $sql=mysqli_query($con,"INSERT INTO `patient_details`(`Full Name`, `Phone Number
 </div>
 <div class="block">
 	<label>Weight</label>
-	<input name="weight" type="text" placeholder="Weight" required="required" id="weight" /><br>
+	<input name="weight" type="number" placeholder="Weight" required="required" id="weight" /><br>
 </div>
 <div class="block">
 	<label for="height">Height</label>
@@ -60,5 +69,6 @@ $sql=mysqli_query($con,"INSERT INTO `patient_details`(`Full Name`, `Phone Number
 </form>
 </div>
 </div>
+<a href="index.php"><input class="back" type="button" name="button2" value="HOME"/></a>
 
 </html>

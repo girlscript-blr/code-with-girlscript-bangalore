@@ -6,6 +6,14 @@ Instructions to run the application:
 *To add the new patient details click on ADD button and click submit after entering all the details.
 *To view the patient details click on VIEW button.
 ```
+Instruction to import .sql file:
+
+```
+1) Go to localhost/phpmyadmin/
+2) Create a new database of name my_db
+3)Click on import and import .sql file
+4) Then you will get the table in your database.
+```
 Application also outputs:
 
 ```
