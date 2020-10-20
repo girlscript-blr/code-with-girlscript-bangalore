@@ -15,7 +15,7 @@ echo "<tr></tr><th>Patient ID</th><th>Full Name</th><th>Phone Number</th><th>Eme
  	echo "<td>" .$row['Weight']. "</td>";
  	echo "<td>" .$row['Height']. "</td>";
  	echo "<td>" .$row['Symptoms']. "</td>";
- 	echo "<td>" .$row['Date Of Admission']. "</td>";
+ 	echo "<td>" .$row['Date']. "</td>";
  	echo "</tr>";
  }
  echo "</table>";
