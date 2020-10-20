@@ -2,14 +2,14 @@
 <?php
 include_once('connect.php');
 if(isset($_POST['submit'])){
-	$name=$_POST['name'];
+	$id=$_POST['id'];
 	$comments=$_POST['comments'];
 	$date=$_POST['date'];
 	$discharge=$_POST['comments1'];
-	$sql=mysqli_query($con,"update `patient_details` set `Date Of Discharge`='$date',`Medical Details/Comments`='$comments',`Discharge Comments`='$discharge' where `Full Name`='$name'");
+	$sql=mysqli_query($con,"update `patient_details` set `Date Of Discharge`='$date',`Medical Details/Comments`='$comments',`Discharge Comments`='$discharge' where `Patient ID`='$id'");
 	if($_POST['date1']){
 		$date1=$_POST['date1'];
-		$sql=mysqli_query($con,"update `patient_details` set `Date And Time Of Death`='$date1' where `Full Name`='$name'");
+		$sql=mysqli_query($con,"update `patient_details` set `Date And Time Of Death`='$date1' where `Patient ID`='$id'");
 	}
 
 	
@@ -22,14 +22,19 @@ if(isset($_POST['submit'])){
 </html>
 <head>
 	<link rel="stylesheet" href="index.css"/>
+	<script type="text/javascript">
+		function executeonsubmit(){
+		alert("Data updated successfully!!!");
+	}
+	</script>
 	</head>
 <body>
 	<div class="content2">
 		<div class="content1">
-	<form action="patients_update.php" method="post">
+	<form action="patients_update.php" onsubmit="return executeonsubmit();" method="post">
 		<div class="block">
-		<label>Name: </label>
-		<input type="text" name="name" placeholder="Name" required="required">
+		<label>Patient ID: </label>
+		<input type="number" name="id" placeholder="Patient ID" required="required">
 	</div>
 		<div class="block">
 		<label>Medical Details/Comments: </label>
@@ -55,7 +60,7 @@ if(isset($_POST['submit'])){
 </form>
 </div>
 </div>
-
-	</form>
+</form>
+<a href="index.php"><input style="background-color: black;width:80px;height:30px;text-align: center;color: white;transform: translate(700px, 150px);" type="button" name="button2" value="HOME"/></a>
 	</body>
 	</html>

@@ -132,10 +132,15 @@ if($symptom10 and $age>=46){
 <html>
 <head>
 	<link rel="stylesheet" href="index.css">
+	<script type="text/javascript">
+		function executeonsubmit(){
+			alert("Data has been successfully submitted!!");
+		}
+	</script>
 </head>
 <div class="content2">
    <div class="content1">   
-<form action='patients_add.php'  name='form1' method='post'>
+<form action='patients_add.php' onsubmit="return executeonsubmit();"  name='form1' method='post'>
 	<div class="block">
 	<label>Full Name</label>
 	<input name="full_name" type="text"  placeholder="Full Name" required="required" id="full_name"/><br>
@@ -150,7 +155,7 @@ if($symptom10 and $age>=46){
 </div>
 <div class="block">
 	<label>Age</label>
-	<input name="age" type="text"  placeholder="Age" required="required" id="age" /><br>
+	<input name="age" type="number"  placeholder="Age" required="required" id="age" /><br>
 </div>
 <div class="block">
 	<label>Gender</label>
@@ -175,7 +180,7 @@ if($symptom10 and $age>=46){
 </div>
 <div class="block">
 	<label>Weight</label>
-	<input name="weight" type="text" placeholder="Weight" required="required" id="weight" /><br>
+	<input name="weight" type="number" placeholder="Weight" required="required" id="weight" /><br>
 </div>
 <div class="block">
 	<label for="height">Height</label>
@@ -205,5 +210,5 @@ if($symptom10 and $age>=46){
 </form>
 </div>
 </div>
-
+<a href="index.php"><input class="back" type="button" name="button2" value="HOME"/></a>
 </html>

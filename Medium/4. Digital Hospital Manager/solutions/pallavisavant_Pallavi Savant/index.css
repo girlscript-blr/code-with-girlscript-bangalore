@@ -11,21 +11,11 @@
 
 .view{
 	background-color: black;
-	width:250px;
+	width:280px;
 	height:70px;
 	text-align: center;
 	color: white;
 	transform: translate(250px, 250px);
-	font-size: 20px;
-
-}
-.update{
-	background-color: black;
-	width:250px;
-	height:70px;
-	text-align: center;
-	color: white;
-	transform: translate(350px, 250px);
 	font-size: 20px;
 
 }
@@ -49,5 +39,6 @@ label{
 .block{
 	margin-bottom: 10px;
 }
+
 
 

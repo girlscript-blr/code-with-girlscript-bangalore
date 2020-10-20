@@ -1,13 +1,13 @@
 <html>
+<head>
+	<link rel="stylesheet" href="index.css"/>
+	</head>
  <body>
- 	<div class="content2">
- 		<div class="content1">
  	<form action="patients_view.php" method="post">
  		<input type="text" name="search" placeholder="Enter Patient Name OR ID">
  		<input type="submit" name="submit" value="SUBMIT">
  	</form>
- </div>
-</div>
+<a href="index.php"><input type="button" style="background-color:black;width:80px;height:30px;text-align: center;color: white;transform: translate(1200px,500px);" value="HOME"></a>
  </body>
 
 
@@ -88,5 +88,4 @@ echo "<tr><th>INPUTS</th><th>VALUES</th></tr>";
  }}
  echo "</table>";
  ?>
-
  </html>
