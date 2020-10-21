@@ -5,7 +5,7 @@
 	<body class="class1">
 <a href="patients_add.php"><input class="add" type="button" name="button1" value="ADD PATIENT" /></a>
 <a href="patients_view.php"><input class="view" type="button" name="button2" value="VIEW DETAILS"/></a>
-<a href="patients_update.php"><input style="background-color: black;width:250px;height:70px;text-align:center;color: white;transform: translate(600px, 250px);font-size: 20px;" type="button" name="button3" value="UPDATE DETAILS"/></a>
+<a href="patients_update.php"><input style="background-color: black;width:250px;height:70px;text-align:center;color: white;transform: translate(360px, 250px);font-size: 20px;" type="button" name="button3" value="UPDATE DETAILS"/></a>
 <?php
 include_once('connect.php');
 echo "<div style='color:white;text-align:center;font-size:30px;font-family:Arial;'>";

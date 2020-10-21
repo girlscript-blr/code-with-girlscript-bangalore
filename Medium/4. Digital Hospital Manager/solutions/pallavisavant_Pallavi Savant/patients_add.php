@@ -65,7 +65,7 @@ if(isset($_POST['Stuffy/runny nose'])){
 	}
 	$comments=$_POST['comments'];
 
-$sql=mysqli_query($con,"INSERT INTO `patient_details`(`Full Name`, `Phone Number`, `Emergency Contact Number`, `Age`, `Gender`, `Blood Type`, `Weight`, `Height`, `Symptoms`,`Medical Details/Comments`) VALUES ('$full_name','$phone_number','$emergency_contact_number','age','$gender','$blood_type','$weight','$height','$symptom1 $symptom2','$comments')");
+$sql=mysqli_query($con,"INSERT INTO `patient_details`(`Full Name`, `Phone Number`, `Emergency Contact Number`,`Age`, `Gender`, `Blood Type`, `Weight`, `Height`, `Symptoms`,`Medical Details/Comments`) VALUES ('$full_name','$phone_number','$emergency_contact_number','$age','$gender','$blood_type','$weight','$height','$symptom1 $symptom2','$comments')");
 if(($symptom1 and $age>=0 and $age<=16) or ($symptom1 and $age>=17 and $age<=45)){
 	$sql=mysqli_query($con,"update `patient_details` set `Severity`=CONCAT(`Severity`,'Mild ') where `Full Name`='$full_name'");
 }
@@ -210,5 +210,5 @@ if($symptom10 and $age>=46){
 </form>
 </div>
 </div>
-<a href="index.php"><input class="back" type="button" name="button2" value="HOME"/></a>
+<a href="index.php"><input style="background-color: black;width:55px;height:30px;text-align:center;color: white;transform: translate(800px,-170px);" type="button" name="button2" value="HOME"/></a>
 </html>
