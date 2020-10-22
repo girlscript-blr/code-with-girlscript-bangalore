@@ -52,6 +52,12 @@ public class DigitalHospitalManager {
                 ResultSet.TYPE_SCROLL_INSENSITIVE, 
                 ResultSet.CONCUR_READ_ONLY
             );
+            rs = stmt.executeQuery("SELECT count(*) as count from PatientRecord");
+            rs.next();
+            System.out.println("Total number of patients: "+ rs.getInt("count"));
+            rs = stmt.executeQuery("SELECT count(*) as count from PatientRecord where admissiondate = CURRENT_TIMESTAMP ");
+            rs.next();
+            System.out.println("Total number of patients currently admitted: "+ rs.getInt("count"));
             rs = stmt.executeQuery("SELECT * FROM PatientRecord");
             if(rs.next()){
                 rs.previous();
@@ -103,7 +109,7 @@ public class DigitalHospitalManager {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/digitalhospitalmanager", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/digitalhospitalmanager", "root", "alohomora");
             stmt = con.createStatement();
             stmt.execute("INSERT INTO PatientRecord VALUES(0,'"+name+"','"+phone+"','"+emergency+"',"+age+",'"+gender+"','"+blood+"',"+
                     weight+","+height+",'"+symptoms+"',CURRENT_TIMESTAMP);");
