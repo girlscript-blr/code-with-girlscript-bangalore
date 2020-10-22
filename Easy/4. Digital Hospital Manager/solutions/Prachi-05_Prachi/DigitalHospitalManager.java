@@ -55,7 +55,7 @@ public class DigitalHospitalManager {
             rs = stmt.executeQuery("SELECT count(*) as count from PatientRecord");
             rs.next();
             System.out.println("Total number of patients: "+ rs.getInt("count"));
-            rs = stmt.executeQuery("SELECT count(*) as count from PatientRecord where admissiondate = CURRENT_TIMESTAMP ");
+            rs = stmt.executeQuery("SELECT count(*) as count from PatientRecord where admissiondate = curDate()");
             rs.next();
             System.out.println("Total number of patients currently admitted: "+ rs.getInt("count"));
             rs = stmt.executeQuery("SELECT * FROM PatientRecord");
