@@ -1,5 +1,10 @@
 ﻿# Digital Hospital Manager - Medium
 
+## Requirements to run the app
+- Install a JDBC Driver
+- Create PatientRecord and SymptomsDetails tables
+- Update the password and database name in Java program
+
 
 ### Output
 

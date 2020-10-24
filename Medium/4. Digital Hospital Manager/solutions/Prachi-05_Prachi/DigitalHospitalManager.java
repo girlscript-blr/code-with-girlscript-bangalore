@@ -173,19 +173,58 @@ public class DigitalHospitalManager {
         System.out.print("\nEmergency Contact: ");
         String emergency = in.readLine();
         System.out.print("\nAge: ");
-        int age = Integer.parseInt(in.readLine());
+        int age = 0;float weight=0,height=0;
+        try{
+            age = Integer.parseInt(in.readLine());
+        }catch(NumberFormatException e){
+            System.out.println("\nInvalid input. Try again.");
+            System.out.print("\nAge: ");
+            age = Integer.parseInt(in.readLine());
+        }
         int ageCategory=0;
         if(age > 0 && age<16) ageCategory = 1;
         else if(age >= 16 && age<=45) ageCategory = 2;
         else ageCategory = 3;
-        System.out.print("\nGender: ");
-        String gender = in.readLine();
-        System.out.print("\nBlood type: ");
-        String blood = in.readLine();
+        char g='0';
+        while(g!='1' && g!='2' && g!='3'){
+            System.out.print("\nGender: 1.Female\t2.Male\t3.Other\n");
+            g = in.readLine().charAt(0);        
+        }        
+        String gender = "";
+        if(g=='1') gender="Female";
+        else if(g=='2') gender="Male";
+        else if(g=='3') gender="Other";
+        g='0';
+        while(g<=48 || g>56){
+            System.out.println("\nBlood type: 1.A+ 2.A- 3.AB+ 4.AB- 5.B+ 6.B- 7.O+ 8.O-");
+            g = in.readLine().charAt(0);  
+        }
+        String blood = "";
+        if(g=='1') blood="A+";
+        else if(g=='2') blood="A-";
+        else if(g=='3') blood="AB+";
+        else if(g=='4') blood="AB-";
+        else if(g=='5') blood="B+";
+        else if(g=='6') blood="B-";
+        else if(g=='7') blood="O+";
+        else if(g=='8') blood="O-";
+        
         System.out.print("\nWeight: ");
-        float weight = Float.parseFloat(in.readLine());
+        try{
+            weight = Float.parseFloat(in.readLine());
+        }catch(NumberFormatException e){
+            System.out.println("\nInvalid input. Try again.");
+            System.out.print("\nWeight: ");
+            weight = Integer.parseInt(in.readLine());
+        }
         System.out.print("\nHeight: ");
-        float height = Float.parseFloat(in.readLine());
+        try{
+            height = Float.parseFloat(in.readLine());
+        }catch(NumberFormatException e){
+            System.out.println("\nInvalid input. Try again.");
+            System.out.print("\nHeight: ");
+            height = Integer.parseInt(in.readLine());
+        }
         int ch=1; String symptoms="";
         while(ch!=0){
             System.out.println("\nSymptoms:\n1.Fever\t2.Headache\t3.Fatigue and weakness\n4.Stuffy/runny nose\t5.Sneezing\t6.Sore Throat\n7.Cough\t8.Shortness of breath\t9. Bluish lips of face\n10.Constant pain or pressure in your chest\t0.Done ");
