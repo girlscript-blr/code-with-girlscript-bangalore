@@ -2,6 +2,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+bool isNumber(string s)
+{
+    for (int i = 0; i < s.length(); i++)
+        if (isdigit(s[i]) == false && s[i]!='.')
+            return false;
+    return true;
+}
+ 
+ 
 int main()
 {
     vector<vector<string> >patient_data;
@@ -35,10 +44,14 @@ int main()
                 cin>>emgnumber;
                 patient.push_back(emgnumber);
                 
-                int age;
+                string age;
                 cout<<"Enter age: ";
                 cin>>age;
-                patient.push_back(to_string(age));
+                while(isNumber(age)!=true){
+                    cout<<"Please enter a valid number: ";
+                    cin>>age;
+                }
+                patient.push_back(age);
                 
                 string gender;
                 cout<<"Enter gender ('M' for Male, 'F' for Female or 'O' for Other): ";
@@ -59,15 +72,23 @@ int main()
                 }
                 patient.push_back(blood_type);
                 
-                float weight;
+                string weight;
                 cout<<"Enter weight in Kg: ";
                 cin>>weight;
-                patient.push_back(to_string(weight));
+                while(isNumber(weight)!=true){
+                    cout<<"Please enter a valid number: ";
+                    cin>>weight;
+                }
+                patient.push_back(weight);
                 
-                float height;
+                string height;
                 cout<<"Enter heigh in cm: ";
                 cin>>height;
-                patient.push_back(to_string(height));
+                while(isNumber(height)!=true){
+                    cout<<"Please enter a valid number: ";
+                    cin>>height;
+                }
+                patient.push_back(height);
                 
                 string symptom;
                 cout<<"Enter symptoms: ";
@@ -92,7 +113,7 @@ int main()
             }
             case 3:{
                 string date;
-                cout<<"\nEnter date: ";
+                cout<<"\nEnter date(in DD/MM/YYYY format): ";
                 cin>>date;
                 int ans=0;
                 for(int i=0;i<patient_data.size();i++){
