@@ -7,7 +7,7 @@ int main()
     vector<vector<string> >patient_data;
     
     string curr_date;
-    cout<<"Enter current date: ";
+    cout<<"Enter current date (in DD/MM/YYYY format): ";
     cin>>curr_date;
     int n=0,flag=0;
     cout<<"\nSelect operation:- \n1-Add a patient\n2-See Patient database\n3-See number of patient's at given date\n4-Show current number of patients\n5-Exit";
@@ -35,30 +35,39 @@ int main()
                 cin>>emgnumber;
                 patient.push_back(emgnumber);
                 
-                string age;
+                int age;
                 cout<<"Enter age: ";
                 cin>>age;
-                patient.push_back(age);
+                patient.push_back(to_string(age));
                 
                 string gender;
-                cout<<"Enter gender.: ";
+                cout<<"Enter gender ('M' for Male, 'F' for Female or 'O' for Other): ";
                 cin>>gender;
+                while(gender!="O"&&gender!="M"&&gender!="F"){
+                    cout<<"\nInvalid option for gender. Please choose M (male), F(female) or O(other): ";
+                    cin>>gender;
+                }
                 patient.push_back(gender);
                 
                 string blood_type;
-                cout<<"Enter Blood Type: ";
-                cin>>blood_type;
+                cout<<"Enter Blood Type (A+,A-,B+,B-,AB+,AB-,O+ or O-): ";
+                cin.ignore();
+                getline(cin,blood_type);
+                while(blood_type!="A+"&&blood_type!="A-"&&blood_type!="B+"&&blood_type!="B-"&&blood_type!="O+"&&blood_type!="O-"&&blood_type!="AB+"&&blood_type!="AB-"){
+                    cout<<"\nInvalid option Blood Type. (Please choose from A+,A-,B+,B-,AB+,AB-,O+ or O-): ";
+                    getline(cin,blood_type);
+                }
                 patient.push_back(blood_type);
                 
-                string weight;
-                cout<<"Enter weight: ";
+                float weight;
+                cout<<"Enter weight in Kg: ";
                 cin>>weight;
-                patient.push_back(weight);
+                patient.push_back(to_string(weight));
                 
-                string height;
-                cout<<"Enter height: ";
+                float height;
+                cout<<"Enter heigh in cm: ";
                 cin>>height;
-                patient.push_back(height);
+                patient.push_back(to_string(height));
                 
                 string symptom;
                 cout<<"Enter symptoms: ";
@@ -101,7 +110,7 @@ int main()
                 break;
             }
         }
-        cout<<"--------------------------------------------------------------------\n";
+        cout<<"\n--------------------------------------------------------------------\n";
         if(flag==1)break;
     }
 
