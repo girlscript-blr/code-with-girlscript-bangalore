@@ -4,14 +4,14 @@ Participation🙋‍♀️ is important than winning but so is maintaining the h
 
 | User Name                                                        | July Score | August Score | September Score | October Score | Overall Score |
 | ---------------------------------------------------------------- | ---------- | ------------ | --------------- | ------------- | ------------- |
-| [Sri Manikanta Palakollu](https://github.com/srimani-programmer) | 60         | 0            | 30              | 75            | 165           |
+| [Sri Manikanta Palakollu](https://github.com/srimani-programmer) | 60         |              | 30              | 75            | 165           |
 | [Ankur Chattopadhyay](https://github.com/chttrjeankr)            | 75         | 30           |                 |               | 105           |
 | [INDERPREET SINGH](https://github.com/CO18325)                   |            |              | 75              | 10            | 85            |
-| [Bhargav Bhatiya](https://github.com/bhargavbhatiya)             | 0          | 75           |                 |               | 75            |
+| [Bhargav Bhatiya](https://github.com/bhargavbhatiya)             |            | 75           |                 |               | 75            |
 | [Damini Chauhan](https://github.com/damini31)                    | 60         | 10           |                 |               | 70            |
 | [Vanshika](https://github.com/Vanshikaa00)                       | 30         |              | 10              | 10            | 50            |
-| [Varun S Athreya](https://github.com/VarunSAthreya)              | 0          | 0            | 30              | 10            | 40            |
-| [Prachi Sabarad](https://github.com/Prachi-05)                   | 0          | 10           |                 | 30            | 40            |
+| [Varun S Athreya](https://github.com/VarunSAthreya)              |            |              | 30              | 10            | 40            |
+| [Prachi Sabarad](https://github.com/Prachi-05)                   |            | 10           |                 | 30            | 40            |
 | [Aditya Abhishek](https://github.com/encarcio)                   | 30         |              |                 |               | 30            |
 | [Garima Singh](https://github.com/garimasingh128)                | 30         |              |                 |               | 30            |
 | [Jayasurya](github.com/jsuryakt)                                 | 30         |              |                 |               | 30            |
@@ -33,5 +33,5 @@ Participation🙋‍♀️ is important than winning but so is maintaining the h
 | [Abhishek Singh](https://github.com/IEAbhishek)                  | 10         |              |                 |               | 10            |
 | [Kaushki Raj](https://github.com/Kaushkiraj)                     | 10         |              |                 |               | 10            |
 | [shraddha prasad](https://github.com/shraddhavp/)                | 10         |              |                 |               | 10            |
-| [Sweta Kyada](https://github.com/swetakyada)                     | 0          | 10           |                 |               | 10            |
+| [Sweta Kyada](https://github.com/swetakyada)                     |            | 10           |                 |               | 10            |
 | [Anjali Patle](https://github.com/AnjaliPatle)                   |            |              |                 | 10            | 10            |
