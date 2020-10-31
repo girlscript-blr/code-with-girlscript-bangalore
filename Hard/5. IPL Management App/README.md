@@ -73,7 +73,7 @@ The App should display the following:
 
 3. Based on Match Updates a Points table should be generated as follows:
 
-- **2 points** should be awared for every win and **No Points** points for every loss. Matches **won't be tied** as there will be super overs to decide the results.
+- **2 points** should be awared for every win and **No Points** for every loss. Matches **won't be tied** as there will be super overs to decide the results.
 
 | Rank | Team Name | No. of Wins | No. of Losses | Points |
 | ---- | --------- | ----------- | ------------- | ------ |
