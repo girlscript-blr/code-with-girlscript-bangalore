@@ -85,7 +85,7 @@ The App should display the following:
 | ------- | ---------------- | ------------------------------------------------------------------------------------------------------------ |
 | 1.      | Team Details     | Table/ file containing columns like Team name, Franchise, Captain, Home Ground                               |
 | 2.      | Fixtures         | Table/file containing columns like Home Team name, Away Team name, Venue, Team Won, Result, Man of the Match |
-| 3.      | Points           | Table/file containing columns Team name, no. of wins, no. of loss & Points scored                            |
+| 3.      | Points           | Table/file containing columns Rank, Team name, no. of wins, no. of loss & Points scored                            |
 
 ## Requirements for submission
 
