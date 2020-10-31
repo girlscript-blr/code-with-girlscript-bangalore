@@ -1,0 +1,107 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h1>Welcome to Vendor Panel of GadgetifyWithGSBlr</h1>
+  <hr />
+  <div class="container text-center">
+    <!-- icons from https://icons.getbootstrap.com/ -->
+    <figure class="figure">
+      <a href="/all_items">
+        <svg
+          width="8em"
+          height="8em"
+          viewBox="0 0 16 16"
+          class="bi bi-card-list"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z"
+          />
+          <circle cx="3.5" cy="5.5" r=".5" />
+          <circle cx="3.5" cy="8" r=".5" />
+          <circle cx="3.5" cy="10.5" r=".5" />
+        </svg>
+      </a>
+      <figcaption class="figure-caption text-center">All Items</figcaption>
+    </figure>
+    &emsp;&emsp;&emsp;&emsp;
+    <figure class="figure">
+      <a href="/all_categories">
+        <svg
+          width="8em"
+          height="8em"
+          viewBox="0 0 16 16"
+          class="bi bi-tags-fill"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+          />
+          <path
+            d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"
+          />
+        </svg>
+      </a>
+      <figcaption class="figure-caption text-center">All Categories</figcaption>
+    </figure>
+    &emsp;&emsp;&emsp;&emsp;
+    <figure class="figure">
+      <a href="/all_orders">
+        <svg
+          width="8em"
+          height="8em"
+          viewBox="0 0 16 16"
+          class="bi bi-basket2"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1.111 7.186A.5.5 0 0 1 1.5 7h13a.5.5 0 0 1 .489.605l-1.5 7A.5.5 0 0 1 13 15H3a.5.5 0 0 1-.489-.395l-1.5-7a.5.5 0 0 1 .1-.42zM2.118 8l1.286 6h9.192l1.286-6H2.118z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M11.314 1.036a.5.5 0 0 1 .65.278l2 5a.5.5 0 1 1-.928.372l-2-5a.5.5 0 0 1 .278-.65zm-6.628 0a.5.5 0 0 0-.65.278l-2 5a.5.5 0 1 0 .928.372l2-5a.5.5 0 0 0-.278-.65z"
+          />
+          <path
+            d="M4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zM0 6.5A.5.5 0 0 1 .5 6h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1z"
+          />
+        </svg>
+      </a>
+      <figcaption class="figure-caption text-center">All Orders</figcaption>
+    </figure>
+    &emsp;&emsp;&emsp;&emsp;
+    <figure class="figure">
+      <a href="/">
+        <svg
+          width="8em"
+          height="8em"
+          viewBox="0 0 16 16"
+          class="bi bi-person-circle"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"
+          />
+          <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          <path
+            fill-rule="evenodd"
+            d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
+          />
+        </svg>
+      </a>
+      <figcaption class="figure-caption text-center">Customer Panel</figcaption>
+    </figure>
+  </div>
+</div>
+
+{% endblock %}

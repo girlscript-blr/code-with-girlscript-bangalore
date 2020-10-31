@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <title>Digital Hospital Monitor</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('patient_portal') }}">Digital Hospital Monitor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method="POST" action="{{ url_for('search_hospital') }}">
+                <input class="form-control mr-sm-2" type="search" placeholder="Hospital Name/Area/City" aria-label="Search" name="psearch" required>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Fetch Hospital Details</button>
+            </form>
+        </div>
+    </nav>
+    {% if visibility %}
+    <div class="container">
+        <p style="text-align: center;" class="h4">Hospital List</p>
+    </div>
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Hospital Name</th>
+                  <th scope="col">Hospital Address</th>
+                  <th scope="col">Availability of Beds</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for item in data %}
+                <tr>
+                  <th>{{ item[1] }}</th>
+                  <td>{{ item[2] + " " + item[3] }}, {{ item[4] }}, {{ item[5] }}, {{ item[6] }}</td>
+                  <td>{{ item[7] }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+    {% endif %}
+</body>
+</html>

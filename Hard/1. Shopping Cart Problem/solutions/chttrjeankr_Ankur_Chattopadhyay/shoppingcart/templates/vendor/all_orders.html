@@ -1,0 +1,147 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h1>All Order List</h1>
+  <div class="col-sm-auto">
+    <button
+      type="submit"
+      class="btn btn-outline-secondary"
+      onclick="window.location.href='/vendor'"
+    >
+      Back to Vendor Home
+    </button>
+  </div>
+  <hr />
+  <div class="container row">
+    <form id="filter_form" class="form-inline" action="">
+      <div class="input-group">
+        {% for filter_name, filter_choices in choices.items %}
+        <select class="custom-select" name="{{ filter_name }}">
+          <option value="">--{{ filter_name }}--</option>
+          {% for choice_val, choice_display in filter_choices %}
+          <option value="{{ choice_val }}">{{ choice_display }}</option>
+          {% endfor %}
+        </select>
+        {% endfor %}
+        <button type="submit" class="btn btn-success btn-sm" form="filter_form">
+          Submit Filter
+        </button>
+      </div>
+    </form>
+    &emsp;
+    <form id="search" class="form-inline" action="">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          name="q"
+          value=""
+          placeholder="Search by ID"
+        />
+        <button type="submit" class="btn btn-success btn-sm">Search</button>
+      </div>
+    </form>
+  </div>
+  <br />
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>
+            Order ID
+            <form action="">
+              <input type="hidden" name="order_by" value="pk" />
+              <button type="submit">&#8657;</button>
+            </form>
+            <form action="">
+              <input type="hidden" name="order_by" value="-pk" />
+              <button type="submit">&#8659;</button>
+            </form>
+          </th>
+          <th>
+            Billing Time
+            <form action="">
+              <input type="hidden" name="order_by" value="billing_date_time" />
+              <button type="submit">&#8657;</button>
+            </form>
+            <form action="">
+              <input type="hidden" name="order_by" value="-billing_date_time" />
+              <button type="submit">&#8659;</button>
+            </form>
+          </th>
+          <th>
+            Modified Time
+            <form action="">
+              <input type="hidden" name="order_by" value="order_modified" />
+              <button type="submit">&#8657;</button>
+            </form>
+            <form action="">
+              <input type="hidden" name="order_by" value="-order_modified" />
+              <button type="submit">&#8659;</button>
+            </form>
+          </th>
+          <th>
+            Customer Name
+            <form action="">
+              <input type="hidden" name="order_by" value="customer_name" />
+              <button type="submit">&#8657;</button>
+            </form>
+            <form action="">
+              <input type="hidden" name="order_by" value="-customer_name" />
+              <button type="submit">&#8659;</button>
+            </form>
+          </th>
+          <th>Status</th>
+          <th>Amount Payable</th>
+          <th>Payment Method</th>
+          <th>Delivery</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+        <tr>
+          <td>
+            <form action="/status/" method="post">
+              {% csrf_token %}
+              <input
+                type="hidden"
+                name="phone_number"
+                value="{{ order.customer_mobile_no }}"
+              />
+              <input type="submit" name="order_id" value="{{ order.pk }}" />
+            </form>
+          </td>
+          <td>{{ order.billing_date_time|date:"d/m/y H:i e" }}</td>
+          <td>{{ order.order_modified|date:"d/m/y H:i e" }}</td>
+          <td>{{ order.customer_name }}</td>
+          <td>{{ order.get_order_status_display }}</td>
+          <td>&#8377; {{ order.amount_payable }}</td>
+          <td>{{ order.get_payment_method_display }}</td>
+          <td>{{ order.get_delivery_option_display }}</td>
+          <td>
+            <form class="form-inline" action="" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="order_id" value="{{ order.pk }}" />
+              <select class="form-control" name="new_status">
+                <option value="">--Order Status--</option>
+                {% for status_val, status_name in statuses %}
+                <option value="{{ status_val }}">{{ status_name }}</option>
+                {% endfor %}
+              </select>
+              <button
+                id="{{ order.pk }}"
+                type="submit"
+                class="btn btn-dark btn-sm"
+              >
+                Change Status
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

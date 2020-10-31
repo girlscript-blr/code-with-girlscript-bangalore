@@ -1,0 +1,95 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h1>Shopping List</h1>
+  <hr />
+  <div class="col-sm-auto">
+    <button
+      type="submit"
+      class="btn btn-outline-secondary"
+      onclick="window.location.href='/categories'"
+    >
+      Back to Categories
+    </button>
+  </div>
+  <div class="container" style="text-align: right;">
+    <button
+      type="submit"
+      class="btn btn-info btn-lg"
+      onclick="window.location.href='/order'"
+    >
+      Checkout
+    </button>
+  </div>
+  <div class="container">
+    {% load shoppingcart_extras %}
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Item ID</th>
+          <th>Item Name</th>
+          <th>Original Price</th>
+          <th>Discounted Price</th>
+          <th>Amount Saved</th>
+          <th>Weight in grams</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in shopping_list %}
+        <tr>
+          <td>{{ item.pk }}</td>
+          <td>{{ item.name }}</td>
+          <td style="text-align: right;">
+            &#8377; {{ item.original_price }}
+          </td>
+          {% if item.discount_price != 0 %}
+          <td style="text-align: right;">
+            &#8377; {{ item.discount_price }}
+          </td>
+          <td style="text-align: right;">
+            &#8377; {{ item.savings}}
+          </td>
+          {% else %}
+          <td style="text-align: center;">No Discount</td>
+          <td style="text-align: center;">N/A</td>
+          {% endif %}
+          <td style="text-align: right;">{{ item.weight_in_gms }} gms</td>
+          {% if item.available %}
+          <td>
+            <form class="form-inline" action="" method="post">
+              {% csrf_token %}
+              <div class="input-group">
+                <input type="hidden" name="item_pk" value="{{ item.pk }}" />
+                <input
+                  type="number"
+                  class="form-control"
+                  name="quantity"
+                  value="{{ cart|get_quantity:item }}"
+                  min="0"
+                />
+                <button
+                  id="{{ item.pk }}"
+                  type="submit"
+                  class="btn btn-dark btn-sm"
+                >
+                  <!-- prettier-ignore -->
+                  {% if cart|get_quantity:item != 0 %}
+                  Update Quantity
+                  {% else %}
+                  Add to Cart
+                  {% endif %}
+                </button>
+              </div>
+            </form>
+          </td>
+          {% else %}
+          <td style="text-align: center;">Unavailable</td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

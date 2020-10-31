@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h1>Category List</h1>
+  <hr />
+  <div class="container">
+    <div class="card-columns">
+      {% for category in categories%}
+      <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">{{ category.name }}</div>
+        <a href="/shopping_list/{{ category.pk }}">
+          <div class="card-body">
+            <!-- <h5 class="card-title">Light card title</h5> -->
+            <p class="card-text">
+              {{ category }}
+            </p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

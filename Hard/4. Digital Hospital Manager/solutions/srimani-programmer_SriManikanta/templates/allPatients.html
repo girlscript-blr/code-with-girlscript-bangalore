@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+    crossorigin="anonymous">
+    <title>Admitted Patients List</title>
+</head>
+<body>  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{{ url_for('admin') }}">Digital Hospital Monitor</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('patientForm') }}">Patient Registration<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('patientDataUpdation')}}">Patient Data Updation</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('getPatientDetails') }}">Patients List</a>
+          </li>
+        </ul>
+      
+        <form class="form-inline my-2 my-lg-0" method="GET" action="{{ url_for('fetchPatientDataById') }}">
+          <input class="form-control mr-sm-2" type="search" placeholder="Patient Id/Name" aria-label="Search" name="pid" required>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Fetch Patient Details</button>
+        </form>
+      </div>
+    </nav>
+    <div class="container">
+      <p style="text-align: center;" class="h4">Patients List</p>
+    </div>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Hospital Id</th>
+                <th scope="col">Patient Id</th>
+                <th scope="col">Patient Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Emergency Number</th>
+                <th scope="col">Age</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Weight in KG</th>
+                <th scope="col">Height in Centimeters</th>
+                <th scope="col">Symptoms</th>
+                <th scope="col">Severity</th>
+                <th scope="col">Medical Details</th>
+                <th scope="col">Admit Date</th>
+                <th scope="col">Decharge Date</th>
+                <th scope="col">Discharge Comments</th>
+                <th scope="col">Time and Date of Death</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for i in range(0, records) %}
+              <tr>
+                {% for hid in hospital_data %}
+                  {% if hid[0] == data[i][20] %}
+                  <th>{{ hid[1] }}</th>
+                  {% endif %}
+                {% endfor %}
+                <th>{{ data[i][0] }}</th>
+                <td>{{ data[i][1] }}</td>
+                <td>{{ data[i][2] }}</td>
+                <td>{{ data[i][3] }}</td>
+                <td>{{ data[i][4] }}</td>
+                <td>{{ data[i][5] }}</td>
+                <td>{{ data[i][6] }}</td>
+                <td>{{ data[i][7] }}</td>
+                <td>{{ data[i][8] }}</td>
+                <td>{{ symptoms[i] }}</td>
+                <td>{{ severity[i] }}</td>
+                <td>{{  data[i][19] }}</td>
+                <td>{{ data[i][21] }}</td>
+                <td>{{ data[i][22] }}</td>
+                <td>{{ data[i][23] }}</td>
+                <td>{{ data[i][24] }}</td>
+                
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+</body>
+</html>

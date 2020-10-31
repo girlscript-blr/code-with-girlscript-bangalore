@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+    crossorigin="anonymous">
+    <title>Patient Form</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('admin') }}">Digital Hospital Monitor</a>
+        
+    </nav>
+    <script type="text/javascript">
+      function validateForm(){
+        var phone = document.forms['registration']['pphone'].value;
+        let pattern = "^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$";
+        
+        if(pattern.test(phone)) { return true;  }
+        else{
+         // event.preventDefault();
+          alert('Phone Number is Invalid.!');
+          return false;
+        }
+      }
+    </script>
+    <form method="POST" name="registration" onsubmit="return validateForm()" action="{{url_for('patientForm')}}">
+        <div>
+            <p class="h3" style="text-align: center;">Patient Admit Registration</p>
+        </div>
+        <div class="container">
+          <label for="exampleInputEmail1">Hospital Name</label>
+          <select class="custom-select" name="phospitalname" required>
+            <option value="">Select Hospital Name</option>
+            {% for name in data %}
+            {% if name[1] >= 1 %}
+              <option value="{{ name[0] }}">{{ name[0] }}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+        <div class="container">
+          <label for="exampleInputEmail1">Full Name</label>
+          <input type="text" class="form-control" placeholder="Enter Patient Name" name="pname" required>
+        </div>
+        <div class="container">
+          <label>Phone Number</label>
+          <input type="text" class="form-control" placeholder="Enter Patient Phone Number" name="pphone" id="pphone" required>
+        </div>
+        <div class="container">
+            <label>Emergency Contact Number</label>
+            <input type="text" class="form-control" placeholder="Enter Patient Emergency Contact Number" name="pemg" required>
+        </div>
+
+        <div class="container">
+            <label>Age</label>
+            <input type="number" class="form-control" placeholder="Enter Patient Age" name="page" required>
+        </div>
+
+        <div class="container">
+            <label>Gender</label>
+            <select class="custom-select" name="pgender" required>
+              <option value="">Select Patient Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Others</option>
+            </select>
+        </div>
+
+        <div class="container">
+            <label>Blood Group</label>
+            <select class="custom-select" name="pbloodgroup" required>
+              <option value="">Select Patient Blood Type</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+        </div>
+
+        <div class="container">
+            <label>Weight</label>
+            <input type="text" class="form-control" placeholder="Enter Patient Weight" name="pweight" required>
+        </div>
+
+        <div class="container">
+            <label>Height</label>
+            <input type="text" class="form-control" placeholder="Enter Patient Height" name="pheight" required>
+        </div>
+
+        <div class="container">
+            <p style="text-align: center;" class="h6"> Patient Symptoms</p>
+        </div>
+        
+        <div class="container" style="align-content: center;">
+            <label >Fever </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="feverRadio" id="feverRadio" value="Yes">
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="feverRadio" id="feverRadio" value="No" checked="checked">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+        </div>
+        
+        <div class="container" style="align-content: center;">
+            <label>Headache </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="headAcheRadio" id="inlineRadio1" value="Yes">
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="headAcheRadio" id="inlineRadio2" value="No" checked="checked">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+        </div>
+        <div class="container" style="align-content: center;">
+            <label >Fatigue, weakness </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="fatigue" id="inlineRadio1" value="Yes">
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="fatigue" id="inlineRadio2" value="No" checked="checked">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+        </div>
+        <div class="container" style="align-content: center;">
+            <label>Stuffy/runny nose </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="stuffy" id="inlineRadio1" value="Yes">
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="stuffy" id="inlineRadio2" value="No" checked="checked">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+        </div>
+
+        <div class="container" style="align-content: center;">
+            <label>Sneezing </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sneezing" id="inlineRadio1" value="Yes">
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sneezing" id="inlineRadio2" value="No" checked="checked">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+        </div>
+
+        <div class="container" style="align-content: center;">
+            <label>Sore Throat </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sore" id="inlineRadio1" value="Yes">
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sore" id="inlineRadio2" value="No" checked="checked">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+        </div>
+
+        <div class="container" style="align-content: center;">
+            <label>Cough </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cough" id="inlineRadio1" value="Yes">
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cough" id="inlineRadio2" value="No" checked="checked">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+        </div>
+
+        <div class="container" style="align-content: center;">
+            <label>Shortness of breath </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="breath" id="inlineRadio1" value="Yes">
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="breath" id="inlineRadio2" value="No" checked="checked">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+        </div>
+
+        <div class="container" style="align-content: center;">
+            <label>Bluish lips or face </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bluish" id="inlineRadio1" value="Yes">
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bluish" id="inlineRadio2" value="No" checked="checked">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+        </div>
+        <div class="container" style="align-content: center;">
+            <label>Constant pain or pressure in your chest </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="chestpain" id="inlineRadio1" value="Yes">
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="chestpain" id="inlineRadio2" value="No" checked="checked">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+        </div>
+
+        <div class="container">
+            <label>Medical Details</label>
+            <input type="text" class="form-control" placeholder="Enter Patient Medical Details" name="medicalDetails" required>
+        </div>
+
+        <div class="container" style="align-items: center;">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    
+    </form>
+    
+</body>
+</html>
