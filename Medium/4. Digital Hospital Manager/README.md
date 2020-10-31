@@ -9,7 +9,6 @@
 - Creating and displaying arrays.
 - Basic calculation.
 - Array filtering.
-- Basic calculation.
 - Reading and writing data to permanent storage. (files, database, etc) Refer [this](http://www.cplusplus.com/doc/tutorial/files/) for using files in C++.
 - Complex user interface for implementing different modes and features.
 
