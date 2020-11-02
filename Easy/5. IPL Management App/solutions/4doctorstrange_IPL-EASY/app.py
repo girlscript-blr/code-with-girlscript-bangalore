@@ -56,7 +56,7 @@ def addteams():
 def display():
     all_teams=Teams.query.all()
     if len(all_teams)==0:
-        flash("*ERROR,no registered team found!")
+        flash("*ERROR, no registered team found!")
         return redirect(url_for('index'))
     return render_template('display.html',teams=all_teams,x=teams)
 
