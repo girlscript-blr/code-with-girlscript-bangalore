@@ -1,4 +1,4 @@
-# IPL Team Management App - Hard
+# IPL Management App - Hard
 
 > Date : 1st November 2020
 
