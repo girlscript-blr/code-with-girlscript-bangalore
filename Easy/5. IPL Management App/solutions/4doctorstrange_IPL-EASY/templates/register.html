@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>register</title>
+{% endblock %}
+
+
+
+{% block body %}
+
+{% with messages=get_flashed_messages() %}
+        {% if messages %}
+            {%  for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor%}
+        {% endif %}
+
+    {%  endwith  %}
+
+
+<br>
+<h2>Enter number of teams participating in IPL:</h2>
+<br>
+<form action='/register' method='POST'>
+    Number of teams =<input type='number' name='registeration' id='registeration' placeholder="Enter Number of teams">
+    <br>
+    <input type='submit' value='Register' class="btn btn-success">
+</form>
+<br>
+{% endblock %}
