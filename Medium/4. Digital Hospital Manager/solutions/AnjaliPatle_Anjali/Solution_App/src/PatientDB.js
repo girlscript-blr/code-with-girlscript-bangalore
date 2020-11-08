@@ -9,11 +9,24 @@ export default function PatientDB(props) {
     const [editIndex,setEditIndex]=React.useState(0);
     const [pDB,setpDB]=React.useState(props.patientDatabase[0])
     const [deathTime,setDeathTime]=React.useState('');
+    const [deathDate,setDeathDate]=React.useState('');
     const [comment,setComment]=React.useState('');
-    const [dischargeComment,setDischargeComment]=React.useState('');
+    const [dischargeComment,setDischargeComment]=React.useState(props.currDate);
     const [dischargeDate,setDischargeDate]=React.useState('');
 
     const handleClose = () => {
+        if(new Date(pDB.DischargeDate)<new Date(props.currDate)){
+            window.alert("Invalid Date. Please choose a date after admission date.")
+            return;
+        }
+        else if(new Date(pDB.DeathDate)>new Date(pDB.DischargeDate)){
+            window.alert("Invalid Date. Please choose a date before discharge date.")
+            return;
+        }
+        else if(new Date(pDB.DeathDate)<new Date(props.currDate)){
+            window.alert("Invalid Date. Please choose a date after admission date.")
+            return;
+        }
          const res=[...props.patientDatabase];
          res[editIndex]=pDB
          res[editIndex]=pDB
@@ -36,6 +49,10 @@ export default function PatientDB(props) {
         setpDB(item)
     }
     const editDischarge=(event)=>{
+        if(new Date(event.target.value)<new Date(props.currDate)){
+            window.alert("Invalid Date. Please choose a date after admission date.")
+            return;
+        }
         const item={...pDB}
         item.DischargeDate=event.target.value
         setpDB(item)
@@ -45,12 +62,27 @@ export default function PatientDB(props) {
         item.DischargeComment=x
         if(x=="Cured"){
             item.DeathTime=''
+            item.DeathDate=''
         }
         setpDB(item)
     }
     const editDeathTime=(event)=>{
         const item={...pDB}
         item.DeathTime=event.target.value
+        setpDB(item)
+    }
+    const editDeathDate=(event)=>{
+        if(new Date(event.target.value)>new Date(pDB.DischargeDate)){
+            window.alert("Invalid Date. Please choose a date before discharge date.")
+            return;
+        }
+        else if(new Date(event.target.value)<new Date(props.currDate)){
+            window.alert("Invalid Date. Please choose a date after admission date.")
+            return;
+        }
+        
+        const item={...pDB}
+        item.DeathDate=event.target.value
         setpDB(item)
     }
     return (
@@ -106,7 +138,7 @@ export default function PatientDB(props) {
                     <td>{props.patientDatabase[index].AdmissionDate}</td>
                     <td>{props.patientDatabase[index].DischargeDate}</td>
                     <td>{props.patientDatabase[index].DischargeComment}</td>
-                    <td>{props.patientDatabase[index].DeathTime}</td>
+                    <td>{props.patientDatabase[index].DeathTime}, {props.patientDatabase[index].DeathDate}</td>
                     </tr>
                 )
                 }   
@@ -121,10 +153,11 @@ export default function PatientDB(props) {
                             <Form.Label>Comments/ Medical Details</Form.Label>
                             <Form.Control as="textarea" rows={3} value={pDB.Comment} onChange={(event)=>editDetail(event)} />
                         </Form.Group>
-                        <Form.Group controlId="exampleForm.ControlTextarea1">
-                            <Form.Label>Discharge Date</Form.Label>
-                            <Form.Control type="date" rows={3} value={pDB.DischargeDate} onChange={(event)=>editDischarge(event)} />
-                        </Form.Group>
+                        
+                        <Form.Label as="legend">
+                                   Discharge Date
+                                </Form.Label>
+                                <input type="date" id="appt" name="appt" value={pDB.DischargeDate} onChange={(event)=>editDischarge(event)}/>
                         <Form.Label as="legend">
                             Discharge Comment
                         </Form.Label>
@@ -148,6 +181,10 @@ export default function PatientDB(props) {
                                     Time of death
                                 </Form.Label>
                                 <input type="time" id="appt" name="appt" value={pDB.DeathTime} onChange={(event)=>editDeathTime(event)}/>
+                                <Form.Label as="legend">
+                                    Date of death
+                                </Form.Label>
+                                <input type="date" id="appt" name="appt" value={pDB.DeathDate} onChange={(event)=>editDeathDate(event)}/>
                             </>
                             :null
                         }

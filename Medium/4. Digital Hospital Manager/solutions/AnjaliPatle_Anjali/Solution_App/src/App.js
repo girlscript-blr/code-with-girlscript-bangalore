@@ -61,7 +61,7 @@ function App() {
         </p>
     </Jumbotron>
       <div style={{width:'80%',margin:'3% 10%'}}>
-        {showForm?<AddForm currDate={currDate} sendInfo={setPatientDatabase} patientDatabase={patientDatabase}/>:null}
+        {showForm?<AddForm currDate={currDate} sendInfo={setPatientDatabase} patientDatabase={patientDatabase} showDB={showComponent}/>:null}
         
         {showSearch?<Search patientDatabase={patientDatabase}/>:null}
         {showDB?<DBDetails currDate={currDate} patientDatabase={patientDatabase}/>:null}

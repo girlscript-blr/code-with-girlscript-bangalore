@@ -108,7 +108,7 @@ export default function Search(props) {
                                 </tr>
                                 <tr>
                                     <th>Death Date and Time</th>
-                                    <th>{i.DischargeDate} {i.DeathTime}</th>
+                                    <th>{i.DeathDate} {i.DeathTime}</th>
                                 </tr>
                             </tbody>
                         </Table>

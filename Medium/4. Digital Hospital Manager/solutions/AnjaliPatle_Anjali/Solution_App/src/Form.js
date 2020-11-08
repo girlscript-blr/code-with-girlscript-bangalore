@@ -19,8 +19,8 @@ let InitialValue={
     Phone:'',
     EmgPhone:'',
     Age:'',
-    Gender:'Male',
-    Blood:'A+',
+    Gender:'',
+    Blood:'',
     Weight:'',
     Height:'',
     Symptoms:{
@@ -38,7 +38,9 @@ let InitialValue={
     Comment:'',
     AdmissionDate:'',
     DischargeComment:'',
+    DischargeDate:'',
     DeathTime:'',
+    DeathDate:''
 }
 export default function AddForm(props) {
     InitialValue.AdmissionDate=props.currDate;
@@ -53,7 +55,7 @@ export default function AddForm(props) {
     }, [patientDB])
 
     React.useEffect(() => {
-        if(patientData.Name!=""&&patientData.Age!=""&&patientData.Phone!=""&&patientData.EmgPhone!=""&&patientData.Weight!=""&&patientData.Height!="")
+        if(patientData.Name!=""&&patientData.Age!=""&&patientData.Phone!=""&&patientData.Blood!=""&&patientData.Gender!=""&&patientData.EmgPhone!=""&&patientData.Weight!=""&&patientData.Height!="")
         setDisableSubmit(false)
     }, [patientData])
 
@@ -63,15 +65,17 @@ export default function AddForm(props) {
             res.Symptoms[symptom]="Yes"
         }
         else res.Symptoms[symptom]="No"
+        console.log("p",res)
         setPatientData(res)
     }
     const addPatient=(e)=>{
         e.preventDefault();
         setPatientDB([...patientDB,patientData]);
         props.sendInfo([...props.patientDatabase,patientData]);
-        window.alert("Added Succesfully!");
-        InitialValue.Symptoms=symptomObject;
+        InitialValue.Symptoms=symptomObject
         setPatientData(InitialValue);
+        window.alert("Added Succesfully! View it in the database");
+        props.showDB("details")
     }
     return (
         <div>
@@ -87,12 +91,14 @@ export default function AddForm(props) {
                     <Form.Control type="number" value={patientData.Age} onChange={(event)=>setPatientData({...patientData,Age:event.target.value})} />
                     <Form.Label>Select Gender</Form.Label>
                         <Form.Control as="select" value={patientData.Gender} onChange={(event)=>setPatientData({...patientData,Gender:event.target.value})} >
+                        <option></option>
                         <option>Male</option>
                         <option>Female</option>
                         <option>Other</option>
                         </Form.Control>
                     <Form.Label>Select Blood Type</Form.Label>
                         <Form.Control as="select" value={patientData.Blood} onChange={(event)=>setPatientData({...patientData,Blood:event.target.value})} >
+                        <option></option>
                         <option>A+</option>
                         <option>A-</option>
                         <option>B+</option>
@@ -109,12 +115,11 @@ export default function AddForm(props) {
                     <Form.Control type="number" value={patientData.Height} onChange={(event)=>setPatientData({...patientData,Height:event.target.value})} />
                     <Form.Label>Select Symptoms</Form.Label>
                     {
-                        
                         SymptomsList.map((item,index)=>
                             <Form.Group>
                                 <Form.Check
                                 label={item}
-                                checked={patientData.Symptoms[item]=="Yes"?true:false}
+                                value={patientData.Symptoms[item]=="Yes"?true:false}
                                 onChange={()=>editSymptom(SymptomsList[index])}
                                 />
                             </Form.Group>
