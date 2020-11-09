@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Schedule</title>
+{% endblock %}
+
+{% block body %}
+
+{% with messages=get_flashed_messages() %}
+        {% if messages %}
+            {%  for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor%}
+        {% endif %}
+
+    {%  endwith  %}
+
+
+<br>
+<h2>Number of matches in Touranament: {{total}}</h2>
+<br>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Match Number</th>
+        <th scope="col">Home Team</th>
+        <th scope="col">Away Team</th>
+        <th scope="col">Venue</th>
+      </tr>
+    </thead>
+    {% for sch in schedule %}
+    <tbody>
+        <tr>
+          <td>{{sch.id}}</td>
+          <td>{{sch.home_team}}</td>
+          <td>{{sch.away_team}}</td>
+          <td>{{sch.venue}}</td>
+        </tr>
+    </tbody>
+    {% endfor%}
+</table>
+<a class="btn btn-primary" href="/" role="button"> Home
+                    &raquo;</a>&nbsp;&nbsp;
+
+{% endblock %}

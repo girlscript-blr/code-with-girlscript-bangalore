@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Index</title>
+{% endblock %}
+
+
+
+{% block body %}
+
+{% with messages=get_flashed_messages() %}
+        {% if messages %}
+            {%  for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor%}
+        {% endif %}
+
+    {%  endwith  %}
+
+
+<br>
+<h1>WELCOME TO IPL MANAGEMENT APP </h1>
+<br>
+<main role="main">
+    <div class="jumbotron">
+        <div class="col-sm-8 mx-auto">
+            <p>Refer to following links: </p>
+            <p>
+                <a class="btn btn-success" href="/register" role="button">Register Teams
+                    &raquo;</a>&nbsp;&nbsp;
+                <a class="btn btn-primary" href="/display" role="button"> Display Teams
+                    &raquo;</a>&nbsp;&nbsp;
+                <a class="btn btn-primary" href="/schedule" role="button"> Schedule
+                        &raquo;</a>&nbsp;&nbsp;
+                <br><br>
+                <a class="btn btn-danger" href="/delete" role="button"> Delete All
+                        &raquo;</a>&nbsp;&nbsp;
+                
+            </p>
+        </div>
+    </div>
+</main>
+{% endblock %}
