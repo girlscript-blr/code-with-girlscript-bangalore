@@ -28,15 +28,16 @@ class Schedule(db.Model):
 
 def get_schedule():
     all_data=Teams.query.all()
-    for i in all_data:
-        for j in all_data:
-            if i.id==j.id:
-                continue
-            else:
-                sch=Schedule(home_team=i.name,away_team=j.name,venue=i.home_ground)
-                db.session.add(sch)
-                db.session.commit()
-    
+    temp=Schedule.query.all()
+    if len(temp)==0:
+        for i in all_data:
+            for j in all_data:
+                if i.id==j.id:
+                    continue
+                else:
+                    sch=Schedule(home_team=i.name,away_team=j.name,venue=i.home_ground)
+                    db.session.add(sch)
+                    db.session.commit()
 
 
 @app.route('/')
