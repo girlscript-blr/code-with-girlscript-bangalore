@@ -1,12 +1,25 @@
 #include <iostream>
-
+#include<bits/stdc++.h>
 using namespace std;
+
+bool isNumber(string s)
+{
+    for (int i = 0; i < s.length(); i++)
+        if (isdigit(s[i]) == false && s[i]!='.')
+            return false;
+    return true;
+}
 
 int main()
 {
     cout<<"Enter number of teams: ";
-    int n;
-    cin>>n;
+    string num;
+    cin>>num;
+    while(!isNumber(num)){
+        cout<<"Invalid input. Please enter a number.";
+        cin>>num;
+    }
+    int n=stoi(num);
     cin.ignore();
     string teams[n][4];
     for(int i=0;i<n;i++){
