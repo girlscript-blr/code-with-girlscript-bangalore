@@ -154,7 +154,8 @@ def admin():
         global matchno
         matchno=int(request.form['id'])
         sch=Schedule.query.filter_by(id=matchno).all()
-        return render_template('updatematch.html',sch=sch)
+        teams=[sch[0].home_team,sch[0].away_team]
+        return render_template('updatematch.html',sch=sch,teams=teams)
     
     return render_template('admin.html')
 
