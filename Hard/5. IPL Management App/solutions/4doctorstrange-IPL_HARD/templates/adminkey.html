@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Key</title>
+{% endblock %}
+
+
+
+{% block body %}
+{% with messages=get_flashed_messages() %}
+        {% if messages %}
+            {%  for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor%}
+        {% endif %}
+
+    {%  endwith  %}
+
+
+<br>
+<br>
+    <h2>Enter Admin's Key:</h2>
+        <form action='/update' method='POST'>
+            Key:<input type='password' name='key' id='key' placeholder="Enter Admin's Key">
+            <br>
+            <br>
+            <input type='submit' value='Submit' class="btn btn-success">&raquo;
+        </form>
+
+{% endblock %}

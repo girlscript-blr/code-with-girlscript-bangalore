@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>admin</title>
+{% endblock %}
+
+
+
+{% block body %}
+{% with messages=get_flashed_messages() %}
+        {% if messages %}
+            {%  for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor%}
+        {% endif %}
+
+    {%  endwith  %}
+
+
+<br>
+<br>
+    <h2>Enter match number to update Points tally and Scores:</h2>
+        <form action='/admin' method='POST'>
+            Match ID:<input type='number' name='id' id='id' placeholder="ID of the match:"><br><br>
+            
+            <input type='submit' value='Submit' class="btn btn-success">&raquo;
+        </form>
+
+{% endblock %}

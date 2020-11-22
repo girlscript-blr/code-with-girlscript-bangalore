@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Teams in Touranamet</title>
+{% endblock %}
+
+
+
+{% block body %}
+
+{% with messages=get_flashed_messages() %}
+        {% if messages %}
+            {%  for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor%}
+        {% endif %}
+
+    {%  endwith  %}
+
+
+<br>
+<h2>Teams participating in the IPL are: {{x}}</h2>
+<br>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">CAPTAIN</th>
+        <th scope="col">FRANCHISE</th>
+        <th scope="col">HOME GROUND</th>
+      </tr>
+    </thead>
+    {% for t in teams %}
+    <tbody>
+        <tr>
+          <td>{{t.id}}</td>
+          <td>{{t.name}}</td>
+          <td>{{t.captain}}</td>
+          <td>{{t.franchise}}</td>
+          <td>{{t.home_ground}}</td>
+        </tr>
+    </tbody>
+{% endfor%}
+</table>
+<a class="btn btn-primary" href="/" role="button"> Home
+                    &raquo;</a>&nbsp;&nbsp;
+
+{% endblock %}

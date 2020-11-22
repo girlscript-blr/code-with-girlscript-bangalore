@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Points table</title>
+{% endblock %}
+
+
+
+{% block body %}
+
+{% with messages=get_flashed_messages() %}
+        {% if messages %}
+            {%  for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor%}
+        {% endif %}
+
+    {%  endwith  %}
+
+
+<br>
+<h2>Points Tally: </h2>
+<br>
+<table class="table table-striped table-dark">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Rank</th>
+        <th scope="col">Team Name</th>
+        <th scope="col">No.of Wins</th>
+        <th scope="col">No. of Loss</th>
+        <th scope="col">Points</th>
+      </tr>
+    </thead>
+    {% set count = [1] %}
+    {% for p in points %}
+    <tbody>
+        <tr>
+          <td>{{count}}</td>
+          {% if count.append(count.pop() + 1) %}{% endif %} {# increment count by 1 #}
+          <td>{{p.team_name}}</td>
+          <td>{{p.wins}}</td>
+          <td>{{p.loss}}</td>
+          <td>{{p.points}}</td>
+        </tr>
+    </tbody>
+
+{% endfor%}
+</table>
+<a class="btn btn-primary" href="/" role="button"> Home
+                    &raquo;</a>&nbsp;&nbsp;
+
+{% endblock %}
