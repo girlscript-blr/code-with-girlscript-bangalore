@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>register</title>
+{% endblock %}
+
+
+
+{% block body %}
+{% with messages=get_flashed_messages() %}
+        {% if messages %}
+            {%  for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor%}
+        {% endif %}
+
+    {%  endwith  %}
+
+
+<br>
+<br>
+    <h2>Enter details of the team:</h2>
+        <form action='/addteams' method='POST'>
+            Name:<input type='text' name='name' id='name' placeholder="Enter name of team">
+            <br>
+            Captain:<input type='text' name='captain' id='captain' placeholder="Enter Captain's name">
+            <br>
+            Franchise:<input type='text' name='franchise' id='franchise' placeholder="Enter Franchise">
+            <br>
+            Home Ground:<input type='text' name='home_ground' id='home_ground' placeholder="Enter Home Ground">
+            <br>
+            <input type='submit' value='Register' class="btn btn-success">&raquo;
+        </form>
+
+{% endblock %}
