@@ -1,4 +1,4 @@
-![Code with GirlScript Bangalore](assets/images/cwgsblrl.png)
+![Code with GirlScript Bangalore Logo](assets/images/cwgsblrl.png)
 
 ## About the program
 
@@ -20,9 +20,9 @@ Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) 
 
 ## Problem Statements
 
-- [Beginner Level Problems](Easy/README.md)
-- [Intermediate Level Problems](Medium/README.md)
-- [Advanced Level Problems](Hard/README.md)
+- [Beginner Level Problem](Easy/5.%20IPL%20Management%20App/README.md)
+- [Intermediate Level Problem](Medium/5.%20IPL%20Management%20App/README.md)
+- [Advanced Level Problem](Hard/5.%20IPL%20Management%20App/README.md)
 
 ## General Guidelines
 
@@ -39,7 +39,9 @@ Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) 
 
 Since you are here, you should most definitely consider joining us on this ride. If you still have any doubts, listen to Richard Stallman's perspective on [Free software, free society](https://www.tedxgeneva.net/talks/richard-stallman-free-software-free-society/)
 
-Don’t forget to fill the [participation form](https://tinyurl.com/codewithgsblr) 📃 to take part in the program, if not already done. Start contributing!😊
+Don’t forget to fill the [participation form](https://tinyurl.com/codewithgsblr) 📃 to take part in the program, if not already done.
+
+Start contributing!😊
 
 ## Resources
 
