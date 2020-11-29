@@ -32,7 +32,7 @@ The app should be able to allow 2 kinds of users to perform 2 operations:
 
 #### Output
 
-![Escapeezy Easy Create Event Output](assets/images/escapeezyEasyCreateEventOutput.png)
+![Escapeezy Easy Create Event Output](../../assets/images/escapeezyEasyCreateEventOutput.png)
 
 #### Note
 
@@ -46,7 +46,7 @@ The app should be able to allow 2 kinds of users to perform 2 operations:
 - Enter Number of seats: 2 (Integer)
 - Enter Seat Numbers referring below:
 
-![Escapeezy Easy Book Seat Output](assets/images/escapeezyEasyBookSeatOutput.png)
+![Escapeezy Easy Book Seat Output](../../assets/images/escapeezyEasyBookSeatOutput.png)
 
 #### Note
 

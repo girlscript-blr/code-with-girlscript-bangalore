@@ -48,7 +48,7 @@ The app should be able to allow the following operations for different users:
 
       #### Output
 
-      ![Escapeezy Hard Create Event Output](assets/images/escapeezyHardCreateEventOutput.png)
+      ![Escapeezy Hard Create Event Output](../../assets/images/escapeezyHardCreateEventOutput.png)
 
       #### Note
 
@@ -73,7 +73,7 @@ The app should be able to allow the following operations for different users:
       - Total Seats Booked: 28
       - Total Amount Collected: Rs.9400
 
-      ![Escapeezy Hard Book Seat Output](assets/images/escapeezyHardBookSeatOutput.png)
+      ![Escapeezy Hard Book Seat Output](../../assets/images/escapeezyHardBookSeatOutput.png)
 
 2.  Customer Role:
 
@@ -88,7 +88,7 @@ Select the Event to view details: 1. Janta Circus 2. Laxmi Bomb Movie 3. Titanic
 - Enter Number of seats for Janta Circus: 2 (Integer)
 - Enter Seat Numbers referring below:
 
-![Escapeezy Hard Book Seat Output](assets/images/escapeezyHardBookSeatOutput.png)
+![Escapeezy Hard Book Seat Output](../../assets/images/escapeezyHardBookSeatOutput.png)
 
 #### Note
 
