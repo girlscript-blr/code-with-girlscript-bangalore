@@ -20,9 +20,9 @@ Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) 
 
 ## Problem Statements
 
-- [Beginner Level Problem](Easy/5.%20IPL%20Management%20App/README.md)
-- [Intermediate Level Problem](Medium/5.%20IPL%20Management%20App/README.md)
-- [Advanced Level Problem](Hard/5.%20IPL%20Management%20App/README.md)
+- [Beginner Level Problem](Easy/6.%Escapeezy/README.md)
+- [Intermediate Level Problem](Medium/6.%Escapeezy/README.md)
+- [Advanced Level Problem](Hard/6.%Escapeezy/README.md)
 
 ## General Guidelines
 
