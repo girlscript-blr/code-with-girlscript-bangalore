@@ -92,5 +92,5 @@ Follow the steps mentioned in [this](../../CONTRIBUTING.md) file to submit your 
 
 Solved this problem? Then you might want to checkout the other versions of this problem.
 
-- [Easy](../../Easy/6.%Escapeezy/README.md)
-- [Hard](../../Hard/6.%Escapeezy/README.md)
+- [Easy](../../Easy/6.%20Escapeezy//README.md)
+- [Hard](../../Hard/6.%20Escapeezy//README.md)

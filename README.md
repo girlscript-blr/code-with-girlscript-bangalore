@@ -20,9 +20,9 @@ Follow the steps/guidelines mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md) 
 
 ## Problem Statements
 
-- [Beginner Level Problem](Easy/6.%Escapeezy/README.md)
-- [Intermediate Level Problem](Medium/6.%Escapeezy/README.md)
-- [Advanced Level Problem](Hard/6.%Escapeezy/README.md)
+- [Beginner Level Problem](Easy/6.%20Escapeezy//README.md)
+- [Intermediate Level Problem](Medium/6.%20Escapeezy//README.md)
+- [Advanced Level Problem](Hard/6.%20Escapeezy//README.md)
 
 ## General Guidelines
 
