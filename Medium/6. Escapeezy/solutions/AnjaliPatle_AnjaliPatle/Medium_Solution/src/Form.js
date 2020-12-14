@@ -15,9 +15,7 @@ export default function AddForm(props) {
     const [price,setPrice]=React.useState(0)
     const [disableSubmit,setDisableSubmit]=React.useState(true)
     
-    
-    
-
+  
     React.useEffect(() => {
         let flag=0;
         for(let i=0;i<noOfTiers;i++){
@@ -64,9 +62,9 @@ export default function AddForm(props) {
                     <Form.Label>Event Name</Form.Label>
                     <Form.Control placeholder="Enter Name" required value={name} onChange={(event)=>setName(event.target.value)} />
                     <Form.Label>Select Date</Form.Label>
-                    <Form.Control type="date" value={date} onChange={(event)=>setDate(event.target.value)} />
+                    <Form.Control type="date" min={new Date().toISOString().slice(0,10)} value={date} onChange={(event)=>setDate(event.target.value)} />
                     <Form.Label>Select Time</Form.Label>
-                    <Form.Control type="time" value={time} onChange={(event)=>setTime(event.target.value)} />
+                    <Form.Control type="time"  value={time} onChange={(event)=>setTime(event.target.value)} />
                     <Form.Label>Enter Number of Seat Allocation Segments</Form.Label>
                     <Form.Control type="number" value={noOfTiers} onChange={(event)=>setNoOfTiers(event.target.value)} />
                     <br/>

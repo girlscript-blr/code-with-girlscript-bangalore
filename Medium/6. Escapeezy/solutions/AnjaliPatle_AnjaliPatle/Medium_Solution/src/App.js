@@ -58,7 +58,7 @@ function App() {
   return (
     <div>
       <Jumbotron style={{textAlign:'center',height:'200px',paddingTop:'10px'}}>
-        <h1>Welcome to Janta Circus!</h1>
+        <h1>Welcome to Escapeezy!</h1>
         <p>
           Choose the operation you would like to perform.
         </p>
